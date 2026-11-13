@@ -1,0 +1,13 @@
+run_id,relative_path,type,attack_name,npc,seed,level,attack_start_s,detection_latency_s,detected
+normal_npc10_seed3,normal_data/normal_npc10_seed3,normal,none,10,3,0,,,False
+normal_npc20_seed3,normal_data/normal_npc20_seed3,normal,none,20,3,0,,,False
+normal_npc30_seed3,normal_data/normal_npc30_seed3,normal,none,30,3,0,,,False
+noise_L1_npc10_seed3,abnormal_data/01_noise/noise_L1_npc10_seed3,attack,noise,10,3,1,359.483333333,0.07999999999998408,True
+noise_L1_npc20_seed3,abnormal_data/01_noise/noise_L1_npc20_seed3,attack,noise,20,3,1,3765.766666666,0.07999999999992724,True
+noise_L1_npc30_seed3,abnormal_data/01_noise/noise_L1_npc30_seed3,attack,noise,30,3,1,7047.183333333,0.1000000000003638,True
+noise_L2_npc10_seed3,abnormal_data/01_noise/noise_L2_npc10_seed3,attack,noise,10,3,2,444.55,0.01999999999998181,True
+noise_L2_npc20_seed3,abnormal_data/01_noise/noise_L2_npc20_seed3,attack,noise,20,3,2,3214.383333333,0.0,True
+noise_L2_npc30_seed3,abnormal_data/01_noise/noise_L2_npc30_seed3,attack,noise,30,3,2,7145.35,0.019999999999527063,True
+noise_L3_npc10_seed3,abnormal_data/01_noise/noise_L3_npc10_seed3,attack,noise,10,3,3,478.866666666,0.03999999999996362,True
+noise_L3_npc20_seed3,abnormal_data/01_noise/noise_L3_npc20_seed3,attack,noise,20,3,3,3403.033333333,0.01999999999998181,True
+noise_L3_npc30_seed3,abnormal_data/01_noise/noise_L3_npc30_seed3,attack,noise,30,3,3,7162.833333333,0.05999999999949068,True

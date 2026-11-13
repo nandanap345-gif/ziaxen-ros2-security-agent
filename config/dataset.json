@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/FireMax-Bot/zaixen-isaac-sim/tree/ai-team-data/AI_team_data",
+  "index_file": "dataset_index.csv",
+  "normal_directory": "normal_data",
+  "noise_directory": "abnormal_data/01_noise",
+  "aligned_file": "aligned.csv.gz",
+  "events_file": "events.csv",
+  "manifest_file": "manifest.json",
+  "telemetry_file": "telemetry.csv.gz",
+  "expected_normal_runs": 9,
+  "expected_noise_runs": 27,
+  "noise_levels": [1, 2, 3],
+  "npc_counts": [10, 20, 30],
+  "seeds": [1, 2, 3],
+  "aligned_sampling_hz": 50,
+  "telemetry_sampling_hz": 2
+}

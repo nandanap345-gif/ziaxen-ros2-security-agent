@@ -1,0 +1,1643 @@
+{
+  "runs_loaded": 36,
+  "normal_runs": 9,
+  "noise_runs": 27,
+  "aligned_rows_total": 164235,
+  "telemetry_rows_total": 6869,
+  "event_derived_label_counts": {
+    "normal": 123735,
+    "attack": 40500
+  },
+  "aligned_shape_first_run": [
+    4561,
+    37
+  ],
+  "telemetry_shape_first_run": [
+    190,
+    31
+  ],
+  "aligned_columns": [
+    "sim_time_ns",
+    "sim_time_s",
+    "t_rel_s",
+    "imu.orientation.x",
+    "imu.orientation.y",
+    "imu.orientation.z",
+    "imu.orientation.w",
+    "imu.angular_velocity.x",
+    "imu.angular_velocity.y",
+    "imu.angular_velocity.z",
+    "imu.linear_acceleration.x",
+    "imu.linear_acceleration.y",
+    "imu.linear_acceleration.z",
+    "imu.age_s",
+    "imu.stamp_lag_s",
+    "odom.pose.pose.position.x",
+    "odom.pose.pose.position.y",
+    "odom.pose.pose.position.z",
+    "odom.pose.pose.orientation.x",
+    "odom.pose.pose.orientation.y",
+    "odom.pose.pose.orientation.z",
+    "odom.pose.pose.orientation.w",
+    "odom.twist.twist.linear.x",
+    "odom.twist.twist.linear.y",
+    "odom.twist.twist.linear.z",
+    "odom.twist.twist.angular.x",
+    "odom.twist.twist.angular.y",
+    "odom.twist.twist.angular.z",
+    "odom.age_s",
+    "odom.stamp_lag_s",
+    "contact.data",
+    "contact.age_s",
+    "is_attack",
+    "attack_type",
+    "attack_target",
+    "attack_id",
+    "is_attack_event"
+  ],
+  "telemetry_columns": [
+    "sim_time_ns",
+    "sim_time_s",
+    "is_attack",
+    "attack_type",
+    "attack_target",
+    "attack_id",
+    "imu_mon.rate_hz",
+    "imu_mon.pub_count",
+    "imu_mon.sub_count",
+    "imu_mon.max_gap_s",
+    "imu_mon.stamp_lag_mean_s",
+    "imu_mon.late_count",
+    "odom_mon.rate_hz",
+    "odom_mon.pub_count",
+    "odom_mon.sub_count",
+    "odom_mon.max_gap_s",
+    "odom_mon.stamp_lag_mean_s",
+    "odom_mon.late_count",
+    "contact_mon.rate_hz",
+    "contact_mon.pub_count",
+    "contact_mon.sub_count",
+    "contact_mon.max_gap_s",
+    "contact_mon.stamp_lag_mean_s",
+    "contact_mon.late_count",
+    "node_count",
+    "node_list_hash",
+    "new_nodes",
+    "param_event_count",
+    "service_call_count",
+    "collector_queue_drops",
+    "collector_late_writes"
+  ],
+  "aligned_missing_count_by_column": {},
+  "aligned_missing_percent_by_column": {},
+  "telemetry_missing_count_by_column": {
+    "imu_mon.stamp_lag_mean_s": 52,
+    "odom_mon.stamp_lag_mean_s": 52,
+    "contact_mon.stamp_lag_mean_s": 6869,
+    "new_nodes": 6869
+  },
+  "telemetry_missing_percent_by_column": {
+    "imu_mon.stamp_lag_mean_s": 0.75702,
+    "odom_mon.stamp_lag_mean_s": 0.75702,
+    "contact_mon.stamp_lag_mean_s": 100.0,
+    "new_nodes": 100.0
+  },
+  "aligned_schema_differences": {},
+  "telemetry_schema_differences": {},
+  "sample_rates_hz": [
+    {
+      "run_id": "normal_npc10_seed1",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "normal_npc10_seed2",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "normal_npc10_seed3",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "normal_npc20_seed1",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "normal_npc20_seed2",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "normal_npc20_seed3",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "normal_npc30_seed1",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "normal_npc30_seed2",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "normal_npc30_seed3",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L1_npc10_seed1",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L1_npc10_seed2",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L1_npc10_seed3",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L1_npc20_seed1",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L1_npc20_seed2",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L1_npc20_seed3",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L1_npc30_seed1",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L1_npc30_seed2",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L1_npc30_seed3",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L2_npc10_seed1",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L2_npc10_seed2",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L2_npc10_seed3",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L2_npc20_seed1",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L2_npc20_seed2",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L2_npc20_seed3",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L2_npc30_seed1",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L2_npc30_seed2",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L2_npc30_seed3",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L3_npc10_seed1",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L3_npc10_seed2",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L3_npc10_seed3",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L3_npc20_seed1",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L3_npc20_seed2",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L3_npc20_seed3",
+      "aligned_hz": 50.000000000045475,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L3_npc30_seed1",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L3_npc30_seed2",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    },
+    {
+      "run_id": "noise_L3_npc30_seed3",
+      "aligned_hz": 49.999999998908606,
+      "telemetry_hz": 2.0
+    }
+  ],
+  "events": [
+    {
+      "run_id": "noise_L1_npc10_seed1",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 273.683333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc10_seed1",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 303.683333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc10_seed2",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 344.5,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc10_seed2",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 374.5,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc10_seed3",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 359.483333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc10_seed3",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 389.483333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc20_seed1",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 3008.233333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc20_seed1",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 3038.233333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc20_seed2",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 3015.216666666,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc20_seed2",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 3045.216666666,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc20_seed3",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 3765.766666666,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc20_seed3",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 3795.766666666,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc30_seed1",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 6964.1,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc30_seed1",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 6994.1,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc30_seed2",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 7049.066666666,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc30_seed2",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 7079.066666666,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc30_seed3",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 7047.183333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L1_npc30_seed3",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 7077.183333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc10_seed1",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 365.383333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc10_seed1",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 395.383333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc10_seed2",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 375.25,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc10_seed2",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 405.25,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc10_seed3",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 444.55,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc10_seed3",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 474.55,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc20_seed1",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 3853.716666666,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc20_seed1",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 3883.716666666,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc20_seed2",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 3202.116666666,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc20_seed2",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 3232.116666666,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc20_seed3",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 3214.383333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc20_seed3",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 3244.383333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc30_seed1",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 7054.916666666,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc30_seed1",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 7084.916666666,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc30_seed2",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 7063.533333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc30_seed2",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 7093.533333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc30_seed3",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 7145.35,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L2_npc30_seed3",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 7175.35,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc10_seed1",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 461.4,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc10_seed1",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 491.4,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc10_seed2",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 468.1,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc10_seed2",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 498.1,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc10_seed3",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 478.866666666,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc10_seed3",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 508.866666666,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc20_seed1",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 3302.416666666,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc20_seed1",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 3332.416666666,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc20_seed2",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 3314.166666666,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc20_seed2",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 3344.166666666,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc20_seed3",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 3403.033333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc20_seed3",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 3433.033333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc30_seed1",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 7159.9,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc30_seed1",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 7189.9,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc30_seed2",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 7153.533333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc30_seed2",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 7183.533333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc30_seed3",
+      "event": "start",
+      "attack_type": "noise",
+      "sim_time_s": 7162.833333333,
+      "run_elapsed_s": 30.0,
+      "attack_target": "imu+odom"
+    },
+    {
+      "run_id": "noise_L3_npc30_seed3",
+      "event": "stop",
+      "attack_type": "noise",
+      "sim_time_s": 7192.833333333,
+      "run_elapsed_s": 60.0,
+      "attack_target": "imu+odom"
+    }
+  ],
+  "attack_configurations": [
+    {
+      "run_id": "noise_L1_npc10_seed1",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 0.5,
+            "position_m": 0.1,
+            "yaw_deg": 5
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L1_npc10_seed2",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 0.5,
+            "position_m": 0.1,
+            "yaw_deg": 5
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L1_npc10_seed3",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 0.5,
+            "position_m": 0.1,
+            "yaw_deg": 5
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L1_npc20_seed1",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 0.5,
+            "position_m": 0.1,
+            "yaw_deg": 5
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L1_npc20_seed2",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 0.5,
+            "position_m": 0.1,
+            "yaw_deg": 5
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L1_npc20_seed3",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 0.5,
+            "position_m": 0.1,
+            "yaw_deg": 5
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L1_npc30_seed1",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 0.5,
+            "position_m": 0.1,
+            "yaw_deg": 5
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L1_npc30_seed2",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 0.5,
+            "position_m": 0.1,
+            "yaw_deg": 5
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L1_npc30_seed3",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 0.5,
+            "position_m": 0.1,
+            "yaw_deg": 5
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L2_npc10_seed1",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 1.0,
+            "position_m": 0.3,
+            "yaw_deg": 10
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L2_npc10_seed2",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 1.0,
+            "position_m": 0.3,
+            "yaw_deg": 10
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L2_npc10_seed3",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 1.0,
+            "position_m": 0.3,
+            "yaw_deg": 10
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L2_npc20_seed1",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 1.0,
+            "position_m": 0.3,
+            "yaw_deg": 10
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L2_npc20_seed2",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 1.0,
+            "position_m": 0.3,
+            "yaw_deg": 10
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L2_npc20_seed3",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 1.0,
+            "position_m": 0.3,
+            "yaw_deg": 10
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L2_npc30_seed1",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 1.0,
+            "position_m": 0.3,
+            "yaw_deg": 10
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L2_npc30_seed2",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 1.0,
+            "position_m": 0.3,
+            "yaw_deg": 10
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L2_npc30_seed3",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 1.0,
+            "position_m": 0.3,
+            "yaw_deg": 10
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L3_npc10_seed1",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 3.0,
+            "position_m": 0.5,
+            "yaw_deg": 20
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L3_npc10_seed2",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 3.0,
+            "position_m": 0.5,
+            "yaw_deg": 20
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L3_npc10_seed3",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 3.0,
+            "position_m": 0.5,
+            "yaw_deg": 20
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L3_npc20_seed1",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 3.0,
+            "position_m": 0.5,
+            "yaw_deg": 20
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L3_npc20_seed2",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 3.0,
+            "position_m": 0.5,
+            "yaw_deg": 20
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L3_npc20_seed3",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 3.0,
+            "position_m": 0.5,
+            "yaw_deg": 20
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L3_npc30_seed1",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 3.0,
+            "position_m": 0.5,
+            "yaw_deg": 20
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L3_npc30_seed2",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 3.0,
+            "position_m": 0.5,
+            "yaw_deg": 20
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    },
+    {
+      "run_id": "noise_L3_npc30_seed3",
+      "attack_configuration": [
+        {
+          "type": "noise",
+          "start_s": 30,
+          "stop_s": 60,
+          "params": {
+            "k": 3.0,
+            "position_m": 0.5,
+            "yaw_deg": 20
+          },
+          "targets": [
+            {
+              "target": "imu",
+              "fields": [
+                "accel",
+                "gyro",
+                "orientation"
+              ]
+            },
+            {
+              "target": "odom",
+              "fields": [
+                "position",
+                "pose_orientation",
+                "twist"
+              ]
+            }
+          ]
+        }
+      ],
+      "ego_driven_by": "in-sim python callback, not ROS"
+    }
+  ]
+}

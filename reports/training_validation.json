@@ -1,0 +1,166 @@
+{
+  "task": "normal_vs_sensor_noise",
+  "split": {
+    "training_seeds": [
+      1,
+      2
+    ],
+    "candidate_fit_seeds": [
+      1
+    ],
+    "validation_seeds": [
+      2
+    ],
+    "threshold_source_fit_seeds": [
+      1
+    ],
+    "held_out_test_seeds": [
+      3
+    ],
+    "final_training_runs": 24,
+    "candidate_fit_runs": 12,
+    "validation_runs": 12
+  },
+  "candidate_validation_metrics": {
+    "isolation_forest": {
+      "precision": 0.7347076335449082,
+      "recall": 0.9688888888888889,
+      "f1": 0.8357026483084689,
+      "false_positive_rate": 0.11449141859788617,
+      "average_precision": 0.8840876136997732,
+      "threshold": -0.01343421948129564,
+      "confusion_matrix": [
+        [
+          36529,
+          4723
+        ],
+        [
+          420,
+          13080
+        ]
+      ],
+      "true_negative": 36529,
+      "false_positive": 4723,
+      "false_negative": 420,
+      "true_positive": 13080,
+      "rows": 54752
+    },
+    "random_forest": {
+      "precision": 0.9937993651731011,
+      "recall": 0.9972592592592593,
+      "f1": 0.9955263060598218,
+      "false_positive_rate": 0.002036264908368079,
+      "average_precision": 0.9982800057784113,
+      "threshold": 0.6937751204996015,
+      "confusion_matrix": [
+        [
+          41168,
+          84
+        ],
+        [
+          37,
+          13463
+        ]
+      ],
+      "true_negative": 41168,
+      "false_positive": 84,
+      "false_negative": 37,
+      "true_positive": 13463,
+      "rows": 54752
+    }
+  },
+  "validation_metrics_describe": "Candidate selection and threshold metrics are from models fit on seed 1, before the final refit on seeds 1 and 2.",
+  "selected_model": "random_forest",
+  "selected_threshold": 0.6937751204996015,
+  "feature_count": 87,
+  "feature_columns": [
+    "raw::imu.orientation.x",
+    "raw::imu.orientation.y",
+    "raw::imu.orientation.z",
+    "raw::imu.orientation.w",
+    "raw::imu.angular_velocity.x",
+    "raw::imu.angular_velocity.y",
+    "raw::imu.angular_velocity.z",
+    "raw::imu.linear_acceleration.x",
+    "raw::imu.linear_acceleration.y",
+    "raw::imu.linear_acceleration.z",
+    "raw::imu.age_s",
+    "raw::imu.stamp_lag_s",
+    "raw::odom.pose.pose.position.x",
+    "raw::odom.pose.pose.position.y",
+    "raw::odom.pose.pose.position.z",
+    "raw::odom.pose.pose.orientation.x",
+    "raw::odom.pose.pose.orientation.y",
+    "raw::odom.pose.pose.orientation.z",
+    "raw::odom.pose.pose.orientation.w",
+    "raw::odom.twist.twist.linear.x",
+    "raw::odom.twist.twist.linear.y",
+    "raw::odom.twist.twist.linear.z",
+    "raw::odom.twist.twist.angular.x",
+    "raw::odom.twist.twist.angular.y",
+    "raw::odom.twist.twist.angular.z",
+    "raw::odom.age_s",
+    "raw::odom.stamp_lag_s",
+    "raw::contact.data",
+    "raw::contact.age_s",
+    "rate::imu.orientation.x",
+    "rolling_std::imu.orientation.x",
+    "rate::imu.orientation.y",
+    "rolling_std::imu.orientation.y",
+    "rate::imu.orientation.z",
+    "rolling_std::imu.orientation.z",
+    "rate::imu.orientation.w",
+    "rolling_std::imu.orientation.w",
+    "rate::imu.angular_velocity.x",
+    "rolling_std::imu.angular_velocity.x",
+    "rate::imu.angular_velocity.y",
+    "rolling_std::imu.angular_velocity.y",
+    "rate::imu.angular_velocity.z",
+    "rolling_std::imu.angular_velocity.z",
+    "rate::imu.linear_acceleration.x",
+    "rolling_std::imu.linear_acceleration.x",
+    "rate::imu.linear_acceleration.y",
+    "rolling_std::imu.linear_acceleration.y",
+    "rate::imu.linear_acceleration.z",
+    "rolling_std::imu.linear_acceleration.z",
+    "rate::imu.age_s",
+    "rolling_std::imu.age_s",
+    "rate::imu.stamp_lag_s",
+    "rolling_std::imu.stamp_lag_s",
+    "rate::odom.pose.pose.position.x",
+    "rolling_std::odom.pose.pose.position.x",
+    "rate::odom.pose.pose.position.y",
+    "rolling_std::odom.pose.pose.position.y",
+    "rate::odom.pose.pose.position.z",
+    "rolling_std::odom.pose.pose.position.z",
+    "rate::odom.pose.pose.orientation.x",
+    "rolling_std::odom.pose.pose.orientation.x",
+    "rate::odom.pose.pose.orientation.y",
+    "rolling_std::odom.pose.pose.orientation.y",
+    "rate::odom.pose.pose.orientation.z",
+    "rolling_std::odom.pose.pose.orientation.z",
+    "rate::odom.pose.pose.orientation.w",
+    "rolling_std::odom.pose.pose.orientation.w",
+    "rate::odom.twist.twist.linear.x",
+    "rolling_std::odom.twist.twist.linear.x",
+    "rate::odom.twist.twist.linear.y",
+    "rolling_std::odom.twist.twist.linear.y",
+    "rate::odom.twist.twist.linear.z",
+    "rolling_std::odom.twist.twist.linear.z",
+    "rate::odom.twist.twist.angular.x",
+    "rolling_std::odom.twist.twist.angular.x",
+    "rate::odom.twist.twist.angular.y",
+    "rolling_std::odom.twist.twist.angular.y",
+    "rate::odom.twist.twist.angular.z",
+    "rolling_std::odom.twist.twist.angular.z",
+    "rate::odom.age_s",
+    "rolling_std::odom.age_s",
+    "rate::odom.stamp_lag_s",
+    "rolling_std::odom.stamp_lag_s",
+    "rate::contact.data",
+    "rolling_std::contact.data",
+    "rate::contact.age_s",
+    "rolling_std::contact.age_s"
+  ],
+  "model_path": "C:\\Users\\nanda\\OneDrive\\Desktop\\ziaxen_ai_agent\\models\\noise_detector.joblib"
+}

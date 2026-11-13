@@ -1,0 +1,327 @@
+{
+  "task": "normal_vs_sensor_noise",
+  "dataset_scope": {
+    "test_seed": 3,
+    "test_runs": 12,
+    "normal_runs": 3,
+    "noise_runs": 9,
+    "labels_source": "events.csv start/stop intervals",
+    "final_model_training_seeds": [
+      1,
+      2
+    ],
+    "threshold_selection_seed": [
+      2
+    ]
+  },
+  "selected_model": "random_forest",
+  "candidate_metrics": {
+    "isolation_forest": {
+      "accuracy": 0.9180959687288801,
+      "precision": 0.764336812478011,
+      "recall": 0.9655555555555555,
+      "f1": 0.8532434378477449,
+      "false_positive_rate": 0.09743738938589473,
+      "average_precision": 0.904662309115015,
+      "threshold": -0.01343421948129564,
+      "confusion_matrix": [
+        [
+          37228,
+          4019
+        ],
+        [
+          465,
+          13035
+        ]
+      ],
+      "true_negative": 37228,
+      "false_positive": 4019,
+      "false_negative": 465,
+      "true_positive": 13035,
+      "rows": 54747,
+      "attack_runs": 9,
+      "attack_runs_detected": 9,
+      "attack_runs_missed": 0,
+      "detection_latency_s": {
+        "median_detected_runs": 0.01999999999998181,
+        "mean_detected_runs": 0.06222222222217195,
+        "detected_run_count": 9,
+        "interpretation": "Time from event start to first predicted alert at or after start; missed runs are excluded from mean/median."
+      }
+    },
+    "random_forest": {
+      "accuracy": 0.9985022010338466,
+      "precision": 0.996081041112097,
+      "recall": 0.9978518518518519,
+      "f1": 0.9969656601539373,
+      "false_positive_rate": 0.0012849419351710428,
+      "average_precision": 0.9984176421441435,
+      "threshold": 0.6937751204996015,
+      "confusion_matrix": [
+        [
+          41194,
+          53
+        ],
+        [
+          29,
+          13471
+        ]
+      ],
+      "true_negative": 41194,
+      "false_positive": 53,
+      "false_negative": 29,
+      "true_positive": 13471,
+      "rows": 54747,
+      "attack_runs": 9,
+      "attack_runs_detected": 9,
+      "attack_runs_missed": 0,
+      "detection_latency_s": {
+        "median_detected_runs": 0.03999999999996362,
+        "mean_detected_runs": 0.04666666666658001,
+        "detected_run_count": 9,
+        "interpretation": "Time from event start to first predicted alert at or after start; missed runs are excluded from mean/median."
+      }
+    }
+  },
+  "selected_scenario_metrics": [
+    {
+      "run_id": "normal_npc10_seed3",
+      "relative_path": "normal_data/normal_npc10_seed3",
+      "type": "normal",
+      "attack_name": "none",
+      "npc": 10,
+      "seed": 3,
+      "level": 0,
+      "attack_start_s": null,
+      "detection_latency_s": null,
+      "detected": false
+    },
+    {
+      "run_id": "normal_npc20_seed3",
+      "relative_path": "normal_data/normal_npc20_seed3",
+      "type": "normal",
+      "attack_name": "none",
+      "npc": 20,
+      "seed": 3,
+      "level": 0,
+      "attack_start_s": null,
+      "detection_latency_s": null,
+      "detected": false
+    },
+    {
+      "run_id": "normal_npc30_seed3",
+      "relative_path": "normal_data/normal_npc30_seed3",
+      "type": "normal",
+      "attack_name": "none",
+      "npc": 30,
+      "seed": 3,
+      "level": 0,
+      "attack_start_s": null,
+      "detection_latency_s": null,
+      "detected": false
+    },
+    {
+      "run_id": "noise_L1_npc10_seed3",
+      "relative_path": "abnormal_data/01_noise/noise_L1_npc10_seed3",
+      "type": "attack",
+      "attack_name": "noise",
+      "npc": 10,
+      "seed": 3,
+      "level": 1,
+      "attack_start_s": 359.483333333,
+      "detection_latency_s": 0.07999999999998408,
+      "detected": true
+    },
+    {
+      "run_id": "noise_L1_npc20_seed3",
+      "relative_path": "abnormal_data/01_noise/noise_L1_npc20_seed3",
+      "type": "attack",
+      "attack_name": "noise",
+      "npc": 20,
+      "seed": 3,
+      "level": 1,
+      "attack_start_s": 3765.766666666,
+      "detection_latency_s": 0.07999999999992724,
+      "detected": true
+    },
+    {
+      "run_id": "noise_L1_npc30_seed3",
+      "relative_path": "abnormal_data/01_noise/noise_L1_npc30_seed3",
+      "type": "attack",
+      "attack_name": "noise",
+      "npc": 30,
+      "seed": 3,
+      "level": 1,
+      "attack_start_s": 7047.183333333,
+      "detection_latency_s": 0.1000000000003638,
+      "detected": true
+    },
+    {
+      "run_id": "noise_L2_npc10_seed3",
+      "relative_path": "abnormal_data/01_noise/noise_L2_npc10_seed3",
+      "type": "attack",
+      "attack_name": "noise",
+      "npc": 10,
+      "seed": 3,
+      "level": 2,
+      "attack_start_s": 444.55,
+      "detection_latency_s": 0.01999999999998181,
+      "detected": true
+    },
+    {
+      "run_id": "noise_L2_npc20_seed3",
+      "relative_path": "abnormal_data/01_noise/noise_L2_npc20_seed3",
+      "type": "attack",
+      "attack_name": "noise",
+      "npc": 20,
+      "seed": 3,
+      "level": 2,
+      "attack_start_s": 3214.383333333,
+      "detection_latency_s": 0.0,
+      "detected": true
+    },
+    {
+      "run_id": "noise_L2_npc30_seed3",
+      "relative_path": "abnormal_data/01_noise/noise_L2_npc30_seed3",
+      "type": "attack",
+      "attack_name": "noise",
+      "npc": 30,
+      "seed": 3,
+      "level": 2,
+      "attack_start_s": 7145.35,
+      "detection_latency_s": 0.019999999999527063,
+      "detected": true
+    },
+    {
+      "run_id": "noise_L3_npc10_seed3",
+      "relative_path": "abnormal_data/01_noise/noise_L3_npc10_seed3",
+      "type": "attack",
+      "attack_name": "noise",
+      "npc": 10,
+      "seed": 3,
+      "level": 3,
+      "attack_start_s": 478.866666666,
+      "detection_latency_s": 0.03999999999996362,
+      "detected": true
+    },
+    {
+      "run_id": "noise_L3_npc20_seed3",
+      "relative_path": "abnormal_data/01_noise/noise_L3_npc20_seed3",
+      "type": "attack",
+      "attack_name": "noise",
+      "npc": 20,
+      "seed": 3,
+      "level": 3,
+      "attack_start_s": 3403.033333333,
+      "detection_latency_s": 0.01999999999998181,
+      "detected": true
+    },
+    {
+      "run_id": "noise_L3_npc30_seed3",
+      "relative_path": "abnormal_data/01_noise/noise_L3_npc30_seed3",
+      "type": "attack",
+      "attack_name": "noise",
+      "npc": 30,
+      "seed": 3,
+      "level": 3,
+      "attack_start_s": 7162.833333333,
+      "detection_latency_s": 0.05999999999949068,
+      "detected": true
+    }
+  ],
+  "noise_level_npc_metrics": [
+    {
+      "level": 1,
+      "npc": 10,
+      "rows": 4575.0,
+      "precision": 0.9926958831341302,
+      "recall": 0.9966666666666667,
+      "f1": 0.9946773120425816,
+      "false_positive_rate": 0.0035772357723577236
+    },
+    {
+      "level": 1,
+      "npc": 20,
+      "rows": 4572.0,
+      "precision": 0.9986648865153538,
+      "recall": 0.9973333333333333,
+      "f1": 0.9979986657771848,
+      "false_positive_rate": 0.0006510416666666666
+    },
+    {
+      "level": 1,
+      "npc": 30,
+      "rows": 4552.0,
+      "precision": 0.9986622073578595,
+      "recall": 0.9953333333333333,
+      "f1": 0.9969949916527546,
+      "false_positive_rate": 0.000655307994757536
+    },
+    {
+      "level": 2,
+      "npc": 10,
+      "rows": 4576.0,
+      "precision": 0.9986675549633578,
+      "recall": 0.9993333333333333,
+      "f1": 0.9990003332222592,
+      "false_positive_rate": 0.0006501950585175553
+    },
+    {
+      "level": 2,
+      "npc": 20,
+      "rows": 4556.0,
+      "precision": 0.9973351099267155,
+      "recall": 0.998,
+      "f1": 0.9976674441852715,
+      "false_positive_rate": 0.0013089005235602095
+    },
+    {
+      "level": 2,
+      "npc": 30,
+      "rows": 4557.0,
+      "precision": 0.9973351099267155,
+      "recall": 0.998,
+      "f1": 0.9976674441852715,
+      "false_positive_rate": 0.0013084723585214263
+    },
+    {
+      "level": 3,
+      "npc": 10,
+      "rows": 4574.0,
+      "precision": 0.9855263157894737,
+      "recall": 0.9986666666666667,
+      "f1": 0.9920529801324504,
+      "false_positive_rate": 0.0071567989590110605
+    },
+    {
+      "level": 3,
+      "npc": 20,
+      "rows": 4559.0,
+      "precision": 0.9973386560212908,
+      "recall": 0.9993333333333333,
+      "f1": 0.9983349983349983,
+      "false_positive_rate": 0.0013076168682576005
+    },
+    {
+      "level": 3,
+      "npc": 30,
+      "rows": 4552.0,
+      "precision": 0.9986657771847899,
+      "recall": 0.998,
+      "f1": 0.9983327775925308,
+      "false_positive_rate": 0.000655307994757536
+    }
+  ],
+  "files": {
+    "confusion_matrix": "C:\\Users\\nanda\\OneDrive\\Desktop\\ziaxen_ai_agent\\reports\\confusion_matrix.png",
+    "predictions": "C:\\Users\\nanda\\OneDrive\\Desktop\\ziaxen_ai_agent\\reports\\predictions.csv",
+    "scenario_metrics": "C:\\Users\\nanda\\OneDrive\\Desktop\\ziaxen_ai_agent\\reports\\scenario_metrics.csv",
+    "noise_level_metrics": "C:\\Users\\nanda\\OneDrive\\Desktop\\ziaxen_ai_agent\\reports\\noise_level_metrics.csv"
+  },
+  "limitations": [
+    "Results apply only to normal-versus-simulated-sensor-noise detection.",
+    "The detector has not been validated on real vehicle data.",
+    "The supplied simulator sensors are documented as idealized and noise-free.",
+    "The ego vehicle is driven by an in-simulation callback, not ROS/CAN."
+  ]
+}
