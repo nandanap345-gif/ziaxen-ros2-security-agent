@@ -10,3 +10,11 @@ htmlcov/
 .env
 .env.*
 !.env.example
+reports/security_predictions.csv
+reports/security_alerts.csv
+reports/security_dataset_inspection.json
+reports/security_scan_*.jsonl
+reports/blind_streams/
+reports/results/
+models/experiments/
+external_data/

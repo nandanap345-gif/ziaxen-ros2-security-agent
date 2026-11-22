@@ -1,0 +1,5 @@
+held_out_class,test_events,model_detected,model_recall,model_recall_ci_95_wilson,median_model_latency_s,rules_detected,rules_recall,rules_recall_ci_95_wilson,validation_threshold,training_seeds,threshold_selection_seed,model_path
+flood,9,0,0.0,"[0.0, 0.2991450484195441]",,9,1.0,"[0.7008549515804559, 1.0]",0.4864210545595381,"[1, 2]",2,C:\Users\nanda\OneDrive\Desktop\ziaxen_ai_agent\models\experiments\security_loco_without_flood.joblib
+spoof,3,3,1.0,"[0.4385029682449546, 1.0]",-1.25,3,1.0,"[0.4385029682449546, 1.0]",0.38904342242074746,"[1, 2]",2,C:\Users\nanda\OneDrive\Desktop\ziaxen_ai_agent\models\experiments\security_loco_without_spoof.joblib
+unauthorized_node,3,3,1.0,"[0.4385029682449546, 1.0]",1.916666667,3,1.0,"[0.4385029682449546, 1.0]",0.4779916476321773,"[1, 2]",2,C:\Users\nanda\OneDrive\Desktop\ziaxen_ai_agent\models\experiments\security_loco_without_unauthorized_node.joblib
+unauthorized_subscription,3,3,1.0,"[0.4385029682449546, 1.0]",0.4,3,1.0,"[0.4385029682449546, 1.0]",0.37787653904592344,"[1, 2]",2,C:\Users\nanda\OneDrive\Desktop\ziaxen_ai_agent\models\experiments\security_loco_without_unauthorized_subscription.joblib

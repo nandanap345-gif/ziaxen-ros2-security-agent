@@ -1,0 +1,5401 @@
+{
+  "title": "Data-leakage audit and external-data test",
+  "dataset": {
+    "root": "AI_team_data",
+    "index_rows": 306,
+    "runs_by_seed": {
+      "1": 102,
+      "2": 102,
+      "3": 102
+    },
+    "external_data_directory_present": false,
+    "data_guide": "AI_TEAM_GUIDE.md and DATA_DICTIONARY.md"
+  },
+  "checks": [
+    {
+      "check": "split_integrity",
+      "status": "FAIL",
+      "evidence": "No run paths cross splits, but all 102 logical class/attack/level/NPC scenario keys recur in all three seeds. Noise subset repeats all 12 of its scenario keys. Seed 3 is a replicate split, not unseen-scenario generalization."
+    },
+    {
+      "check": "near_duplicate_runs",
+      "status": "PASS",
+      "evidence": "306 within-scenario seed-pair comparisons across 23 physical IMU/odometry fields; median pairwise median column correlation is low; no exact sensor rows or correlations >=0.99."
+    },
+    {
+      "check": "feature_leakage",
+      "status": "FAIL",
+      "evidence": "No direct time/ID/label/path feature names. Found per-run constants, small label-dependent startup missingness, and two cumulative collector counters that are constant zero."
+    },
+    {
+      "check": "model_preprocessing_fit_scope",
+      "status": "PASS",
+      "evidence": "Saved model imputer/scaler statistics match seed-1/2 recomputation to floating-point tolerance; training code fits only seeds 1-2."
+    },
+    {
+      "check": "approved_inventory_fit_scope",
+      "status": "FAIL",
+      "evidence": "Hash set and publisher/subscriber counts match training-only provenance, but rule gap/lag/late limits match all-normal seed1-3 data. A seed1-2-only sensitivity changes seed3 rule false alerts from 58 (41.115/h) to 52 (36.861/h)."
+    },
+    {
+      "check": "test_tuning",
+      "status": "FAIL",
+      "evidence": "Model thresholds/hyperparameters are chosen on seed 1/2 only, but the checked-in inventory rule limits were estimated from seed-3 normal telemetry; this is test-informed policy tuning."
+    },
+    {
+      "check": "causal_run_bounded_features",
+      "status": "FAIL",
+      "evidence": "Training features are causal and constructed per run. In monitor continuous mode, _ordered_slices returns one frame across manifest joins, so differences/rolling windows can span segments unless reset_at_joins is enabled."
+    },
+    {
+      "check": "random_prefix_timing",
+      "status": "PASS",
+      "evidence": "With fixed random 0-20 s cuts, selected noise recall stayed 9/9; selected telemetry-model recall stayed 36/99, with per-class results recorded below. No evidence of an absolute-start-time shortcut."
+    },
+    {
+      "check": "within_run_label_shuffle",
+      "status": "FAIL",
+      "evidence": "Event recall remained high after within-run shuffling, but the validation-selected thresholds flagged 74.1% of noise rows and 97.5% of security rows; precision was near test prevalence and false alerts exploded. The test is inconclusive, not proof of feature leakage."
+    },
+    {
+      "check": "inference_path_or_name_hints",
+      "status": "PASS",
+      "evidence": "Paths/run IDs are used for file loading or alert metadata only; model features drop time/labels and monitor strips identity columns before scoring."
+    },
+    {
+      "check": "external_real_data",
+      "status": "NOT CHECKED",
+      "evidence": "No external_data/ folder or external CSV was supplied; no external metrics were fabricated."
+    }
+  ],
+  "splits": {
+    "noise_detector": {
+      "1": [
+        "normal_npc10_seed1",
+        "normal_npc20_seed1",
+        "normal_npc30_seed1",
+        "noise_L1_npc10_seed1",
+        "noise_L1_npc20_seed1",
+        "noise_L1_npc30_seed1",
+        "noise_L2_npc10_seed1",
+        "noise_L2_npc20_seed1",
+        "noise_L2_npc30_seed1",
+        "noise_L3_npc10_seed1",
+        "noise_L3_npc20_seed1",
+        "noise_L3_npc30_seed1"
+      ],
+      "2": [
+        "normal_npc10_seed2",
+        "normal_npc20_seed2",
+        "normal_npc30_seed2",
+        "noise_L1_npc10_seed2",
+        "noise_L1_npc20_seed2",
+        "noise_L1_npc30_seed2",
+        "noise_L2_npc10_seed2",
+        "noise_L2_npc20_seed2",
+        "noise_L2_npc30_seed2",
+        "noise_L3_npc10_seed2",
+        "noise_L3_npc20_seed2",
+        "noise_L3_npc30_seed2"
+      ],
+      "3": [
+        "normal_npc10_seed3",
+        "normal_npc20_seed3",
+        "normal_npc30_seed3",
+        "noise_L1_npc10_seed3",
+        "noise_L1_npc20_seed3",
+        "noise_L1_npc30_seed3",
+        "noise_L2_npc10_seed3",
+        "noise_L2_npc20_seed3",
+        "noise_L2_npc30_seed3",
+        "noise_L3_npc10_seed3",
+        "noise_L3_npc20_seed3",
+        "noise_L3_npc30_seed3"
+      ],
+      "fit_seed1": [
+        "normal_npc10_seed1",
+        "normal_npc20_seed1",
+        "normal_npc30_seed1",
+        "noise_L1_npc10_seed1",
+        "noise_L1_npc20_seed1",
+        "noise_L1_npc30_seed1",
+        "noise_L2_npc10_seed1",
+        "noise_L2_npc20_seed1",
+        "noise_L2_npc30_seed1",
+        "noise_L3_npc10_seed1",
+        "noise_L3_npc20_seed1",
+        "noise_L3_npc30_seed1"
+      ],
+      "selection_threshold_seed2": [
+        "normal_npc10_seed2",
+        "normal_npc20_seed2",
+        "normal_npc30_seed2",
+        "noise_L1_npc10_seed2",
+        "noise_L1_npc20_seed2",
+        "noise_L1_npc30_seed2",
+        "noise_L2_npc10_seed2",
+        "noise_L2_npc20_seed2",
+        "noise_L2_npc30_seed2",
+        "noise_L3_npc10_seed2",
+        "noise_L3_npc20_seed2",
+        "noise_L3_npc30_seed2"
+      ],
+      "final_fit_seeds1_2": [
+        "normal_npc10_seed1",
+        "normal_npc20_seed1",
+        "normal_npc30_seed1",
+        "noise_L1_npc10_seed1",
+        "noise_L1_npc20_seed1",
+        "noise_L1_npc30_seed1",
+        "noise_L2_npc10_seed1",
+        "noise_L2_npc20_seed1",
+        "noise_L2_npc30_seed1",
+        "noise_L3_npc10_seed1",
+        "noise_L3_npc20_seed1",
+        "noise_L3_npc30_seed1",
+        "normal_npc10_seed2",
+        "normal_npc20_seed2",
+        "normal_npc30_seed2",
+        "noise_L1_npc10_seed2",
+        "noise_L1_npc20_seed2",
+        "noise_L1_npc30_seed2",
+        "noise_L2_npc10_seed2",
+        "noise_L2_npc20_seed2",
+        "noise_L2_npc30_seed2",
+        "noise_L3_npc10_seed2",
+        "noise_L3_npc20_seed2",
+        "noise_L3_npc30_seed2"
+      ],
+      "test_seed3": [
+        "normal_npc10_seed3",
+        "normal_npc20_seed3",
+        "normal_npc30_seed3",
+        "noise_L1_npc10_seed3",
+        "noise_L1_npc20_seed3",
+        "noise_L1_npc30_seed3",
+        "noise_L2_npc10_seed3",
+        "noise_L2_npc20_seed3",
+        "noise_L2_npc30_seed3",
+        "noise_L3_npc10_seed3",
+        "noise_L3_npc20_seed3",
+        "noise_L3_npc30_seed3"
+      ]
+    },
+    "security_telemetry_model": {
+      "1": [
+        "normal_npc10_seed1",
+        "normal_npc20_seed1",
+        "normal_npc30_seed1",
+        "flood_L1_npc10_seed1",
+        "flood_L1_npc20_seed1",
+        "flood_L1_npc30_seed1",
+        "flood_L2_npc10_seed1",
+        "flood_L2_npc20_seed1",
+        "flood_L2_npc30_seed1",
+        "flood_L3_npc10_seed1",
+        "flood_L3_npc20_seed1",
+        "flood_L3_npc30_seed1",
+        "spoof_L1_npc10_seed1",
+        "spoof_L1_npc20_seed1",
+        "spoof_L1_npc30_seed1",
+        "unauthorized_node_L1_npc10_seed1",
+        "unauthorized_node_L1_npc20_seed1",
+        "unauthorized_node_L1_npc30_seed1",
+        "unauthorized_subscription_L1_npc10_seed1",
+        "unauthorized_subscription_L1_npc20_seed1",
+        "unauthorized_subscription_L1_npc30_seed1"
+      ],
+      "2": [
+        "normal_npc10_seed2",
+        "normal_npc20_seed2",
+        "normal_npc30_seed2",
+        "flood_L1_npc10_seed2",
+        "flood_L1_npc20_seed2",
+        "flood_L1_npc30_seed2",
+        "flood_L2_npc10_seed2",
+        "flood_L2_npc20_seed2",
+        "flood_L2_npc30_seed2",
+        "flood_L3_npc10_seed2",
+        "flood_L3_npc20_seed2",
+        "flood_L3_npc30_seed2",
+        "spoof_L1_npc10_seed2",
+        "spoof_L1_npc20_seed2",
+        "spoof_L1_npc30_seed2",
+        "unauthorized_node_L1_npc10_seed2",
+        "unauthorized_node_L1_npc20_seed2",
+        "unauthorized_node_L1_npc30_seed2",
+        "unauthorized_subscription_L1_npc10_seed2",
+        "unauthorized_subscription_L1_npc20_seed2",
+        "unauthorized_subscription_L1_npc30_seed2"
+      ],
+      "3": [
+        "normal_npc10_seed3",
+        "normal_npc20_seed3",
+        "normal_npc30_seed3",
+        "noise_L1_npc10_seed3",
+        "noise_L1_npc20_seed3",
+        "noise_L1_npc30_seed3",
+        "noise_L2_npc10_seed3",
+        "noise_L2_npc20_seed3",
+        "noise_L2_npc30_seed3",
+        "noise_L3_npc10_seed3",
+        "noise_L3_npc20_seed3",
+        "noise_L3_npc30_seed3",
+        "bias_drift_L1_npc10_seed3",
+        "bias_drift_L1_npc20_seed3",
+        "bias_drift_L1_npc30_seed3",
+        "bias_drift_L2_npc10_seed3",
+        "bias_drift_L2_npc20_seed3",
+        "bias_drift_L2_npc30_seed3",
+        "bias_drift_L3_npc10_seed3",
+        "bias_drift_L3_npc20_seed3",
+        "bias_drift_L3_npc30_seed3",
+        "jump_L1_npc10_seed3",
+        "jump_L1_npc20_seed3",
+        "jump_L1_npc30_seed3",
+        "jump_L2_npc10_seed3",
+        "jump_L2_npc20_seed3",
+        "jump_L2_npc30_seed3",
+        "jump_L3_npc10_seed3",
+        "jump_L3_npc20_seed3",
+        "jump_L3_npc30_seed3",
+        "freeze_L1_npc10_seed3",
+        "freeze_L1_npc20_seed3",
+        "freeze_L1_npc30_seed3",
+        "replay_L1_npc10_seed3",
+        "replay_L1_npc20_seed3",
+        "replay_L1_npc30_seed3",
+        "false_contact_L1_npc10_seed3",
+        "false_contact_L1_npc20_seed3",
+        "false_contact_L1_npc30_seed3",
+        "missed_contact_L1_npc10_seed3",
+        "missed_contact_L1_npc20_seed3",
+        "missed_contact_L1_npc30_seed3",
+        "delay_L1_npc10_seed3",
+        "delay_L1_npc20_seed3",
+        "delay_L1_npc30_seed3",
+        "delay_L2_npc10_seed3",
+        "delay_L2_npc20_seed3",
+        "delay_L2_npc30_seed3",
+        "delay_L3_npc10_seed3",
+        "delay_L3_npc20_seed3",
+        "delay_L3_npc30_seed3",
+        "drop_L1_npc10_seed3",
+        "drop_L1_npc20_seed3",
+        "drop_L1_npc30_seed3",
+        "drop_L2_npc10_seed3",
+        "drop_L2_npc20_seed3",
+        "drop_L2_npc30_seed3",
+        "drop_L3_npc10_seed3",
+        "drop_L3_npc20_seed3",
+        "drop_L3_npc30_seed3",
+        "duplicate_L1_npc10_seed3",
+        "duplicate_L1_npc20_seed3",
+        "duplicate_L1_npc30_seed3",
+        "duplicate_L2_npc10_seed3",
+        "duplicate_L2_npc20_seed3",
+        "duplicate_L2_npc30_seed3",
+        "duplicate_L3_npc10_seed3",
+        "duplicate_L3_npc20_seed3",
+        "duplicate_L3_npc30_seed3",
+        "clock_skew_L1_npc10_seed3",
+        "clock_skew_L1_npc20_seed3",
+        "clock_skew_L1_npc30_seed3",
+        "clock_skew_L2_npc10_seed3",
+        "clock_skew_L2_npc20_seed3",
+        "clock_skew_L2_npc30_seed3",
+        "clock_skew_L3_npc10_seed3",
+        "clock_skew_L3_npc20_seed3",
+        "clock_skew_L3_npc30_seed3",
+        "flood_L1_npc10_seed3",
+        "flood_L1_npc20_seed3",
+        "flood_L1_npc30_seed3",
+        "flood_L2_npc10_seed3",
+        "flood_L2_npc20_seed3",
+        "flood_L2_npc30_seed3",
+        "flood_L3_npc10_seed3",
+        "flood_L3_npc20_seed3",
+        "flood_L3_npc30_seed3",
+        "spoof_L1_npc10_seed3",
+        "spoof_L1_npc20_seed3",
+        "spoof_L1_npc30_seed3",
+        "unauthorized_node_L1_npc10_seed3",
+        "unauthorized_node_L1_npc20_seed3",
+        "unauthorized_node_L1_npc30_seed3",
+        "unauthorized_subscription_L1_npc10_seed3",
+        "unauthorized_subscription_L1_npc20_seed3",
+        "unauthorized_subscription_L1_npc30_seed3",
+        "param_tamper_L1_npc10_seed3",
+        "param_tamper_L1_npc20_seed3",
+        "param_tamper_L1_npc30_seed3",
+        "service_abuse_L1_npc10_seed3",
+        "service_abuse_L1_npc20_seed3",
+        "service_abuse_L1_npc30_seed3"
+      ],
+      "fit_seed1": [
+        "normal_npc10_seed1",
+        "normal_npc20_seed1",
+        "normal_npc30_seed1",
+        "flood_L1_npc10_seed1",
+        "flood_L1_npc20_seed1",
+        "flood_L1_npc30_seed1",
+        "flood_L2_npc10_seed1",
+        "flood_L2_npc20_seed1",
+        "flood_L2_npc30_seed1",
+        "flood_L3_npc10_seed1",
+        "flood_L3_npc20_seed1",
+        "flood_L3_npc30_seed1",
+        "spoof_L1_npc10_seed1",
+        "spoof_L1_npc20_seed1",
+        "spoof_L1_npc30_seed1",
+        "unauthorized_node_L1_npc10_seed1",
+        "unauthorized_node_L1_npc20_seed1",
+        "unauthorized_node_L1_npc30_seed1",
+        "unauthorized_subscription_L1_npc10_seed1",
+        "unauthorized_subscription_L1_npc20_seed1",
+        "unauthorized_subscription_L1_npc30_seed1"
+      ],
+      "selection_threshold_seed2": [
+        "normal_npc10_seed2",
+        "normal_npc20_seed2",
+        "normal_npc30_seed2",
+        "flood_L1_npc10_seed2",
+        "flood_L1_npc20_seed2",
+        "flood_L1_npc30_seed2",
+        "flood_L2_npc10_seed2",
+        "flood_L2_npc20_seed2",
+        "flood_L2_npc30_seed2",
+        "flood_L3_npc10_seed2",
+        "flood_L3_npc20_seed2",
+        "flood_L3_npc30_seed2",
+        "spoof_L1_npc10_seed2",
+        "spoof_L1_npc20_seed2",
+        "spoof_L1_npc30_seed2",
+        "unauthorized_node_L1_npc10_seed2",
+        "unauthorized_node_L1_npc20_seed2",
+        "unauthorized_node_L1_npc30_seed2",
+        "unauthorized_subscription_L1_npc10_seed2",
+        "unauthorized_subscription_L1_npc20_seed2",
+        "unauthorized_subscription_L1_npc30_seed2"
+      ],
+      "final_fit_seeds1_2": [
+        "normal_npc10_seed1",
+        "normal_npc20_seed1",
+        "normal_npc30_seed1",
+        "flood_L1_npc10_seed1",
+        "flood_L1_npc20_seed1",
+        "flood_L1_npc30_seed1",
+        "flood_L2_npc10_seed1",
+        "flood_L2_npc20_seed1",
+        "flood_L2_npc30_seed1",
+        "flood_L3_npc10_seed1",
+        "flood_L3_npc20_seed1",
+        "flood_L3_npc30_seed1",
+        "spoof_L1_npc10_seed1",
+        "spoof_L1_npc20_seed1",
+        "spoof_L1_npc30_seed1",
+        "unauthorized_node_L1_npc10_seed1",
+        "unauthorized_node_L1_npc20_seed1",
+        "unauthorized_node_L1_npc30_seed1",
+        "unauthorized_subscription_L1_npc10_seed1",
+        "unauthorized_subscription_L1_npc20_seed1",
+        "unauthorized_subscription_L1_npc30_seed1",
+        "normal_npc10_seed2",
+        "normal_npc20_seed2",
+        "normal_npc30_seed2",
+        "flood_L1_npc10_seed2",
+        "flood_L1_npc20_seed2",
+        "flood_L1_npc30_seed2",
+        "flood_L2_npc10_seed2",
+        "flood_L2_npc20_seed2",
+        "flood_L2_npc30_seed2",
+        "flood_L3_npc10_seed2",
+        "flood_L3_npc20_seed2",
+        "flood_L3_npc30_seed2",
+        "spoof_L1_npc10_seed2",
+        "spoof_L1_npc20_seed2",
+        "spoof_L1_npc30_seed2",
+        "unauthorized_node_L1_npc10_seed2",
+        "unauthorized_node_L1_npc20_seed2",
+        "unauthorized_node_L1_npc30_seed2",
+        "unauthorized_subscription_L1_npc10_seed2",
+        "unauthorized_subscription_L1_npc20_seed2",
+        "unauthorized_subscription_L1_npc30_seed2"
+      ],
+      "test_seed3": [
+        "normal_npc10_seed3",
+        "normal_npc20_seed3",
+        "normal_npc30_seed3",
+        "noise_L1_npc10_seed3",
+        "noise_L1_npc20_seed3",
+        "noise_L1_npc30_seed3",
+        "noise_L2_npc10_seed3",
+        "noise_L2_npc20_seed3",
+        "noise_L2_npc30_seed3",
+        "noise_L3_npc10_seed3",
+        "noise_L3_npc20_seed3",
+        "noise_L3_npc30_seed3",
+        "bias_drift_L1_npc10_seed3",
+        "bias_drift_L1_npc20_seed3",
+        "bias_drift_L1_npc30_seed3",
+        "bias_drift_L2_npc10_seed3",
+        "bias_drift_L2_npc20_seed3",
+        "bias_drift_L2_npc30_seed3",
+        "bias_drift_L3_npc10_seed3",
+        "bias_drift_L3_npc20_seed3",
+        "bias_drift_L3_npc30_seed3",
+        "jump_L1_npc10_seed3",
+        "jump_L1_npc20_seed3",
+        "jump_L1_npc30_seed3",
+        "jump_L2_npc10_seed3",
+        "jump_L2_npc20_seed3",
+        "jump_L2_npc30_seed3",
+        "jump_L3_npc10_seed3",
+        "jump_L3_npc20_seed3",
+        "jump_L3_npc30_seed3",
+        "freeze_L1_npc10_seed3",
+        "freeze_L1_npc20_seed3",
+        "freeze_L1_npc30_seed3",
+        "replay_L1_npc10_seed3",
+        "replay_L1_npc20_seed3",
+        "replay_L1_npc30_seed3",
+        "false_contact_L1_npc10_seed3",
+        "false_contact_L1_npc20_seed3",
+        "false_contact_L1_npc30_seed3",
+        "missed_contact_L1_npc10_seed3",
+        "missed_contact_L1_npc20_seed3",
+        "missed_contact_L1_npc30_seed3",
+        "delay_L1_npc10_seed3",
+        "delay_L1_npc20_seed3",
+        "delay_L1_npc30_seed3",
+        "delay_L2_npc10_seed3",
+        "delay_L2_npc20_seed3",
+        "delay_L2_npc30_seed3",
+        "delay_L3_npc10_seed3",
+        "delay_L3_npc20_seed3",
+        "delay_L3_npc30_seed3",
+        "drop_L1_npc10_seed3",
+        "drop_L1_npc20_seed3",
+        "drop_L1_npc30_seed3",
+        "drop_L2_npc10_seed3",
+        "drop_L2_npc20_seed3",
+        "drop_L2_npc30_seed3",
+        "drop_L3_npc10_seed3",
+        "drop_L3_npc20_seed3",
+        "drop_L3_npc30_seed3",
+        "duplicate_L1_npc10_seed3",
+        "duplicate_L1_npc20_seed3",
+        "duplicate_L1_npc30_seed3",
+        "duplicate_L2_npc10_seed3",
+        "duplicate_L2_npc20_seed3",
+        "duplicate_L2_npc30_seed3",
+        "duplicate_L3_npc10_seed3",
+        "duplicate_L3_npc20_seed3",
+        "duplicate_L3_npc30_seed3",
+        "clock_skew_L1_npc10_seed3",
+        "clock_skew_L1_npc20_seed3",
+        "clock_skew_L1_npc30_seed3",
+        "clock_skew_L2_npc10_seed3",
+        "clock_skew_L2_npc20_seed3",
+        "clock_skew_L2_npc30_seed3",
+        "clock_skew_L3_npc10_seed3",
+        "clock_skew_L3_npc20_seed3",
+        "clock_skew_L3_npc30_seed3",
+        "flood_L1_npc10_seed3",
+        "flood_L1_npc20_seed3",
+        "flood_L1_npc30_seed3",
+        "flood_L2_npc10_seed3",
+        "flood_L2_npc20_seed3",
+        "flood_L2_npc30_seed3",
+        "flood_L3_npc10_seed3",
+        "flood_L3_npc20_seed3",
+        "flood_L3_npc30_seed3",
+        "spoof_L1_npc10_seed3",
+        "spoof_L1_npc20_seed3",
+        "spoof_L1_npc30_seed3",
+        "unauthorized_node_L1_npc10_seed3",
+        "unauthorized_node_L1_npc20_seed3",
+        "unauthorized_node_L1_npc30_seed3",
+        "unauthorized_subscription_L1_npc10_seed3",
+        "unauthorized_subscription_L1_npc20_seed3",
+        "unauthorized_subscription_L1_npc30_seed3",
+        "param_tamper_L1_npc10_seed3",
+        "param_tamper_L1_npc20_seed3",
+        "param_tamper_L1_npc30_seed3",
+        "service_abuse_L1_npc10_seed3",
+        "service_abuse_L1_npc20_seed3",
+        "service_abuse_L1_npc30_seed3"
+      ]
+    },
+    "logical_scenario_key": [
+      "type",
+      "attack_name",
+      "npc",
+      "level"
+    ],
+    "scenario_overlap": {
+      "security_keys_total": 102,
+      "security_keys_in_all_three_seeds": 102,
+      "noise_keys_total": 12,
+      "noise_keys_in_all_three_seeds": 12,
+      "same_run_path_in_multiple_splits": false
+    }
+  },
+  "near_duplicate_analysis": {
+    "comparison_definition": "For each class/attack, level and NPC scenario, align rows by row position to the common length; compute Pearson correlation per physical IMU/odometry raw column, then median across columns. Age and stamp-lag metadata are excluded. Exact row fraction requires all 23 corresponding values to match exactly (NaNs compare equal).",
+    "sensor_columns": [
+      "imu.orientation.x",
+      "imu.orientation.y",
+      "imu.orientation.z",
+      "imu.orientation.w",
+      "imu.angular_velocity.x",
+      "imu.angular_velocity.y",
+      "imu.angular_velocity.z",
+      "imu.linear_acceleration.x",
+      "imu.linear_acceleration.y",
+      "imu.linear_acceleration.z",
+      "odom.pose.pose.position.x",
+      "odom.pose.pose.position.y",
+      "odom.pose.pose.position.z",
+      "odom.pose.pose.orientation.x",
+      "odom.pose.pose.orientation.y",
+      "odom.pose.pose.orientation.z",
+      "odom.pose.pose.orientation.w",
+      "odom.twist.twist.linear.x",
+      "odom.twist.twist.linear.y",
+      "odom.twist.twist.linear.z",
+      "odom.twist.twist.angular.x",
+      "odom.twist.twist.angular.y",
+      "odom.twist.twist.angular.z"
+    ],
+    "pair_count": 306,
+    "median_pair_median_correlation": 0.01897672329103757,
+    "p10_pair_median_correlation": -0.11109539445032673,
+    "p90_pair_median_correlation": 0.44528349512417315,
+    "maximum_pair_median_correlation": 0.7585025788960158,
+    "median_exact_row_fraction": 0.0,
+    "pairs_with_any_exact_rows": 0,
+    "pairs_with_median_correlation_ge_0_99": 0,
+    "by_attack_class": {
+      "bias_drift": {
+        "scenario_count": 9,
+        "median_scenario_correlation": 0.2223959285110622,
+        "min_scenario_correlation": 0.06784691506717057,
+        "max_scenario_correlation": 0.668488540885633
+      },
+      "clock_skew": {
+        "scenario_count": 9,
+        "median_scenario_correlation": 0.0001072755120366196,
+        "min_scenario_correlation": -0.15736992615284395,
+        "max_scenario_correlation": 0.07477603286353453
+      },
+      "delay": {
+        "scenario_count": 9,
+        "median_scenario_correlation": 0.023733351501666847,
+        "min_scenario_correlation": -0.11280205762599278,
+        "max_scenario_correlation": 0.11148975755911994
+      },
+      "drop": {
+        "scenario_count": 9,
+        "median_scenario_correlation": 0.0390353293761427,
+        "min_scenario_correlation": -0.10876580601025712,
+        "max_scenario_correlation": 0.48529626107555845
+      },
+      "duplicate": {
+        "scenario_count": 9,
+        "median_scenario_correlation": -0.03093459414864209,
+        "min_scenario_correlation": -0.14660454370643866,
+        "max_scenario_correlation": 0.05852452298419516
+      },
+      "false_contact": {
+        "scenario_count": 3,
+        "median_scenario_correlation": -0.08021616482192785,
+        "min_scenario_correlation": -0.08113386618976308,
+        "max_scenario_correlation": 0.1510794253824252
+      },
+      "flood": {
+        "scenario_count": 9,
+        "median_scenario_correlation": -0.03973759193066493,
+        "min_scenario_correlation": -0.185773355586408,
+        "max_scenario_correlation": 0.07370148743187802
+      },
+      "freeze": {
+        "scenario_count": 3,
+        "median_scenario_correlation": -0.003603907811972548,
+        "min_scenario_correlation": -0.03820561196783039,
+        "max_scenario_correlation": -0.0016093284701103317
+      },
+      "jump": {
+        "scenario_count": 9,
+        "median_scenario_correlation": 0.006749143069707414,
+        "min_scenario_correlation": -0.10076490990314374,
+        "max_scenario_correlation": 0.09986299367959567
+      },
+      "missed_contact": {
+        "scenario_count": 3,
+        "median_scenario_correlation": -0.05963980102947534,
+        "min_scenario_correlation": -0.12071434048690409,
+        "max_scenario_correlation": 0.13866949501740086
+      },
+      "noise": {
+        "scenario_count": 9,
+        "median_scenario_correlation": 0.04322407926523085,
+        "min_scenario_correlation": -0.05008689470770201,
+        "max_scenario_correlation": 0.051671938314683245
+      },
+      "none": {
+        "scenario_count": 3,
+        "median_scenario_correlation": 0.03672400432847649,
+        "min_scenario_correlation": -0.023588472984202396,
+        "max_scenario_correlation": 0.09816844732039218
+      },
+      "param_tamper": {
+        "scenario_count": 3,
+        "median_scenario_correlation": 0.08311512156630906,
+        "min_scenario_correlation": -0.03555176851996204,
+        "max_scenario_correlation": 0.12892551179951942
+      },
+      "replay": {
+        "scenario_count": 3,
+        "median_scenario_correlation": -0.020472981994353146,
+        "min_scenario_correlation": -0.09923731091978998,
+        "max_scenario_correlation": 0.4195987738124148
+      },
+      "service_abuse": {
+        "scenario_count": 3,
+        "median_scenario_correlation": -0.04619221393107326,
+        "min_scenario_correlation": -0.08449552098389876,
+        "max_scenario_correlation": -0.02715696931243384
+      },
+      "spoof": {
+        "scenario_count": 3,
+        "median_scenario_correlation": -0.061649587902816036,
+        "min_scenario_correlation": -0.08739734475986012,
+        "max_scenario_correlation": 0.28620249788246815
+      },
+      "unauthorized_node": {
+        "scenario_count": 3,
+        "median_scenario_correlation": -0.009013245567401745,
+        "min_scenario_correlation": -0.02434629473063381,
+        "max_scenario_correlation": 0.03884314796095741
+      },
+      "unauthorized_subscription": {
+        "scenario_count": 3,
+        "median_scenario_correlation": -0.08465000391043899,
+        "min_scenario_correlation": -0.11549760056562881,
+        "max_scenario_correlation": 0.12274799663682986
+      }
+    },
+    "by_scenario": [
+      {
+        "scenario": {
+          "class": "bias_drift",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.0880212623520654,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4574
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.02961392159554978,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.24524241504150138,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          }
+        ],
+        "scenario_median_correlation": 0.0880212623520654,
+        "scenario_max_correlation": 0.24524241504150138,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "bias_drift",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.1498827242772627,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4579
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.24448507731281546,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4578
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.13843279557011584,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4578
+          }
+        ],
+        "scenario_median_correlation": 0.1498827242772627,
+        "scenario_max_correlation": 0.24448507731281546,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "bias_drift",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.6002303691193405,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.6811797785711123,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.5298401721147685,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4576
+          }
+        ],
+        "scenario_median_correlation": 0.6002303691193405,
+        "scenario_max_correlation": 0.6811797785711123,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "bias_drift",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.06784691506717057,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4563
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.0056166472758366935,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4557
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.2532054323591487,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4557
+          }
+        ],
+        "scenario_median_correlation": 0.06784691506717057,
+        "scenario_max_correlation": 0.2532054323591487,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "bias_drift",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.2223959285110622,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.4370116346108146,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.19961716180410946,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4565
+          }
+        ],
+        "scenario_median_correlation": 0.2223959285110622,
+        "scenario_max_correlation": 0.4370116346108146,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "bias_drift",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.6874995166965746,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.4887229754428358,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4565
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.6641527259384646,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          }
+        ],
+        "scenario_median_correlation": 0.6641527259384646,
+        "scenario_max_correlation": 0.6874995166965746,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "bias_drift",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.1219799084722012,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.14076686040563566,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.27082497341645956,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          }
+        ],
+        "scenario_median_correlation": 0.14076686040563566,
+        "scenario_max_correlation": 0.27082497341645956,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "bias_drift",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.3321590402115311,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.16026584888381154,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.3104676605700367,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          }
+        ],
+        "scenario_median_correlation": 0.3104676605700367,
+        "scenario_max_correlation": 0.3321590402115311,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "bias_drift",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.746143126367428,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4549
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.668488540885633,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.6659665573795989,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4549
+          }
+        ],
+        "scenario_median_correlation": 0.668488540885633,
+        "scenario_max_correlation": 0.746143126367428,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "clock_skew",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.08801202016540469,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4570
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.17288415429568588,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4574
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.0001072755120366196,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4570
+          }
+        ],
+        "scenario_median_correlation": 0.0001072755120366196,
+        "scenario_max_correlation": 0.08801202016540469,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "clock_skew",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.4716729460796143,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.0638671117122322,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.07477603286353453,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4572
+          }
+        ],
+        "scenario_median_correlation": 0.07477603286353453,
+        "scenario_max_correlation": 0.4716729460796143,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "clock_skew",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.015224741164281352,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.19528665737618986,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4572
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.06165038294602068,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          }
+        ],
+        "scenario_median_correlation": -0.06165038294602068,
+        "scenario_max_correlation": -0.015224741164281352,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "clock_skew",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.14358190952616853,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.7376138446230422,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.08972114444605472,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4566
+          }
+        ],
+        "scenario_median_correlation": -0.08972114444605472,
+        "scenario_max_correlation": 0.7376138446230422,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "clock_skew",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.03721882147241029,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.003932411007944543,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.09943495218353425,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          }
+        ],
+        "scenario_median_correlation": 0.003932411007944543,
+        "scenario_max_correlation": 0.03721882147241029,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "clock_skew",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.4535553556375317,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4560
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.17251435420202232,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4560
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.15736992615284395,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4570
+          }
+        ],
+        "scenario_median_correlation": -0.15736992615284395,
+        "scenario_max_correlation": 0.4535553556375317,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "clock_skew",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.0838882356236434,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.11435421474681377,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.0664685048235432,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4547
+          }
+        ],
+        "scenario_median_correlation": 0.0664685048235432,
+        "scenario_max_correlation": 0.0838882356236434,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "clock_skew",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.05310691861285084,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.07983092073313332,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.0441263499971074,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          }
+        ],
+        "scenario_median_correlation": -0.05310691861285084,
+        "scenario_max_correlation": 0.0441263499971074,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "clock_skew",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.2706637426548379,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.009285108997679052,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.02509187734830431,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          }
+        ],
+        "scenario_median_correlation": 0.009285108997679052,
+        "scenario_max_correlation": 0.02509187734830431,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "delay",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.11280205762599278,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4575
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.18235816828136836,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4575
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.08724431544176656,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4576
+          }
+        ],
+        "scenario_median_correlation": -0.11280205762599278,
+        "scenario_max_correlation": -0.08724431544176656,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "delay",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.10671931693648558,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4577
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.2772751529931229,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4569
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.10278871700565069,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4569
+          }
+        ],
+        "scenario_median_correlation": -0.10671931693648558,
+        "scenario_max_correlation": -0.10278871700565069,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "delay",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.043221184545019234,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4574
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.11972742379706988,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4577
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.0857731118792992,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4574
+          }
+        ],
+        "scenario_median_correlation": -0.043221184545019234,
+        "scenario_max_correlation": 0.11972742379706988,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "delay",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.004496874761819577,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.16485098461655445,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.09504549916279047,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          }
+        ],
+        "scenario_median_correlation": -0.09504549916279047,
+        "scenario_max_correlation": 0.004496874761819577,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "delay",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.023733351501666847,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.018763020331672344,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4560
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.09985468963539205,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          }
+        ],
+        "scenario_median_correlation": 0.023733351501666847,
+        "scenario_max_correlation": 0.09985468963539205,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "delay",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.08909374856352267,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.10158733624544478,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.05535175379313131,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          }
+        ],
+        "scenario_median_correlation": 0.05535175379313131,
+        "scenario_max_correlation": 0.08909374856352267,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "delay",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.3871737624832477,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.07365785422348711,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.017619733509523557,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          }
+        ],
+        "scenario_median_correlation": 0.07365785422348711,
+        "scenario_max_correlation": 0.3871737624832477,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "delay",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.11148975755911994,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.08406149850124378,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.3882809968105553,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          }
+        ],
+        "scenario_median_correlation": 0.11148975755911994,
+        "scenario_max_correlation": 0.3882809968105553,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "delay",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.11342409963606949,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.035639787183666935,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.09261298763183198,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          }
+        ],
+        "scenario_median_correlation": 0.09261298763183198,
+        "scenario_max_correlation": 0.11342409963606949,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "drop",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.28769806727669134,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4579
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.029530365620686727,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4579
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.009964632604615291,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4579
+          }
+        ],
+        "scenario_median_correlation": -0.029530365620686727,
+        "scenario_max_correlation": 0.009964632604615291,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "drop",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.059669345442098704,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4576
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.12163502300598945,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4569
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.03234851232220031,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4569
+          }
+        ],
+        "scenario_median_correlation": -0.059669345442098704,
+        "scenario_max_correlation": -0.03234851232220031,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "drop",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.4757928732336895,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4573
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.12194692225844958,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4567
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.10876580601025712,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4567
+          }
+        ],
+        "scenario_median_correlation": -0.10876580601025712,
+        "scenario_max_correlation": 0.4757928732336895,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "drop",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.48177478112733835,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4557
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.0752074027538298,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4557
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.2105820644679456,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4557
+          }
+        ],
+        "scenario_median_correlation": 0.2105820644679456,
+        "scenario_max_correlation": 0.48177478112733835,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "drop",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.038662060984059,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4557
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.48529626107555845,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.5094269544879297,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4557
+          }
+        ],
+        "scenario_median_correlation": 0.48529626107555845,
+        "scenario_max_correlation": 0.5094269544879297,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "drop",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.09993040860025851,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.045830363148623376,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4567
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.31123483434456145,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          }
+        ],
+        "scenario_median_correlation": 0.09993040860025851,
+        "scenario_max_correlation": 0.31123483434456145,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "drop",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.2320414013182614,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.0014199699181252177,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4549
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.10099173613348225,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4549
+          }
+        ],
+        "scenario_median_correlation": 0.10099173613348225,
+        "scenario_max_correlation": 0.2320414013182614,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "drop",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.43080483775129597,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4560
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.0390353293761427,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.012552078206602793,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          }
+        ],
+        "scenario_median_correlation": 0.0390353293761427,
+        "scenario_max_correlation": 0.43080483775129597,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "drop",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.004002808075379705,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.05274376321513313,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4558
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.0891675409420331,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          }
+        ],
+        "scenario_median_correlation": 0.004002808075379705,
+        "scenario_max_correlation": 0.05274376321513313,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "duplicate",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.42209322638622543,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4573
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.028092326138565094,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4581
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.05852452298419516,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4573
+          }
+        ],
+        "scenario_median_correlation": 0.05852452298419516,
+        "scenario_max_correlation": 0.42209322638622543,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "duplicate",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.14660454370643866,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4576
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.22726972573624296,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4572
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.42169629664320774,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4572
+          }
+        ],
+        "scenario_median_correlation": -0.14660454370643866,
+        "scenario_max_correlation": 0.42169629664320774,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "duplicate",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.20487279262482286,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4580
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.012774162625376935,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4579
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.09850183884470885,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4579
+          }
+        ],
+        "scenario_median_correlation": -0.09850183884470885,
+        "scenario_max_correlation": -0.012774162625376935,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "duplicate",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.0009848007755149323,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.025604974138854347,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.21895564243375676,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4566
+          }
+        ],
+        "scenario_median_correlation": -0.025604974138854347,
+        "scenario_max_correlation": 0.0009848007755149323,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "duplicate",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.4767344333861445,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.007181357518406204,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.014668621998395892,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          }
+        ],
+        "scenario_median_correlation": 0.014668621998395892,
+        "scenario_max_correlation": 0.4767344333861445,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "duplicate",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.10386350591811697,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.1369962879965305,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.48493949297351135,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          }
+        ],
+        "scenario_median_correlation": -0.10386350591811697,
+        "scenario_max_correlation": 0.48493949297351135,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "duplicate",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.08589450925191099,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.02363107856795136,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.08861474333582454,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          }
+        ],
+        "scenario_median_correlation": -0.02363107856795136,
+        "scenario_max_correlation": 0.08861474333582454,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "duplicate",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.25844311679506315,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.05141386848957513,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4547
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.06197603328227764,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4547
+          }
+        ],
+        "scenario_median_correlation": -0.06197603328227764,
+        "scenario_max_correlation": 0.05141386848957513,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "duplicate",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.08738055789912161,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4547
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.03093459414864209,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4549
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.10289873749604946,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4547
+          }
+        ],
+        "scenario_median_correlation": -0.03093459414864209,
+        "scenario_max_correlation": 0.08738055789912161,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "false_contact",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.03476753704532295,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4573
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.08113386618976308,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4574
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.09907950467530605,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4573
+          }
+        ],
+        "scenario_median_correlation": -0.08113386618976308,
+        "scenario_max_correlation": -0.03476753704532295,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "false_contact",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.001834142404954342,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.08021616482192785,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.11161439136655779,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4563
+          }
+        ],
+        "scenario_median_correlation": -0.08021616482192785,
+        "scenario_max_correlation": 0.001834142404954342,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "false_contact",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.1510794253824252,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.08392705215676358,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.4043663625460894,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          }
+        ],
+        "scenario_median_correlation": 0.1510794253824252,
+        "scenario_max_correlation": 0.4043663625460894,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "flood",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.6561696573280286,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.004224770421304424,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.059491542291518464,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          }
+        ],
+        "scenario_median_correlation": 0.059491542291518464,
+        "scenario_max_correlation": 0.6561696573280286,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "flood",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.10288780540762242,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4570
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.7585025788960158,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4568
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.09716051238129196,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4568
+          }
+        ],
+        "scenario_median_correlation": -0.09716051238129196,
+        "scenario_max_correlation": 0.7585025788960158,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "flood",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.05059647267508849,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.008776911758503318,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.07215123119848948,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4576
+          }
+        ],
+        "scenario_median_correlation": 0.05059647267508849,
+        "scenario_max_correlation": 0.07215123119848948,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "flood",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.11637799941379345,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.03973759193066493,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.12619520405966425,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          }
+        ],
+        "scenario_median_correlation": -0.03973759193066493,
+        "scenario_max_correlation": 0.12619520405966425,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "flood",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.07370148743187802,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.2633455957314511,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.020333713072551586,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4558
+          }
+        ],
+        "scenario_median_correlation": 0.07370148743187802,
+        "scenario_max_correlation": 0.2633455957314511,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "flood",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.030232886894792657,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4558
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.05853764237898076,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4558
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.053449125790457505,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          }
+        ],
+        "scenario_median_correlation": 0.030232886894792657,
+        "scenario_max_correlation": 0.053449125790457505,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "flood",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.09562522076335264,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.06208022857337352,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.09661147845471127,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          }
+        ],
+        "scenario_median_correlation": -0.09562522076335264,
+        "scenario_max_correlation": 0.06208022857337352,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "flood",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.05193171452959331,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.185773355586408,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.19083988959865397,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          }
+        ],
+        "scenario_median_correlation": -0.185773355586408,
+        "scenario_max_correlation": 0.05193171452959331,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "flood",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.08729311655374272,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4548
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.07377127513987342,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4549
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.06878028626071044,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4548
+          }
+        ],
+        "scenario_median_correlation": -0.07377127513987342,
+        "scenario_max_correlation": 0.06878028626071044,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "freeze",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.06550289974585324,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4581
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.0029611726157551216,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4580
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.03820561196783039,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4580
+          }
+        ],
+        "scenario_median_correlation": -0.03820561196783039,
+        "scenario_max_correlation": 0.0029611726157551216,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "freeze",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.0016093284701103317,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.09464620439389623,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4565
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.15702773236974138,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          }
+        ],
+        "scenario_median_correlation": -0.0016093284701103317,
+        "scenario_max_correlation": 0.15702773236974138,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "freeze",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.5012920636729062,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.006882065371016662,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.003603907811972548,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4555
+          }
+        ],
+        "scenario_median_correlation": -0.003603907811972548,
+        "scenario_max_correlation": 0.5012920636729062,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "jump",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.11551938193687336,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.002049003299377141,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4580
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.10076490990314374,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          }
+        ],
+        "scenario_median_correlation": -0.10076490990314374,
+        "scenario_max_correlation": 0.002049003299377141,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "jump",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.006749143069707414,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4580
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.07673882315245746,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4580
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.0012235905571133664,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4580
+          }
+        ],
+        "scenario_median_correlation": 0.006749143069707414,
+        "scenario_max_correlation": 0.07673882315245746,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "jump",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.0019101314173917262,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4576
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.037397723560855925,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4578
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.011018219180464377,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4576
+          }
+        ],
+        "scenario_median_correlation": -0.0019101314173917262,
+        "scenario_max_correlation": 0.011018219180464377,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "jump",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.0543674552449,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4566
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.08334053057596824,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4566
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.04250491857959826,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4566
+          }
+        ],
+        "scenario_median_correlation": -0.0543674552449,
+        "scenario_max_correlation": -0.04250491857959826,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "jump",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.03665217597497493,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4568
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.03991222945466897,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4572
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.04472132153229685,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4568
+          }
+        ],
+        "scenario_median_correlation": -0.03665217597497493,
+        "scenario_max_correlation": 0.04472132153229685,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "jump",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.08066461914869456,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4566
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.013863866716031063,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4567
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.061504530492861635,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4566
+          }
+        ],
+        "scenario_median_correlation": 0.013863866716031063,
+        "scenario_max_correlation": 0.08066461914869456,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "jump",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.09986299367959567,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.09067604409201407,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.5145128799803381,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          }
+        ],
+        "scenario_median_correlation": 0.09986299367959567,
+        "scenario_max_correlation": 0.5145128799803381,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "jump",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.10418219722201259,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.012360693151215556,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.06432885522603321,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          }
+        ],
+        "scenario_median_correlation": 0.06432885522603321,
+        "scenario_max_correlation": 0.10418219722201259,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "jump",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.050186336556648344,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.010017654947660633,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.21889816532781228,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          }
+        ],
+        "scenario_median_correlation": 0.010017654947660633,
+        "scenario_max_correlation": 0.21889816532781228,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "missed_contact",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.12071434048690409,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4580
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.21332211062629483,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4580
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.004867289913712044,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4582
+          }
+        ],
+        "scenario_median_correlation": -0.12071434048690409,
+        "scenario_max_correlation": -0.004867289913712044,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "missed_contact",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.10310905008329604,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4563
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.05963980102947534,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.08309332834775204,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          }
+        ],
+        "scenario_median_correlation": -0.05963980102947534,
+        "scenario_max_correlation": 0.08309332834775204,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "missed_contact",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.3619237690958935,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.01486268015653647,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.13866949501740086,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          }
+        ],
+        "scenario_median_correlation": 0.13866949501740086,
+        "scenario_max_correlation": 0.3619237690958935,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "noise",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.022197651635321513,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.004234255638115262,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.020492966939351775,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          }
+        ],
+        "scenario_median_correlation": 0.004234255638115262,
+        "scenario_max_correlation": 0.020492966939351775,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "noise",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.051671938314683245,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4577
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.5387382228656766,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4576
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.0012942227376469735,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4576
+          }
+        ],
+        "scenario_median_correlation": 0.051671938314683245,
+        "scenario_max_correlation": 0.5387382228656766,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "noise",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.056236972599618476,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.02585516120606438,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.0313999747069005,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4574
+          }
+        ],
+        "scenario_median_correlation": 0.0313999747069005,
+        "scenario_max_correlation": 0.056236972599618476,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "noise",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.09118476627454744,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4558
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.05008689470770201,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.1740391359847172,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4558
+          }
+        ],
+        "scenario_median_correlation": -0.05008689470770201,
+        "scenario_max_correlation": 0.09118476627454744,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "noise",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.05077480377466246,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4565
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.7171412795812768,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.029268760133912167,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          }
+        ],
+        "scenario_median_correlation": 0.05077480377466246,
+        "scenario_max_correlation": 0.7171412795812768,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "noise",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.04475016770859491,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.015640915551931884,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.00026217008364234223,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          }
+        ],
+        "scenario_median_correlation": 0.00026217008364234223,
+        "scenario_max_correlation": 0.04475016770859491,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "noise",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.04322407926523085,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.03909642325786224,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.4584459595006811,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          }
+        ],
+        "scenario_median_correlation": 0.04322407926523085,
+        "scenario_max_correlation": 0.4584459595006811,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "noise",
+          "run_type": "attack",
+          "level": 2,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.06821603920405493,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.001847896806692205,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.049411874983722674,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4553
+          }
+        ],
+        "scenario_median_correlation": 0.049411874983722674,
+        "scenario_max_correlation": 0.06821603920405493,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "noise",
+          "run_type": "attack",
+          "level": 3,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.045975197483484095,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.08838700345249281,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.05050825447096756,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          }
+        ],
+        "scenario_median_correlation": 0.05050825447096756,
+        "scenario_max_correlation": 0.08838700345249281,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "param_tamper",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.03555176851996204,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4575
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.6231473852908245,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.11057639753409569,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          }
+        ],
+        "scenario_median_correlation": -0.03555176851996204,
+        "scenario_max_correlation": 0.6231473852908245,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "param_tamper",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.4351034494111941,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.08311512156630906,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.051718462336601115,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4565
+          }
+        ],
+        "scenario_median_correlation": 0.08311512156630906,
+        "scenario_max_correlation": 0.4351034494111941,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "param_tamper",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.12892551179951942,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.0871553776166709,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.41607866230547397,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4555
+          }
+        ],
+        "scenario_median_correlation": 0.12892551179951942,
+        "scenario_max_correlation": 0.41607866230547397,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "replay",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.09923731091978998,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4570
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.08211851186230791,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4570
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.10130645140651479,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          }
+        ],
+        "scenario_median_correlation": -0.09923731091978998,
+        "scenario_max_correlation": -0.08211851186230791,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "replay",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.10803551987725378,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4558
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.045738286314703766,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4565
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.020472981994353146,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4558
+          }
+        ],
+        "scenario_median_correlation": -0.020472981994353146,
+        "scenario_max_correlation": 0.10803551987725378,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "replay",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.4297724048164901,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.08759667246587417,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4550
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.4195987738124148,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          }
+        ],
+        "scenario_median_correlation": 0.4195987738124148,
+        "scenario_max_correlation": 0.4297724048164901,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "service_abuse",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.07758193972856808,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4581
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.02715696931243384,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4581
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.09988804097455625,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4584
+          }
+        ],
+        "scenario_median_correlation": -0.02715696931243384,
+        "scenario_max_correlation": 0.07758193972856808,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "service_abuse",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.09573453839446158,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4560
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.10689726535632407,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4560
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.08449552098389876,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4565
+          }
+        ],
+        "scenario_median_correlation": -0.08449552098389876,
+        "scenario_max_correlation": 0.09573453839446158,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "service_abuse",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.06068720444993162,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.04619221393107326,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.11743559775388365,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          }
+        ],
+        "scenario_median_correlation": -0.04619221393107326,
+        "scenario_max_correlation": 0.11743559775388365,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "spoof",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.49279156672631813,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.07276006661008315,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4567
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.061649587902816036,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4562
+          }
+        ],
+        "scenario_median_correlation": -0.061649587902816036,
+        "scenario_max_correlation": 0.49279156672631813,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "spoof",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.5057652655964607,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.28620249788246815,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4557
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.1552082585428763,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          }
+        ],
+        "scenario_median_correlation": 0.28620249788246815,
+        "scenario_max_correlation": 0.5057652655964607,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "spoof",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.1313347644317973,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.08739734475986012,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4546
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.6929601383731031,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4549
+          }
+        ],
+        "scenario_median_correlation": -0.08739734475986012,
+        "scenario_max_correlation": 0.6929601383731031,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "unauthorized_node",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.07735333125896199,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4570
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.05246918057297141,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.03884314796095741,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4564
+          }
+        ],
+        "scenario_median_correlation": 0.03884314796095741,
+        "scenario_max_correlation": 0.07735333125896199,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "unauthorized_node",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.02434629473063381,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.029276087643855905,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.06942368381472752,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          }
+        ],
+        "scenario_median_correlation": -0.02434629473063381,
+        "scenario_max_correlation": 0.06942368381472752,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "unauthorized_node",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.022665386821317652,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.009013245567401745,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.08228054727336788,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4551
+          }
+        ],
+        "scenario_median_correlation": -0.009013245567401745,
+        "scenario_max_correlation": 0.022665386821317652,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "unauthorized_subscription",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": -0.08542028368884833,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4567
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.006340534133943454,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4567
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.08465000391043899,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4575
+          }
+        ],
+        "scenario_median_correlation": -0.08465000391043899,
+        "scenario_max_correlation": -0.006340534133943454,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "unauthorized_subscription",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.473636299576767,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.01189096409409626,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.12274799663682986,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4557
+          }
+        ],
+        "scenario_median_correlation": 0.12274799663682986,
+        "scenario_max_correlation": 0.473636299576767,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "unauthorized_subscription",
+          "run_type": "attack",
+          "level": 1,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.5842150456411332,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.11549760056562881,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4556
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.14016211837762524,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4554
+          }
+        ],
+        "scenario_median_correlation": -0.11549760056562881,
+        "scenario_max_correlation": 0.5842150456411332,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "none",
+          "run_type": "normal",
+          "level": 0,
+          "npc": 10
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.03672400432847649,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.021223438031175552,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4561
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.20852341270958605,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4571
+          }
+        ],
+        "scenario_median_correlation": 0.03672400432847649,
+        "scenario_max_correlation": 0.20852341270958605,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "none",
+          "run_type": "normal",
+          "level": 0,
+          "npc": 20
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.12009166680460787,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4559
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": -0.023588472984202396,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4555
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": -0.06606223104777008,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4555
+          }
+        ],
+        "scenario_median_correlation": -0.023588472984202396,
+        "scenario_max_correlation": 0.12009166680460787,
+        "scenario_exact_row_fraction": 0.0
+      },
+      {
+        "scenario": {
+          "class": "none",
+          "run_type": "normal",
+          "level": 0,
+          "npc": 30
+        },
+        "pairs": [
+          {
+            "seed_pair": "1-2",
+            "median_column_correlation": 0.10911293867488897,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4552
+          },
+          {
+            "seed_pair": "1-3",
+            "median_column_correlation": 0.05600133807647663,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4548
+          },
+          {
+            "seed_pair": "2-3",
+            "median_column_correlation": 0.09816844732039218,
+            "exact_row_fraction": 0.0,
+            "rows_compared": 4548
+          }
+        ],
+        "scenario_median_correlation": 0.09816844732039218,
+        "scenario_max_correlation": 0.10911293867488897,
+        "scenario_exact_row_fraction": 0.0
+      }
+    ]
+  },
+  "feature_analysis": {
+    "noise_detector": {
+      "inputs": [
+        "rate::contact.age_s",
+        "rate::contact.data",
+        "rate::imu.age_s",
+        "rate::imu.angular_velocity.x",
+        "rate::imu.angular_velocity.y",
+        "rate::imu.angular_velocity.z",
+        "rate::imu.linear_acceleration.x",
+        "rate::imu.linear_acceleration.y",
+        "rate::imu.linear_acceleration.z",
+        "rate::imu.orientation.w",
+        "rate::imu.orientation.x",
+        "rate::imu.orientation.y",
+        "rate::imu.orientation.z",
+        "rate::imu.stamp_lag_s",
+        "rate::odom.age_s",
+        "rate::odom.pose.pose.orientation.w",
+        "rate::odom.pose.pose.orientation.x",
+        "rate::odom.pose.pose.orientation.y",
+        "rate::odom.pose.pose.orientation.z",
+        "rate::odom.pose.pose.position.x",
+        "rate::odom.pose.pose.position.y",
+        "rate::odom.pose.pose.position.z",
+        "rate::odom.stamp_lag_s",
+        "rate::odom.twist.twist.angular.x",
+        "rate::odom.twist.twist.angular.y",
+        "rate::odom.twist.twist.angular.z",
+        "rate::odom.twist.twist.linear.x",
+        "rate::odom.twist.twist.linear.y",
+        "rate::odom.twist.twist.linear.z",
+        "raw::contact.age_s",
+        "raw::contact.data",
+        "raw::imu.age_s",
+        "raw::imu.angular_velocity.x",
+        "raw::imu.angular_velocity.y",
+        "raw::imu.angular_velocity.z",
+        "raw::imu.linear_acceleration.x",
+        "raw::imu.linear_acceleration.y",
+        "raw::imu.linear_acceleration.z",
+        "raw::imu.orientation.w",
+        "raw::imu.orientation.x",
+        "raw::imu.orientation.y",
+        "raw::imu.orientation.z",
+        "raw::imu.stamp_lag_s",
+        "raw::odom.age_s",
+        "raw::odom.pose.pose.orientation.w",
+        "raw::odom.pose.pose.orientation.x",
+        "raw::odom.pose.pose.orientation.y",
+        "raw::odom.pose.pose.orientation.z",
+        "raw::odom.pose.pose.position.x",
+        "raw::odom.pose.pose.position.y",
+        "raw::odom.pose.pose.position.z",
+        "raw::odom.stamp_lag_s",
+        "raw::odom.twist.twist.angular.x",
+        "raw::odom.twist.twist.angular.y",
+        "raw::odom.twist.twist.angular.z",
+        "raw::odom.twist.twist.linear.x",
+        "raw::odom.twist.twist.linear.y",
+        "raw::odom.twist.twist.linear.z",
+        "rolling_std::contact.age_s",
+        "rolling_std::contact.data",
+        "rolling_std::imu.age_s",
+        "rolling_std::imu.angular_velocity.x",
+        "rolling_std::imu.angular_velocity.y",
+        "rolling_std::imu.angular_velocity.z",
+        "rolling_std::imu.linear_acceleration.x",
+        "rolling_std::imu.linear_acceleration.y",
+        "rolling_std::imu.linear_acceleration.z",
+        "rolling_std::imu.orientation.w",
+        "rolling_std::imu.orientation.x",
+        "rolling_std::imu.orientation.y",
+        "rolling_std::imu.orientation.z",
+        "rolling_std::imu.stamp_lag_s",
+        "rolling_std::odom.age_s",
+        "rolling_std::odom.pose.pose.orientation.w",
+        "rolling_std::odom.pose.pose.orientation.x",
+        "rolling_std::odom.pose.pose.orientation.y",
+        "rolling_std::odom.pose.pose.orientation.z",
+        "rolling_std::odom.pose.pose.position.x",
+        "rolling_std::odom.pose.pose.position.y",
+        "rolling_std::odom.pose.pose.position.z",
+        "rolling_std::odom.stamp_lag_s",
+        "rolling_std::odom.twist.twist.angular.x",
+        "rolling_std::odom.twist.twist.angular.y",
+        "rolling_std::odom.twist.twist.angular.z",
+        "rolling_std::odom.twist.twist.linear.x",
+        "rolling_std::odom.twist.twist.linear.y",
+        "rolling_std::odom.twist.twist.linear.z"
+      ],
+      "constant_in_any_run": {
+        "rate::contact.data": 36,
+        "raw::contact.data": 36,
+        "rolling_std::contact.data": 36
+      },
+      "missingness_rate_differences": [
+        {
+          "feature": "rolling_std::contact.age_s",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::contact.data",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.age_s",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.angular_velocity.x",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.angular_velocity.y",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.angular_velocity.z",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.linear_acceleration.x",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.linear_acceleration.y",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.linear_acceleration.z",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.orientation.w",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.orientation.x",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.orientation.y",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.orientation.z",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::imu.stamp_lag_s",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.age_s",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.pose.pose.orientation.w",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.pose.pose.orientation.x",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.pose.pose.orientation.y",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.pose.pose.orientation.z",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.pose.pose.position.x",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.pose.pose.position.y",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.pose.pose.position.z",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.stamp_lag_s",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.twist.twist.angular.x",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.twist.twist.angular.y",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.twist.twist.angular.z",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.twist.twist.linear.x",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.twist.twist.linear.y",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rolling_std::odom.twist.twist.linear.z",
+          "normal_nan_rate": 0.0011637774275669779,
+          "attack_nan_rate": 0.0,
+          "difference": 0.0011637774275669779
+        },
+        {
+          "feature": "rate::contact.age_s",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::contact.data",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.age_s",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.angular_velocity.x",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.angular_velocity.y",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.angular_velocity.z",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.linear_acceleration.x",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.linear_acceleration.y",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.linear_acceleration.z",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.orientation.w",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.orientation.x",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.orientation.y",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.orientation.z",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::imu.stamp_lag_s",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.age_s",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.pose.pose.orientation.w",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.pose.pose.orientation.x",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.pose.pose.orientation.y",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.pose.pose.orientation.z",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.pose.pose.position.x",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.pose.pose.position.y",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.pose.pose.position.z",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.stamp_lag_s",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.twist.twist.angular.x",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.twist.twist.angular.y",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.twist.twist.angular.z",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.twist.twist.linear.x",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.twist.twist.linear.y",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        },
+        {
+          "feature": "rate::odom.twist.twist.linear.z",
+          "normal_nan_rate": 0.00029094435689174447,
+          "attack_nan_rate": 0.0,
+          "difference": 0.00029094435689174447
+        }
+      ],
+      "direct_name_hints": []
+    },
+    "security_telemetry_model": {
+      "inputs": [
+        "collector_late_writes",
+        "collector_queue_drops",
+        "contact_mon.late_count",
+        "contact_mon.max_gap_s",
+        "contact_mon.pub_count",
+        "contact_mon.rate_hz",
+        "contact_mon.sub_count",
+        "derived::has_new_nodes",
+        "derived::new_node_count",
+        "derived::node_hash_changed",
+        "derived::rate::collector_late_writes",
+        "derived::rate::collector_queue_drops",
+        "derived::rate::contact_mon.late_count",
+        "derived::rate::contact_mon.max_gap_s",
+        "derived::rate::contact_mon.pub_count",
+        "derived::rate::contact_mon.rate_hz",
+        "derived::rate::contact_mon.sub_count",
+        "derived::rate::imu_mon.late_count",
+        "derived::rate::imu_mon.max_gap_s",
+        "derived::rate::imu_mon.pub_count",
+        "derived::rate::imu_mon.rate_hz",
+        "derived::rate::imu_mon.stamp_lag_mean_s",
+        "derived::rate::imu_mon.sub_count",
+        "derived::rate::node_count",
+        "derived::rate::odom_mon.late_count",
+        "derived::rate::odom_mon.max_gap_s",
+        "derived::rate::odom_mon.pub_count",
+        "derived::rate::odom_mon.rate_hz",
+        "derived::rate::odom_mon.stamp_lag_mean_s",
+        "derived::rate::odom_mon.sub_count",
+        "derived::rate::param_event_count",
+        "derived::rate::service_call_count",
+        "derived::rolling_std::collector_late_writes",
+        "derived::rolling_std::collector_queue_drops",
+        "derived::rolling_std::contact_mon.late_count",
+        "derived::rolling_std::contact_mon.max_gap_s",
+        "derived::rolling_std::contact_mon.pub_count",
+        "derived::rolling_std::contact_mon.rate_hz",
+        "derived::rolling_std::contact_mon.sub_count",
+        "derived::rolling_std::imu_mon.late_count",
+        "derived::rolling_std::imu_mon.max_gap_s",
+        "derived::rolling_std::imu_mon.pub_count",
+        "derived::rolling_std::imu_mon.rate_hz",
+        "derived::rolling_std::imu_mon.stamp_lag_mean_s",
+        "derived::rolling_std::imu_mon.sub_count",
+        "derived::rolling_std::node_count",
+        "derived::rolling_std::odom_mon.late_count",
+        "derived::rolling_std::odom_mon.max_gap_s",
+        "derived::rolling_std::odom_mon.pub_count",
+        "derived::rolling_std::odom_mon.rate_hz",
+        "derived::rolling_std::odom_mon.stamp_lag_mean_s",
+        "derived::rolling_std::odom_mon.sub_count",
+        "derived::rolling_std::param_event_count",
+        "derived::rolling_std::service_call_count",
+        "imu_mon.late_count",
+        "imu_mon.max_gap_s",
+        "imu_mon.pub_count",
+        "imu_mon.rate_hz",
+        "imu_mon.stamp_lag_mean_s",
+        "imu_mon.sub_count",
+        "node_count",
+        "odom_mon.late_count",
+        "odom_mon.max_gap_s",
+        "odom_mon.pub_count",
+        "odom_mon.rate_hz",
+        "odom_mon.stamp_lag_mean_s",
+        "odom_mon.sub_count",
+        "param_event_count",
+        "service_call_count"
+      ],
+      "constant_in_any_run": {
+        "collector_late_writes": 306,
+        "collector_queue_drops": 306,
+        "contact_mon.late_count": 306,
+        "contact_mon.max_gap_s": 96,
+        "contact_mon.pub_count": 290,
+        "contact_mon.sub_count": 306,
+        "derived::has_new_nodes": 261,
+        "derived::new_node_count": 261,
+        "derived::rate::collector_late_writes": 306,
+        "derived::rate::collector_queue_drops": 306,
+        "derived::rate::contact_mon.late_count": 306,
+        "derived::rate::contact_mon.max_gap_s": 96,
+        "derived::rate::contact_mon.pub_count": 290,
+        "derived::rate::contact_mon.sub_count": 306,
+        "derived::rate::imu_mon.late_count": 159,
+        "derived::rate::imu_mon.max_gap_s": 95,
+        "derived::rate::imu_mon.pub_count": 282,
+        "derived::rate::imu_mon.sub_count": 297,
+        "derived::rate::odom_mon.late_count": 171,
+        "derived::rate::odom_mon.max_gap_s": 87,
+        "derived::rate::odom_mon.pub_count": 290,
+        "derived::rate::odom_mon.sub_count": 297,
+        "derived::rate::param_event_count": 17,
+        "derived::rate::service_call_count": 297,
+        "derived::rolling_std::collector_late_writes": 306,
+        "derived::rolling_std::collector_queue_drops": 306,
+        "derived::rolling_std::contact_mon.late_count": 306,
+        "derived::rolling_std::contact_mon.max_gap_s": 96,
+        "derived::rolling_std::contact_mon.pub_count": 290,
+        "derived::rolling_std::contact_mon.sub_count": 306,
+        "derived::rolling_std::imu_mon.late_count": 159,
+        "derived::rolling_std::imu_mon.max_gap_s": 95,
+        "derived::rolling_std::imu_mon.pub_count": 282,
+        "derived::rolling_std::imu_mon.sub_count": 297,
+        "derived::rolling_std::odom_mon.late_count": 171,
+        "derived::rolling_std::odom_mon.max_gap_s": 87,
+        "derived::rolling_std::odom_mon.pub_count": 290,
+        "derived::rolling_std::odom_mon.sub_count": 297,
+        "derived::rolling_std::param_event_count": 17,
+        "derived::rolling_std::service_call_count": 297,
+        "imu_mon.late_count": 159,
+        "imu_mon.max_gap_s": 95,
+        "imu_mon.pub_count": 282,
+        "imu_mon.sub_count": 297,
+        "odom_mon.late_count": 171,
+        "odom_mon.max_gap_s": 87,
+        "odom_mon.pub_count": 290,
+        "odom_mon.sub_count": 297,
+        "param_event_count": 17,
+        "service_call_count": 297
+      },
+      "missingness_rate_differences": [
+        {
+          "feature": "derived::rate::imu_mon.stamp_lag_mean_s",
+          "normal_nan_rate": 0.01618568095296574,
+          "attack_nan_rate": 0.0,
+          "difference": 0.01618568095296574
+        },
+        {
+          "feature": "derived::rate::odom_mon.stamp_lag_mean_s",
+          "normal_nan_rate": 0.01618568095296574,
+          "attack_nan_rate": 0.0,
+          "difference": 0.01618568095296574
+        },
+        {
+          "feature": "derived::rolling_std::imu_mon.stamp_lag_mean_s",
+          "normal_nan_rate": 0.01618568095296574,
+          "attack_nan_rate": 0.0,
+          "difference": 0.01618568095296574
+        },
+        {
+          "feature": "derived::rolling_std::odom_mon.stamp_lag_mean_s",
+          "normal_nan_rate": 0.01618568095296574,
+          "attack_nan_rate": 0.0,
+          "difference": 0.01618568095296574
+        },
+        {
+          "feature": "imu_mon.stamp_lag_mean_s",
+          "normal_nan_rate": 0.008670023332923984,
+          "attack_nan_rate": 0.0,
+          "difference": 0.008670023332923984
+        },
+        {
+          "feature": "odom_mon.stamp_lag_mean_s",
+          "normal_nan_rate": 0.008670023332923984,
+          "attack_nan_rate": 0.0,
+          "difference": 0.008670023332923984
+        },
+        {
+          "feature": "derived::rate::collector_late_writes",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::collector_queue_drops",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::contact_mon.late_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::contact_mon.max_gap_s",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::contact_mon.pub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::contact_mon.rate_hz",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::contact_mon.sub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::imu_mon.late_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::imu_mon.max_gap_s",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::imu_mon.pub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::imu_mon.rate_hz",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::imu_mon.sub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::node_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::odom_mon.late_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::odom_mon.max_gap_s",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::odom_mon.pub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::odom_mon.rate_hz",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::odom_mon.sub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::param_event_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rate::service_call_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::collector_late_writes",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::collector_queue_drops",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::contact_mon.late_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::contact_mon.max_gap_s",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::contact_mon.pub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::contact_mon.rate_hz",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::contact_mon.sub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::imu_mon.late_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::imu_mon.max_gap_s",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::imu_mon.pub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::imu_mon.rate_hz",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::imu_mon.sub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::node_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::odom_mon.late_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::odom_mon.max_gap_s",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::odom_mon.pub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::odom_mon.rate_hz",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::odom_mon.sub_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::param_event_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        },
+        {
+          "feature": "derived::rolling_std::service_call_count",
+          "normal_nan_rate": 0.007515657620041753,
+          "attack_nan_rate": 0.0,
+          "difference": 0.007515657620041753
+        }
+      ],
+      "direct_name_hints": []
+    }
+  },
+  "fit_provenance": {
+    "noise_detector": {
+      "training_rows": {
+        "isolation_forest_normal_rows_seeds1_2": 82488,
+        "random_forest_rows_seeds1_2": 109488
+      },
+      "preprocessing_comparison": {
+        "isolation_forest_imputer_max_abs_difference_vs_seed1_2": 2.5118795932144167e-15,
+        "isolation_forest_scaler_center_max_abs_difference_vs_seed1_2": 0.0,
+        "random_forest_imputer_max_abs_difference_vs_seed1_2": 6.744604874597826e-14
+      },
+      "fit_and_threshold_seeds": [
+        1,
+        2
+      ],
+      "no_seed3_fit": true
+    },
+    "security_telemetry_model": {
+      "training_rows": {
+        "isolation_forest_normal_rows_seeds1_2": 5916,
+        "random_forest_rows_seeds1_2": 8027
+      },
+      "preprocessing_comparison": {
+        "isolation_forest_imputer_max_abs_difference_vs_seed1_2": 0.0,
+        "isolation_forest_scaler_center_max_abs_difference_vs_seed1_2": 0.0,
+        "random_forest_imputer_max_abs_difference_vs_seed1_2": 0.0
+      },
+      "fit_and_threshold_seeds": [
+        1,
+        2
+      ],
+      "no_seed3_fit": true
+    }
+  },
+  "inventory_provenance_and_effect": {
+    "hashes": {
+      "approved": [
+        "78acdb4a84dd",
+        "8801f999ca3d"
+      ],
+      "seed1_2": [
+        "78acdb4a84dd",
+        "8801f999ca3d"
+      ],
+      "all_normal": [
+        "78acdb4a84dd",
+        "8801f999ca3d"
+      ],
+      "seed3_values": [
+        "78acdb4a84dd",
+        "8801f999ca3d"
+      ],
+      "seed3_unique_values": [],
+      "result": "approved values equal training-only hash set; seed 3 added no new hash"
+    },
+    "publisher_subscriber_counts": {
+      "source": "first normal run manifest, normal_npc10_seed1",
+      "per_topic": {
+        "/imu_mon": {
+          "publishers": 1,
+          "subscribers": 2
+        },
+        "/odom_mon": {
+          "publishers": 1,
+          "subscribers": 2
+        },
+        "/contact_mon": {
+          "publishers": 1,
+          "subscribers": 2
+        }
+      },
+      "result": "seed 1 source; training only"
+    },
+    "domain_ids": {
+      "training_seeds_1_2": [
+        0,
+        60,
+        61,
+        62,
+        63
+      ],
+      "test_seed3": [
+        0,
+        60,
+        61,
+        62,
+        63
+      ],
+      "seed3_unique_values": [],
+      "provenance": "bootstrap iterates every indexed manifest, but seed 3 adds no new domain id"
+    },
+    "approved_inventory_limits": {
+      "rate_bands_equal_seed1_2": true,
+      "approved_limits_match_all_seed_recomputation": true,
+      "seed1_2_only": {
+        "/imu_mon": {
+          "max_gap_s": 0.25005,
+          "max_stamp_lag_s": 0.014733119999999959,
+          "max_late_count": 3
+        },
+        "/odom_mon": {
+          "max_gap_s": 0.25005,
+          "max_stamp_lag_s": 0.015908789999999978,
+          "max_late_count": 3
+        },
+        "/contact_mon": {
+          "max_gap_s": 0.25005,
+          "max_stamp_lag_s": null,
+          "max_late_count": 0
+        }
+      },
+      "approved_all_seed3": {
+        "/imu_mon": {
+          "max_gap_s": 0.19995000000000002,
+          "max_stamp_lag_s": 0.01048303499999994,
+          "max_late_count": 1
+        },
+        "/odom_mon": {
+          "max_gap_s": 0.22499999999999998,
+          "max_stamp_lag_s": 0.012070019999999963,
+          "max_late_count": 2
+        },
+        "/contact_mon": {
+          "max_gap_s": 0.19995000000000002,
+          "max_stamp_lag_s": null,
+          "max_late_count": 0
+        }
+      },
+      "seed3_scoring_effect": {
+        "all_seed_false_alert_episodes": 58,
+        "all_seed_false_alerts_per_hour": 41.114502313675295,
+        "train_only_false_alert_episodes": 52,
+        "train_only_false_alerts_per_hour": 36.861277936398544,
+        "delta_episodes": 6,
+        "delta_per_hour": 4.253224377276751,
+        "all_seed_rule_false_positive_rows": 205,
+        "train_only_rule_false_positive_rows": 193,
+        "event_recall_counts_unchanged": true,
+        "note": "temporary training-only inventory sensitivity; shipped inventory and rules were not changed"
+      }
+    },
+    "source_note": "bootstrap_inventory reads every normal row and every indexed manifest; current checked-in values were compared against seed-1/2-only recomputation."
+  },
+  "tuning_audit": {
+    "noise_model": "candidate fitting and preliminary imputer use seed 1; validation/model and threshold selection seed 2; final models fit seeds 1-2; held-out evaluation seed 3.",
+    "security_model": "training loads seeds {1,2}; fit seed1, threshold selection seed2, final fit seeds1-2; evaluation loads seed3.",
+    "code_and_report_search": "No code/report matches found for seed-3 threshold/selection/tuning. Seed-3 mentions were evaluation-only. Exception: inventory bootstrap uses all seeds for policy quantiles as described above.",
+    "hyperparameters": "fixed in the source model builders; random_state=42; no seed3 selection detected."
+  },
+  "causality_and_identity": {
+    "noise_features": "only current/past values; time differences divide value differences; rolling standard deviation is trailing 25 rows (0.5 s), min_periods=5.",
+    "security_features": "label/time columns excluded; node hash contributes only a row-to-row changed flag; rolling window is trailing 5 telemetry rows.",
+    "training_run_boundaries": "feature functions invoked on each run independently.",
+    "monitor_join_behavior": "reset_at_joins=True slices segments; default continuous mode does not split at joins and may carry rolling/difference state across segments.",
+    "inference_identity": "relative_path, run_id, seed and class are excluded from monitor feature frames; agent metadata is returned separately and does not enter model score."
+  },
+  "timing_shortcut_test": {
+    "cut_seed": 20261122,
+    "offset_seconds_by_run": {
+      "bias_drift_L1_npc10_seed3": 0.08322078368349972,
+      "bias_drift_L1_npc20_seed3": 12.304061434519609,
+      "bias_drift_L1_npc30_seed3": 19.67987581075088,
+      "bias_drift_L2_npc10_seed3": 10.755381293588957,
+      "bias_drift_L2_npc20_seed3": 1.8638558831830299,
+      "bias_drift_L2_npc30_seed3": 12.033176862664048,
+      "bias_drift_L3_npc10_seed3": 14.75792915422124,
+      "bias_drift_L3_npc20_seed3": 10.712243232540974,
+      "bias_drift_L3_npc30_seed3": 4.527802013289541,
+      "clock_skew_L1_npc10_seed3": 17.155051915509844,
+      "clock_skew_L1_npc20_seed3": 4.589428257681149,
+      "clock_skew_L1_npc30_seed3": 14.102901916530978,
+      "clock_skew_L2_npc10_seed3": 18.73625568227084,
+      "clock_skew_L2_npc20_seed3": 3.6751453370520037,
+      "clock_skew_L2_npc30_seed3": 0.6990287076740898,
+      "clock_skew_L3_npc10_seed3": 1.8969204362384229,
+      "clock_skew_L3_npc20_seed3": 15.365662213906406,
+      "clock_skew_L3_npc30_seed3": 18.953544455051,
+      "delay_L1_npc10_seed3": 6.366073145953141,
+      "delay_L1_npc20_seed3": 0.8673284684123939,
+      "delay_L1_npc30_seed3": 8.775287152539528,
+      "delay_L2_npc10_seed3": 0.8495428415247286,
+      "delay_L2_npc20_seed3": 13.153102702287104,
+      "delay_L2_npc30_seed3": 12.515448914078881,
+      "delay_L3_npc10_seed3": 8.025732147988789,
+      "delay_L3_npc20_seed3": 6.935475571398557,
+      "delay_L3_npc30_seed3": 11.635191060395735,
+      "drop_L1_npc10_seed3": 17.653866043631254,
+      "drop_L1_npc20_seed3": 4.627545747197244,
+      "drop_L1_npc30_seed3": 2.870891139058398,
+      "drop_L2_npc10_seed3": 1.8446991070742524,
+      "drop_L2_npc20_seed3": 14.424739387890007,
+      "drop_L2_npc30_seed3": 18.1198097077098,
+      "drop_L3_npc10_seed3": 10.918535536368632,
+      "drop_L3_npc20_seed3": 1.1399817385822675,
+      "drop_L3_npc30_seed3": 11.026973375623646,
+      "duplicate_L1_npc10_seed3": 14.490162277515786,
+      "duplicate_L1_npc20_seed3": 9.417431471093362,
+      "duplicate_L1_npc30_seed3": 0.4746744142023074,
+      "duplicate_L2_npc10_seed3": 19.577444913784547,
+      "duplicate_L2_npc20_seed3": 11.977821942791056,
+      "duplicate_L2_npc30_seed3": 6.039391717882161,
+      "duplicate_L3_npc10_seed3": 14.56810081655351,
+      "duplicate_L3_npc20_seed3": 19.554797348156562,
+      "duplicate_L3_npc30_seed3": 11.53259781108303,
+      "false_contact_L1_npc10_seed3": 2.7498866758916973,
+      "false_contact_L1_npc20_seed3": 3.3537829085418602,
+      "false_contact_L1_npc30_seed3": 5.961941865999023,
+      "flood_L1_npc10_seed3": 16.645369944624345,
+      "flood_L1_npc20_seed3": 15.949624179459912,
+      "flood_L1_npc30_seed3": 2.7091947878981726,
+      "flood_L2_npc10_seed3": 1.0756693190293265,
+      "flood_L2_npc20_seed3": 1.9476278126725188,
+      "flood_L2_npc30_seed3": 16.2254869413662,
+      "flood_L3_npc10_seed3": 11.930253062060645,
+      "flood_L3_npc20_seed3": 11.316124419540117,
+      "flood_L3_npc30_seed3": 7.9183409798404,
+      "freeze_L1_npc10_seed3": 5.9625313491308045,
+      "freeze_L1_npc20_seed3": 7.18186567047179,
+      "freeze_L1_npc30_seed3": 16.447179028152927,
+      "jump_L1_npc10_seed3": 16.64152670721984,
+      "jump_L1_npc20_seed3": 17.968136556234246,
+      "jump_L1_npc30_seed3": 11.437131204863881,
+      "jump_L2_npc10_seed3": 10.841978541007622,
+      "jump_L2_npc20_seed3": 7.729482254169795,
+      "jump_L2_npc30_seed3": 6.212402236235137,
+      "jump_L3_npc10_seed3": 9.713921360719485,
+      "jump_L3_npc20_seed3": 10.60541082755413,
+      "jump_L3_npc30_seed3": 16.10708422241685,
+      "missed_contact_L1_npc10_seed3": 6.869017635968007,
+      "missed_contact_L1_npc20_seed3": 3.2526245906079687,
+      "missed_contact_L1_npc30_seed3": 9.10564959404272,
+      "noise_L1_npc10_seed3": 15.964377115627437,
+      "noise_L1_npc20_seed3": 14.832584889780623,
+      "noise_L1_npc30_seed3": 11.7983915234747,
+      "noise_L2_npc10_seed3": 17.502538149067092,
+      "noise_L2_npc20_seed3": 13.862156433585787,
+      "noise_L2_npc30_seed3": 18.31217243262687,
+      "noise_L3_npc10_seed3": 17.848409548598386,
+      "noise_L3_npc20_seed3": 5.409873324589829,
+      "noise_L3_npc30_seed3": 19.29999255336148,
+      "normal_npc10_seed3": 10.758508796908758,
+      "normal_npc20_seed3": 18.0593986114937,
+      "normal_npc30_seed3": 12.917231393960304,
+      "param_tamper_L1_npc10_seed3": 12.434284399249094,
+      "param_tamper_L1_npc20_seed3": 8.278451210852689,
+      "param_tamper_L1_npc30_seed3": 10.321323918060457,
+      "replay_L1_npc10_seed3": 17.44860753927162,
+      "replay_L1_npc20_seed3": 11.991753833394158,
+      "replay_L1_npc30_seed3": 17.33304175567717,
+      "service_abuse_L1_npc10_seed3": 1.3383664957911257,
+      "service_abuse_L1_npc20_seed3": 10.841669429562895,
+      "service_abuse_L1_npc30_seed3": 17.251968059636,
+      "spoof_L1_npc10_seed3": 15.661140851158136,
+      "spoof_L1_npc20_seed3": 11.081863220192417,
+      "spoof_L1_npc30_seed3": 12.824141230232126,
+      "unauthorized_node_L1_npc10_seed3": 18.124316462561076,
+      "unauthorized_node_L1_npc20_seed3": 18.295845959141765,
+      "unauthorized_node_L1_npc30_seed3": 17.65100218573786,
+      "unauthorized_subscription_L1_npc10_seed3": 10.30829056550892,
+      "unauthorized_subscription_L1_npc20_seed3": 10.546214403971955,
+      "unauthorized_subscription_L1_npc30_seed3": 0.6910146049438826
+    },
+    "noise_detector": {
+      "selected_model": "random_forest",
+      "threshold": 0.6937751204996015,
+      "current": {
+        "event_recall_by_class": {
+          "noise": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          }
+        },
+        "event_recall": 1.0,
+        "event_count": 9,
+        "event_row_recall": 0.9978518518518519,
+        "event_rows_detected": 13471,
+        "event_rows": 13500,
+        "false_alert_episodes": 15,
+        "negative_exposure_hours": 0.17915,
+        "false_alerts_per_hour": 83.72871895060005
+      },
+      "random_prefix_cut": {
+        "event_recall_by_class": {
+          "noise": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          }
+        },
+        "event_recall": 1.0,
+        "event_count": 9,
+        "event_row_recall": 0.9978518518518519,
+        "event_rows_detected": 13471,
+        "event_rows": 13500,
+        "false_alert_episodes": 15,
+        "negative_exposure_hours": 0.13396111111111111,
+        "false_alerts_per_hour": 111.97279475801435
+      }
+    },
+    "security_telemetry_model": {
+      "selected_model": "random_forest",
+      "threshold": 0.5846303301864725,
+      "current": {
+        "event_recall_by_class": {
+          "bias_drift": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "clock_skew": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "delay": {
+            "detected": 3,
+            "events": 9,
+            "recall": 0.3333333333333333
+          },
+          "drop": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "duplicate": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "false_contact": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "flood": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "freeze": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "jump": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "missed_contact": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "noise": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "param_tamper": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "replay": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "service_abuse": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "spoof": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_node": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_subscription": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          }
+        },
+        "event_recall": 0.36363636363636365,
+        "event_count": 99,
+        "event_row_recall": 0.2769022199627182,
+        "event_rows_detected": 1634,
+        "event_rows": 5901,
+        "false_alert_episodes": 1,
+        "negative_exposure_hours": 1.4106944444444445,
+        "false_alerts_per_hour": 0.7088707295461258
+      },
+      "random_prefix_cut": {
+        "event_recall_by_class": {
+          "bias_drift": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "clock_skew": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "delay": {
+            "detected": 3,
+            "events": 9,
+            "recall": 0.3333333333333333
+          },
+          "drop": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "duplicate": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "false_contact": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "flood": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "freeze": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "jump": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "missed_contact": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "noise": {
+            "detected": 0,
+            "events": 9,
+            "recall": 0.0
+          },
+          "param_tamper": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "replay": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "service_abuse": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "spoof": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_node": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_subscription": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          }
+        },
+        "event_recall": 0.36363636363636365,
+        "event_count": 99,
+        "event_row_recall": 0.2769022199627182,
+        "event_rows_detected": 1634,
+        "event_rows": 5901,
+        "false_alert_episodes": 1,
+        "negative_exposure_hours": 1.1056944444444445,
+        "false_alerts_per_hour": 0.9044089938449943
+      }
+    }
+  },
+  "label_shuffle_test": {
+    "noise_detector": {
+      "seed": 20261123,
+      "selected_model": "random_forest",
+      "thresholds": {
+        "isolation_forest": -0.1476535946511367,
+        "random_forest": 0.20985222415707824
+      },
+      "validation_f1": {
+        "isolation_forest": 0.39781287970838397,
+        "random_forest": 0.42481033643883015
+      },
+      "test_metrics": {
+        "event_recall_by_class": {
+          "noise": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          }
+        },
+        "event_recall": 1.0,
+        "event_count": 9,
+        "event_row_recall": 0.9991111111111111,
+        "event_rows_detected": 13488,
+        "event_rows": 13500,
+        "false_alert_episodes": 3105,
+        "negative_exposure_hours": 0.17915,
+        "false_alerts_per_hour": 17331.844822774212
+      },
+      "experiment_model_path": "models\\experiments\\noise_label_shuffle_seed20261123.joblib",
+      "test_row_metrics": {
+        "rows": 54747,
+        "actual_positive_rate": 0.2465888541837909,
+        "predicted_positive_rate": 0.7409355763786144,
+        "true_positive": 13488,
+        "false_positive": 27076,
+        "false_negative": 12,
+        "true_negative": 14171,
+        "precision": 0.33251158662853764,
+        "row_recall": 0.9991111111111111,
+        "false_positive_rate": 0.6564356195602105
+      }
+    },
+    "security_telemetry_model": {
+      "seed": 20261124,
+      "selected_model": "random_forest",
+      "thresholds": {
+        "isolation_forest": -0.19380071456917347,
+        "random_forest": 0.1931427650587783
+      },
+      "validation_f1": {
+        "isolation_forest": 0.4149312377210216,
+        "random_forest": 0.4188
+      },
+      "test_metrics": {
+        "event_recall_by_class": {
+          "bias_drift": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "clock_skew": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "delay": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "drop": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "duplicate": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "false_contact": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "flood": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "freeze": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "jump": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "missed_contact": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "noise": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "param_tamper": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "replay": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "service_abuse": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "spoof": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_node": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_subscription": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          }
+        },
+        "event_recall": 1.0,
+        "event_count": 99,
+        "event_row_recall": 0.9806812404677173,
+        "event_rows_detected": 5787,
+        "event_rows": 5901,
+        "false_alert_episodes": 353,
+        "negative_exposure_hours": 1.4106944444444445,
+        "false_alerts_per_hour": 250.2313675297824
+      },
+      "experiment_model_path": "models\\experiments\\security_label_shuffle_seed20261124.joblib",
+      "test_row_metrics": {
+        "rows": 19514,
+        "actual_positive_rate": 0.3023982781592703,
+        "predicted_positive_rate": 0.974889822691401,
+        "true_positive": 5787,
+        "false_positive": 13237,
+        "false_negative": 114,
+        "true_negative": 376,
+        "precision": 0.3041947014297729,
+        "row_recall": 0.9806812404677173,
+        "false_positive_rate": 0.9723793432748108
+      }
+    }
+  },
+  "external_test": {
+    "status": "skipped_no_external_data",
+    "external_data_directory_present": false,
+    "datasets": [],
+    "adapter": "src/ziaxen_agent/external_adapter.py; returns a 50 Hz frame and mapping details, and writes mapping JSON when mapping_path is passed.",
+    "not_applicable_rule": "If more than half the expected raw model sensor columns are missing after direct mapping/derivation, the adaptation is marked not applicable; do not score it.",
+    "security_model": "Not testable on public sensor CSVs without Ziaxen ROS graph telemetry; no mapping is invented.",
+    "transfer_caveat": "Any future external results are transfer estimates, not proof of real-world performance.",
+    "true_test_requirements": "Owned ROS 2 robot/vehicle recordings with written approval, realistic sensor noise, a ROS-driven controller, and the same telemetry collector."
+  },
+  "part_c_prior_fixes": {
+    "status": "already present and re-verified in this checkout",
+    "security_model_scikit_learn_runtime": "1.9.1",
+    "security_model_sha256": "f4ba15b24c9a33a843b733b604cb27e7f9a25ce5fdd0cfd52c3610d811a475af",
+    "seed3_prediction_diff_rows_old_1_9_0_vs_new_1_9_1": 0,
+    "old_sha256": "8bcc4c491cca4d1f31f3ec657d2ef6733a371147db751643ad9f3bca44fff88e",
+    "missing_input_coverage_tests": "present; includes separate missing aligned/telemetry CLI coverage assertions"
+  },
+  "source_evidence": {
+    "noise_training": "src/ziaxen_agent/training.py:40-107",
+    "security_training": "src/ziaxen_agent/security/models.py:96-162",
+    "noise_feature_engineering": "src/ziaxen_agent/features.py:9-67",
+    "security_feature_engineering": "src/ziaxen_agent/security/telemetry.py:15-199",
+    "inventory_bootstrap": "src/ziaxen_agent/security/inventory.py:319-433",
+    "monitor_join_slices": "src/ziaxen_agent/monitor.py:112-121",
+    "dataset_time_counter_semantics": "AI_team_data/DATA_DICTIONARY.md",
+    "dataset_attack_repetition": "AI_team_data/AI_TEAM_GUIDE.md"
+  },
+  "verdict": "Leakage was found: the checked-in ROS policy limits use seed-3 normal telemetry, and the same scenario definitions recur in the held-out seed. The two fitted ML models and their imputers/scalers do not use seed 3. Near-duplicate trajectory checks did not find copied runs. Startup missingness and constant/cumulative inputs are small or non-informative; continuous joined-stream inference can span segments. The shuffled-label event metric is inconclusive because the selected threshold saturates alerts."
+}

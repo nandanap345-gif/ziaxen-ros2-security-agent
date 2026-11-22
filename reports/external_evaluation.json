@@ -1,0 +1,35 @@
+{
+  "status": "skipped_no_external_data",
+  "external_data_directory": "external_data/",
+  "directory_present": false,
+  "datasets": [],
+  "adapter": {
+    "module": "src/ziaxen_agent/external_adapter.py",
+    "output_rate_hz": 50,
+    "mapped_sensor_families": [
+      "IMU linear acceleration",
+      "IMU angular velocity",
+      "odometry position/orientation/velocity",
+      "contact when supplied"
+    ],
+    "unit_conversion": "Supports g, m/s^2, deg/s, rad/s, cm/mm/m, cm/s/km/h; defaults are explicitly recorded SI assumptions.",
+    "missing_values": "Missing raw inputs are filled with the corresponding training normal-reference median and listed in mapping JSON.",
+    "applicability_rule": "More than half of expected raw sensor columns missing means not applicable; do not score.",
+    "coordinate_frames": "No frame rotation or vehicle-specific calibration is inferred.",
+    "mapping_output": "adapt_external_csv(..., mapping_path=\"reports/external/<dataset>_mapping.json\")"
+  },
+  "dataset_results": [],
+  "security_telemetry_model": {
+    "status": "not_testable_on_external_sensor_csv",
+    "reason": "External datasets do not provide this project?s ROS graph node hashes, publisher/subscriber counts, and telemetry counters; no proxy mapping is claimed."
+  },
+  "transfer_caveat": "Any future external metrics are transfer estimates, not proof of real-world performance.",
+  "true_test_requirements": [
+    "recordings from an owned ROS 2 robot or vehicle",
+    "written approval",
+    "real sensor noise",
+    "a ROS-driven controller",
+    "the same telemetry collector"
+  ],
+  "no_downloads": true
+}

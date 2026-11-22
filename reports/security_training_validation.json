@@ -1,0 +1,38 @@
+{
+  "task": "ros2_telemetry_security_anomaly",
+  "selected_model": "random_forest",
+  "candidate_validation_metrics": {
+    "isolation_forest": {
+      "f1": 0.7672576386269332,
+      "threshold": -0.17259485599571123
+    },
+    "random_forest": {
+      "f1": 0.9871977240398293,
+      "threshold": 0.5846303301864725
+    }
+  },
+  "split": {
+    "candidate_fit_runs_seed1": 21,
+    "validation_runs_seed2": 21,
+    "final_fit_runs_seeds1_2": 42,
+    "test_seed3_reserved": true,
+    "training_seeds": [
+      1,
+      2
+    ],
+    "validation_seeds": [
+      2
+    ],
+    "test_seeds": [
+      3
+    ]
+  },
+  "trained_attack_classes": [
+    "flood",
+    "spoof",
+    "unauthorized_node",
+    "unauthorized_subscription"
+  ],
+  "feature_count": 69,
+  "model_path": "security_detector.joblib"
+}

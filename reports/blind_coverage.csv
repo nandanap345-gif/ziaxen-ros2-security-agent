@@ -1,0 +1,171 @@
+stream_id,state_mode,class_name,event_count,detected,detectors,multiple_detectors,expected_miss
+stream_a,continuous_state,bias_drift,2,True,"['health', 'policy_rule:topic_rate_out_of_band', 'sensor_noise_model']",True,False
+stream_a,continuous_state,clock_skew,1,True,['health'],False,False
+stream_a,continuous_state,delay,2,True,"['health', 'policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'sensor_noise_model']",True,False
+stream_a,continuous_state,drop,1,True,"['health', 'policy_rule:topic_rate_out_of_band']",True,False
+stream_a,continuous_state,duplicate,1,True,"['health', 'policy_rule:topic_rate_out_of_band', 'sensor_noise_model', 'telemetry_model']",True,False
+stream_a,continuous_state,false_contact,1,True,"['health', 'policy_rule:topic_rate_out_of_band']",True,False
+stream_a,continuous_state,flood,1,True,"['policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_a,continuous_state,freeze,1,True,"['health', 'sensor_noise_model']",True,False
+stream_a,continuous_state,jump,0,False,[],False,False
+stream_a,continuous_state,missed_contact,0,False,[],False,True
+stream_a,continuous_state,noise,0,False,[],False,False
+stream_a,continuous_state,param_tamper,0,False,[],False,False
+stream_a,continuous_state,replay,1,True,['health'],False,False
+stream_a,continuous_state,service_abuse,0,False,[],False,False
+stream_a,continuous_state,spoof,0,False,[],False,False
+stream_a,continuous_state,unauthorized_node,0,False,[],False,False
+stream_a,continuous_state,unauthorized_subscription,0,False,[],False,False
+stream_a,reset_at_joins,bias_drift,2,True,['sensor_noise_model'],False,False
+stream_a,reset_at_joins,clock_skew,1,False,[],False,False
+stream_a,reset_at_joins,delay,2,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_a,reset_at_joins,drop,1,True,['policy_rule:topic_rate_out_of_band'],False,False
+stream_a,reset_at_joins,duplicate,1,True,"['policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_a,reset_at_joins,false_contact,1,False,[],False,False
+stream_a,reset_at_joins,flood,1,True,"['policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_a,reset_at_joins,freeze,1,False,[],False,False
+stream_a,reset_at_joins,jump,0,False,[],False,False
+stream_a,reset_at_joins,missed_contact,0,False,[],False,True
+stream_a,reset_at_joins,noise,0,False,[],False,False
+stream_a,reset_at_joins,param_tamper,0,False,[],False,False
+stream_a,reset_at_joins,replay,1,False,[],False,False
+stream_a,reset_at_joins,service_abuse,0,False,[],False,False
+stream_a,reset_at_joins,spoof,0,False,[],False,False
+stream_a,reset_at_joins,unauthorized_node,0,False,[],False,False
+stream_a,reset_at_joins,unauthorized_subscription,0,False,[],False,False
+stream_b_seed_1701,continuous_state,bias_drift,9,True,['sensor_noise_model'],False,False
+stream_b_seed_1701,continuous_state,clock_skew,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_1701,continuous_state,delay,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'telemetry_model']",True,False
+stream_b_seed_1701,continuous_state,drop,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_1701,continuous_state,duplicate,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_1701,continuous_state,false_contact,3,False,[],False,False
+stream_b_seed_1701,continuous_state,flood,9,True,"['policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_1701,continuous_state,freeze,3,False,[],False,False
+stream_b_seed_1701,continuous_state,jump,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'sensor_noise_model']",True,False
+stream_b_seed_1701,continuous_state,missed_contact,3,False,[],False,True
+stream_b_seed_1701,continuous_state,noise,9,True,['sensor_noise_model'],False,False
+stream_b_seed_1701,continuous_state,param_tamper,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_1701,continuous_state,replay,3,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_1701,continuous_state,service_abuse,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:service_call_rate_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_1701,continuous_state,spoof,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:publisher_count_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_1701,continuous_state,unauthorized_node,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_1701,continuous_state,unauthorized_subscription,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:subscriber_count_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_1701,reset_at_joins,bias_drift,9,True,['sensor_noise_model'],False,False
+stream_b_seed_1701,reset_at_joins,clock_skew,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_1701,reset_at_joins,delay,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'telemetry_model']",True,False
+stream_b_seed_1701,reset_at_joins,drop,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_1701,reset_at_joins,duplicate,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_1701,reset_at_joins,false_contact,3,False,[],False,False
+stream_b_seed_1701,reset_at_joins,flood,9,True,"['policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_1701,reset_at_joins,freeze,3,False,[],False,False
+stream_b_seed_1701,reset_at_joins,jump,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'sensor_noise_model']",True,False
+stream_b_seed_1701,reset_at_joins,missed_contact,3,False,[],False,True
+stream_b_seed_1701,reset_at_joins,noise,9,True,['sensor_noise_model'],False,False
+stream_b_seed_1701,reset_at_joins,param_tamper,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_1701,reset_at_joins,replay,3,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_1701,reset_at_joins,service_abuse,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:service_call_rate_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_1701,reset_at_joins,spoof,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:publisher_count_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_1701,reset_at_joins,unauthorized_node,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_1701,reset_at_joins,unauthorized_subscription,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:subscriber_count_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,continuous_state,bias_drift,9,True,['sensor_noise_model'],False,False
+stream_b_seed_2903,continuous_state,clock_skew,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_2903,continuous_state,delay,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'telemetry_model']",True,False
+stream_b_seed_2903,continuous_state,drop,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_2903,continuous_state,duplicate,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_2903,continuous_state,false_contact,3,False,[],False,False
+stream_b_seed_2903,continuous_state,flood,9,True,"['policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_2903,continuous_state,freeze,3,False,[],False,False
+stream_b_seed_2903,continuous_state,jump,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'sensor_noise_model']",True,False
+stream_b_seed_2903,continuous_state,missed_contact,3,False,[],False,True
+stream_b_seed_2903,continuous_state,noise,9,True,['sensor_noise_model'],False,False
+stream_b_seed_2903,continuous_state,param_tamper,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,continuous_state,replay,3,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_2903,continuous_state,service_abuse,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:service_call_rate_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,continuous_state,spoof,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:publisher_count_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,continuous_state,unauthorized_node,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,continuous_state,unauthorized_subscription,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:subscriber_count_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,reset_at_joins,bias_drift,9,True,['sensor_noise_model'],False,False
+stream_b_seed_2903,reset_at_joins,clock_skew,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_2903,reset_at_joins,delay,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'telemetry_model']",True,False
+stream_b_seed_2903,reset_at_joins,drop,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_2903,reset_at_joins,duplicate,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_2903,reset_at_joins,false_contact,3,False,[],False,False
+stream_b_seed_2903,reset_at_joins,flood,9,True,"['policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_2903,reset_at_joins,freeze,3,False,[],False,False
+stream_b_seed_2903,reset_at_joins,jump,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'sensor_noise_model']",True,False
+stream_b_seed_2903,reset_at_joins,missed_contact,3,False,[],False,True
+stream_b_seed_2903,reset_at_joins,noise,9,True,['sensor_noise_model'],False,False
+stream_b_seed_2903,reset_at_joins,param_tamper,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,reset_at_joins,replay,3,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_2903,reset_at_joins,service_abuse,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:service_call_rate_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,reset_at_joins,spoof,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:publisher_count_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,reset_at_joins,unauthorized_node,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_2903,reset_at_joins,unauthorized_subscription,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:subscriber_count_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,continuous_state,bias_drift,9,True,['sensor_noise_model'],False,False
+stream_b_seed_4307,continuous_state,clock_skew,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_4307,continuous_state,delay,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'telemetry_model']",True,False
+stream_b_seed_4307,continuous_state,drop,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_4307,continuous_state,duplicate,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_4307,continuous_state,false_contact,3,False,[],False,False
+stream_b_seed_4307,continuous_state,flood,9,True,"['policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_4307,continuous_state,freeze,3,False,[],False,False
+stream_b_seed_4307,continuous_state,jump,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'sensor_noise_model']",True,False
+stream_b_seed_4307,continuous_state,missed_contact,3,False,[],False,True
+stream_b_seed_4307,continuous_state,noise,9,True,['sensor_noise_model'],False,False
+stream_b_seed_4307,continuous_state,param_tamper,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,continuous_state,replay,3,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_4307,continuous_state,service_abuse,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:service_call_rate_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,continuous_state,spoof,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:publisher_count_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,continuous_state,unauthorized_node,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,continuous_state,unauthorized_subscription,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:subscriber_count_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,reset_at_joins,bias_drift,9,True,['sensor_noise_model'],False,False
+stream_b_seed_4307,reset_at_joins,clock_skew,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_4307,reset_at_joins,delay,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'telemetry_model']",True,False
+stream_b_seed_4307,reset_at_joins,drop,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_4307,reset_at_joins,duplicate,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_4307,reset_at_joins,false_contact,3,False,[],False,False
+stream_b_seed_4307,reset_at_joins,flood,9,True,"['policy_rule:topic_rate_out_of_band', 'telemetry_model']",True,False
+stream_b_seed_4307,reset_at_joins,freeze,3,False,[],False,False
+stream_b_seed_4307,reset_at_joins,jump,9,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'sensor_noise_model']",True,False
+stream_b_seed_4307,reset_at_joins,missed_contact,3,False,[],False,True
+stream_b_seed_4307,reset_at_joins,noise,9,True,['sensor_noise_model'],False,False
+stream_b_seed_4307,reset_at_joins,param_tamper,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,reset_at_joins,replay,3,True,"['policy_rule:late_messages_observed', 'policy_rule:topic_gap_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:topic_stamp_lag_above_policy']",True,False
+stream_b_seed_4307,reset_at_joins,service_abuse,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:service_call_rate_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,reset_at_joins,spoof,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:publisher_count_above_policy', 'policy_rule:topic_rate_out_of_band', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,reset_at_joins,unauthorized_node,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_b_seed_4307,reset_at_joins,unauthorized_subscription,3,True,"['policy_rule:node_set_hash_change', 'policy_rule:parameter_event_outside_approved_window', 'policy_rule:subscriber_count_above_policy', 'policy_rule:unapproved_node', 'telemetry_model']",True,False
+stream_c,continuous_state,bias_drift,0,False,[],False,False
+stream_c,continuous_state,clock_skew,0,False,[],False,False
+stream_c,continuous_state,delay,0,False,[],False,False
+stream_c,continuous_state,drop,0,False,[],False,False
+stream_c,continuous_state,duplicate,0,False,[],False,False
+stream_c,continuous_state,false_contact,0,False,[],False,False
+stream_c,continuous_state,flood,0,False,[],False,False
+stream_c,continuous_state,freeze,0,False,[],False,False
+stream_c,continuous_state,jump,0,False,[],False,False
+stream_c,continuous_state,missed_contact,0,False,[],False,True
+stream_c,continuous_state,noise,0,False,[],False,False
+stream_c,continuous_state,param_tamper,0,False,[],False,False
+stream_c,continuous_state,replay,0,False,[],False,False
+stream_c,continuous_state,service_abuse,0,False,[],False,False
+stream_c,continuous_state,spoof,0,False,[],False,False
+stream_c,continuous_state,unauthorized_node,0,False,[],False,False
+stream_c,continuous_state,unauthorized_subscription,0,False,[],False,False
+stream_c,reset_at_joins,bias_drift,0,False,[],False,False
+stream_c,reset_at_joins,clock_skew,0,False,[],False,False
+stream_c,reset_at_joins,delay,0,False,[],False,False
+stream_c,reset_at_joins,drop,0,False,[],False,False
+stream_c,reset_at_joins,duplicate,0,False,[],False,False
+stream_c,reset_at_joins,false_contact,0,False,[],False,False
+stream_c,reset_at_joins,flood,0,False,[],False,False
+stream_c,reset_at_joins,freeze,0,False,[],False,False
+stream_c,reset_at_joins,jump,0,False,[],False,False
+stream_c,reset_at_joins,missed_contact,0,False,[],False,True
+stream_c,reset_at_joins,noise,0,False,[],False,False
+stream_c,reset_at_joins,param_tamper,0,False,[],False,False
+stream_c,reset_at_joins,replay,0,False,[],False,False
+stream_c,reset_at_joins,service_abuse,0,False,[],False,False
+stream_c,reset_at_joins,spoof,0,False,[],False,False
+stream_c,reset_at_joins,unauthorized_node,0,False,[],False,False
+stream_c,reset_at_joins,unauthorized_subscription,0,False,[],False,False

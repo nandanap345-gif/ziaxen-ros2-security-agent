@@ -1,0 +1,272 @@
+{
+  "experiment": "Leave one supervised attack class out of the telemetry model.",
+  "classes": [
+    "flood",
+    "spoof",
+    "unauthorized_node",
+    "unauthorized_subscription"
+  ],
+  "models_are_experiment_only": true,
+  "shipped_bundles_modified": false,
+  "training_seeds": [
+    1,
+    2
+  ],
+  "threshold_selection_seed": 2,
+  "test_seed": 3,
+  "selection_policy": "Fit the selected random-forest algorithm on seed 1, select its threshold on seed 2, then refit on seeds 1-2 without the held-out class.",
+  "small_sample_warning": "Each held-out class has only three seed-3 events; recall intervals are imprecise and do not establish reliability.",
+  "draft_inventory_override": true,
+  "draft_inventory_warning": "WARNING: DRAFT INVENTORY OVERRIDE ENABLED \u2014 rules results are offline evaluation only.",
+  "simulated_data_limitation": "All outcomes are under simulated conditions with idealized sensors and an in-sim driver, not a ROS-driven vehicle.",
+  "results": [
+    {
+      "held_out_class": "flood",
+      "test_events": 9,
+      "model_detected": 0,
+      "model_recall": 0.0,
+      "model_recall_ci_95_wilson": [
+        0.0,
+        0.2991450484195441
+      ],
+      "median_model_latency_s": null,
+      "rules_detected": 9,
+      "rules_recall": 1.0,
+      "rules_recall_ci_95_wilson": [
+        0.7008549515804559,
+        1.0
+      ],
+      "validation_threshold": 0.4864210545595381,
+      "training_seeds": [
+        1,
+        2
+      ],
+      "threshold_selection_seed": 2,
+      "model_path": "C:\\Users\\nanda\\OneDrive\\Desktop\\ziaxen_ai_agent\\models\\experiments\\security_loco_without_flood.joblib",
+      "test_runs": [
+        {
+          "run": "flood_L1_npc10_seed3",
+          "model_detected": false,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": null,
+          "event_start_sim_ns": 2329416666666,
+          "event_stop_sim_ns": 2359416666666
+        },
+        {
+          "run": "flood_L1_npc20_seed3",
+          "model_detected": false,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": null,
+          "event_start_sim_ns": 6282000000000,
+          "event_stop_sim_ns": 6312000000000
+        },
+        {
+          "run": "flood_L1_npc30_seed3",
+          "model_detected": false,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": null,
+          "event_start_sim_ns": 8923950000000,
+          "event_stop_sim_ns": 8953950000000
+        },
+        {
+          "run": "flood_L2_npc10_seed3",
+          "model_detected": false,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": null,
+          "event_start_sim_ns": 2418766666666,
+          "event_stop_sim_ns": 2448766666666
+        },
+        {
+          "run": "flood_L2_npc20_seed3",
+          "model_detected": false,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": null,
+          "event_start_sim_ns": 6371900000000,
+          "event_stop_sim_ns": 6401900000000
+        },
+        {
+          "run": "flood_L2_npc30_seed3",
+          "model_detected": false,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": null,
+          "event_start_sim_ns": 9001333333333,
+          "event_stop_sim_ns": 9031333333333
+        },
+        {
+          "run": "flood_L3_npc10_seed3",
+          "model_detected": false,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": null,
+          "event_start_sim_ns": 113350000000,
+          "event_stop_sim_ns": 143350000000
+        },
+        {
+          "run": "flood_L3_npc20_seed3",
+          "model_detected": false,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": null,
+          "event_start_sim_ns": 6400066666666,
+          "event_stop_sim_ns": 6430066666666
+        },
+        {
+          "run": "flood_L3_npc30_seed3",
+          "model_detected": false,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": null,
+          "event_start_sim_ns": 9058466666666,
+          "event_stop_sim_ns": 9088466666666
+        }
+      ]
+    },
+    {
+      "held_out_class": "spoof",
+      "test_events": 3,
+      "model_detected": 3,
+      "model_recall": 1.0,
+      "model_recall_ci_95_wilson": [
+        0.4385029682449546,
+        1.0
+      ],
+      "median_model_latency_s": -1.25,
+      "rules_detected": 3,
+      "rules_recall": 1.0,
+      "rules_recall_ci_95_wilson": [
+        0.4385029682449546,
+        1.0
+      ],
+      "validation_threshold": 0.38904342242074746,
+      "training_seeds": [
+        1,
+        2
+      ],
+      "threshold_selection_seed": 2,
+      "model_path": "C:\\Users\\nanda\\OneDrive\\Desktop\\ziaxen_ai_agent\\models\\experiments\\security_loco_without_spoof.joblib",
+      "test_runs": [
+        {
+          "run": "spoof_L1_npc10_seed3",
+          "model_detected": true,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": 2466733333333,
+          "event_start_sim_ns": 2467783333333,
+          "event_stop_sim_ns": 2495150000000
+        },
+        {
+          "run": "spoof_L1_npc20_seed3",
+          "model_detected": true,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": 6491866666666,
+          "event_start_sim_ns": 6493116666666,
+          "event_stop_sim_ns": 6520866666666
+        },
+        {
+          "run": "spoof_L1_npc30_seed3",
+          "model_detected": true,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": 9148700000000,
+          "event_start_sim_ns": 9150083333333,
+          "event_stop_sim_ns": 9178083333333
+        }
+      ]
+    },
+    {
+      "held_out_class": "unauthorized_node",
+      "test_events": 3,
+      "model_detected": 3,
+      "model_recall": 1.0,
+      "model_recall_ci_95_wilson": [
+        0.4385029682449546,
+        1.0
+      ],
+      "median_model_latency_s": 1.916666667,
+      "rules_detected": 3,
+      "rules_recall": 1.0,
+      "rules_recall_ci_95_wilson": [
+        0.4385029682449546,
+        1.0
+      ],
+      "validation_threshold": 0.4779916476321773,
+      "training_seeds": [
+        1,
+        2
+      ],
+      "threshold_selection_seed": 2,
+      "model_path": "C:\\Users\\nanda\\OneDrive\\Desktop\\ziaxen_ai_agent\\models\\experiments\\security_loco_without_unauthorized_node.joblib",
+      "test_runs": [
+        {
+          "run": "unauthorized_node_L1_npc10_seed3",
+          "model_detected": true,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": 2544683333333,
+          "event_start_sim_ns": 2542766666666,
+          "event_stop_sim_ns": 2571666666666
+        },
+        {
+          "run": "unauthorized_node_L1_npc20_seed3",
+          "model_detected": true,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": 6603433333333,
+          "event_start_sim_ns": 6602200000000,
+          "event_stop_sim_ns": 6631200000000
+        },
+        {
+          "run": "unauthorized_node_L1_npc30_seed3",
+          "model_detected": true,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": 9249883333333,
+          "event_start_sim_ns": 9247366666666,
+          "event_stop_sim_ns": 9276516666666
+        }
+      ]
+    },
+    {
+      "held_out_class": "unauthorized_subscription",
+      "test_events": 3,
+      "model_detected": 3,
+      "model_recall": 1.0,
+      "model_recall_ci_95_wilson": [
+        0.4385029682449546,
+        1.0
+      ],
+      "median_model_latency_s": 0.4,
+      "rules_detected": 3,
+      "rules_recall": 1.0,
+      "rules_recall_ci_95_wilson": [
+        0.4385029682449546,
+        1.0
+      ],
+      "validation_threshold": 0.37787653904592344,
+      "training_seeds": [
+        1,
+        2
+      ],
+      "threshold_selection_seed": 2,
+      "model_path": "C:\\Users\\nanda\\OneDrive\\Desktop\\ziaxen_ai_agent\\models\\experiments\\security_loco_without_unauthorized_subscription.joblib",
+      "test_runs": [
+        {
+          "run": "unauthorized_subscription_L1_npc10_seed3",
+          "model_detected": true,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": 2655766666666,
+          "event_start_sim_ns": 2655583333333,
+          "event_stop_sim_ns": 2684566666666
+        },
+        {
+          "run": "unauthorized_subscription_L1_npc20_seed3",
+          "model_detected": true,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": 6691950000000,
+          "event_start_sim_ns": 6691550000000,
+          "event_stop_sim_ns": 6720466666666
+        },
+        {
+          "run": "unauthorized_subscription_L1_npc30_seed3",
+          "model_detected": true,
+          "rules_detected": true,
+          "model_alert_time_sim_ns": 9313133333333,
+          "event_start_sim_ns": 9312700000000,
+          "event_stop_sim_ns": 9341866666666
+        }
+      ]
+    }
+  ]
+}
