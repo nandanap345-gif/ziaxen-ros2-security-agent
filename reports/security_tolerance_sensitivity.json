@@ -1,0 +1,1491 @@
+{
+  "analysis": "Post-event tolerance sensitivity using seeds 1 and 2 only.",
+  "scikit_learn_version": "1.9.1",
+  "security_model_sha256": "8bcc4c491cca4d1f31f3ec657d2ef6733a371147db751643ad9f3bca44fff88e",
+  "seeds": [
+    1,
+    2
+  ],
+  "run_count": 204,
+  "pre_start_tolerance_s": 1.5,
+  "post_stop_tolerances_s": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "frozen_model_thresholds": {
+    "isolation_forest": -0.17259485599571123,
+    "random_forest": 0.5846303301864725
+  },
+  "model_thresholds_changed": false,
+  "interpretation_note": "The shipped model was trained on seeds 1-2, so these results are in-sample diagnostics for label-window sensitivity, not independent performance estimates. Seed 3 was not accessed.",
+  "results": [
+    {
+      "tolerance_after_stop_s": 0.0,
+      "methods": [
+        {
+          "method": "policy_rules",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 149,
+          "normal_hours": 2.8316666666666666,
+          "false_alerts_per_hour": 52.61918775750441,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "selected_telemetry_model",
+          "events": 198,
+          "detected_events": 65,
+          "event_recall": 0.3282828282828283,
+          "false_alert_incidents": 12,
+          "normal_hours": 2.8316666666666666,
+          "false_alerts_per_hour": 4.2377869334902885,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 17,
+              "recall": 0.9444444444444444
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "rules_plus_selected_model",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 149,
+          "normal_hours": 2.8316666666666666,
+          "false_alerts_per_hour": 52.61918775750441,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tolerance_after_stop_s": 0.5,
+      "methods": [
+        {
+          "method": "policy_rules",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 135,
+          "normal_hours": 2.8041666666666667,
+          "false_alerts_per_hour": 48.14264487369985,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "selected_telemetry_model",
+          "events": 198,
+          "detected_events": 71,
+          "event_recall": 0.35858585858585856,
+          "false_alert_incidents": 1,
+          "normal_hours": 2.8041666666666667,
+          "false_alerts_per_hour": 0.35661218424962854,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 6,
+              "recall": 0.3333333333333333
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 17,
+              "recall": 0.9444444444444444
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "rules_plus_selected_model",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 135,
+          "normal_hours": 2.8041666666666667,
+          "false_alerts_per_hour": 48.14264487369985,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tolerance_after_stop_s": 1.0,
+      "methods": [
+        {
+          "method": "policy_rules",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 71,
+          "normal_hours": 2.776666666666667,
+          "false_alerts_per_hour": 25.570228091236494,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "selected_telemetry_model",
+          "events": 198,
+          "detected_events": 71,
+          "event_recall": 0.35858585858585856,
+          "false_alert_incidents": 1,
+          "normal_hours": 2.776666666666667,
+          "false_alerts_per_hour": 0.3601440576230492,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 6,
+              "recall": 0.3333333333333333
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 17,
+              "recall": 0.9444444444444444
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "rules_plus_selected_model",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 71,
+          "normal_hours": 2.776666666666667,
+          "false_alerts_per_hour": 25.570228091236494,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tolerance_after_stop_s": 1.5,
+      "methods": [
+        {
+          "method": "policy_rules",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 71,
+          "normal_hours": 2.7491666666666665,
+          "false_alerts_per_hour": 25.826007881176114,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "selected_telemetry_model",
+          "events": 198,
+          "detected_events": 71,
+          "event_recall": 0.35858585858585856,
+          "false_alert_incidents": 1,
+          "normal_hours": 2.7491666666666665,
+          "false_alerts_per_hour": 0.36374658987571995,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 6,
+              "recall": 0.3333333333333333
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 17,
+              "recall": 0.9444444444444444
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "rules_plus_selected_model",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 71,
+          "normal_hours": 2.7491666666666665,
+          "false_alerts_per_hour": 25.826007881176114,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tolerance_after_stop_s": 2.0,
+      "methods": [
+        {
+          "method": "policy_rules",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 71,
+          "normal_hours": 2.7216666666666667,
+          "false_alerts_per_hour": 26.08695652173913,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "selected_telemetry_model",
+          "events": 198,
+          "detected_events": 71,
+          "event_recall": 0.35858585858585856,
+          "false_alert_incidents": 1,
+          "normal_hours": 2.7216666666666667,
+          "false_alerts_per_hour": 0.3674219228413962,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 6,
+              "recall": 0.3333333333333333
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 17,
+              "recall": 0.9444444444444444
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        },
+        {
+          "method": "rules_plus_selected_model",
+          "events": 198,
+          "detected_events": 111,
+          "event_recall": 0.5606060606060606,
+          "false_alert_incidents": 71,
+          "normal_hours": 2.7216666666666667,
+          "false_alerts_per_hour": 26.08695652173913,
+          "per_class": {
+            "noise": {
+              "events": 18,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "bias_drift": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "jump": {
+              "events": 18,
+              "detected_events": 4,
+              "recall": 0.2222222222222222
+            },
+            "freeze": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "replay": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "false_contact": {
+              "events": 6,
+              "detected_events": 1,
+              "recall": 0.16666666666666666
+            },
+            "missed_contact": {
+              "events": 6,
+              "detected_events": 0,
+              "recall": 0.0
+            },
+            "delay": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "drop": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "duplicate": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "clock_skew": {
+              "events": 18,
+              "detected_events": 2,
+              "recall": 0.1111111111111111
+            },
+            "flood": {
+              "events": 18,
+              "detected_events": 18,
+              "recall": 1.0
+            },
+            "spoof": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_node": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "unauthorized_subscription": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "param_tamper": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            },
+            "service_abuse": {
+              "events": 6,
+              "detected_events": 6,
+              "recall": 1.0
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

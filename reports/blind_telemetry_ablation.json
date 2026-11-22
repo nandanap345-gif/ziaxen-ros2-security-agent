@@ -1,0 +1,243 @@
+{
+  "purpose": "Diagnostic ablation only; shipped monitor configuration and saved thresholds are unchanged.",
+  "scikit_learn_version": "1.9.1",
+  "security_model_sha256": "f4ba15b24c9a33a843b733b604cb27e7f9a25ce5fdd0cfd52c3610d811a475af",
+  "comparisons": [
+    {
+      "stream_id": "stream_c",
+      "state_mode": "reset_at_joins",
+      "fused": {
+        "false_incidents": 25,
+        "normal_hours": 1.7238564814813884,
+        "false_incidents_per_hour": 14.50236737719393,
+        "false_incidents_per_hour_ci_95_poisson": [
+          9.385167513438386,
+          21.408355100313383
+        ],
+        "per_class_recall": {}
+      },
+      "without_telemetry_model": {
+        "false_incidents": 10,
+        "normal_hours": 1.7238564814813884,
+        "false_incidents_per_hour": 5.800946950877572,
+        "false_incidents_per_hour_ci_95_poisson": [
+          2.7817795435102215,
+          10.668147980749596
+        ],
+        "per_class_recall": {}
+      },
+      "ablation_warnings": [
+        "Telemetry anomaly model disabled for ablation; telemetry-model coverage unavailable."
+      ],
+      "coverage": {
+        "sensor_noise_model": true,
+        "telemetry_policy_rules": true,
+        "telemetry_model": false
+      }
+    },
+    {
+      "stream_id": "stream_b_seed_1701",
+      "state_mode": "continuous_state",
+      "fused": {
+        "false_incidents": 107,
+        "normal_hours": 1.7302314814822222,
+        "false_incidents_per_hour": 61.841436331014656,
+        "false_incidents_per_hour_ci_95_poisson": [
+          50.68054947301962,
+          74.72904560153958
+        ],
+        "per_class_recall": {
+          "bias_drift": {
+            "detected": 6,
+            "events": 9,
+            "recall": 0.6666666666666666
+          },
+          "clock_skew": {
+            "detected": 1,
+            "events": 9,
+            "recall": 0.1111111111111111
+          },
+          "delay": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "drop": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "duplicate": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "false_contact": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "flood": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "freeze": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "jump": {
+            "detected": 2,
+            "events": 9,
+            "recall": 0.2222222222222222
+          },
+          "missed_contact": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "noise": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "param_tamper": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "replay": {
+            "detected": 1,
+            "events": 3,
+            "recall": 0.3333333333333333
+          },
+          "service_abuse": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "spoof": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_node": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_subscription": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          }
+        }
+      },
+      "without_telemetry_model": {
+        "false_incidents": 107,
+        "normal_hours": 1.7302314814822222,
+        "false_incidents_per_hour": 61.841436331014656,
+        "false_incidents_per_hour_ci_95_poisson": [
+          50.68054947301962,
+          74.72904560153958
+        ],
+        "per_class_recall": {
+          "bias_drift": {
+            "detected": 6,
+            "events": 9,
+            "recall": 0.6666666666666666
+          },
+          "clock_skew": {
+            "detected": 1,
+            "events": 9,
+            "recall": 0.1111111111111111
+          },
+          "delay": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "drop": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "duplicate": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "false_contact": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "flood": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "freeze": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "jump": {
+            "detected": 2,
+            "events": 9,
+            "recall": 0.2222222222222222
+          },
+          "missed_contact": {
+            "detected": 0,
+            "events": 3,
+            "recall": 0.0
+          },
+          "noise": {
+            "detected": 9,
+            "events": 9,
+            "recall": 1.0
+          },
+          "param_tamper": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "replay": {
+            "detected": 1,
+            "events": 3,
+            "recall": 0.3333333333333333
+          },
+          "service_abuse": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "spoof": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_node": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          },
+          "unauthorized_subscription": {
+            "detected": 3,
+            "events": 3,
+            "recall": 1.0
+          }
+        }
+      },
+      "ablation_warnings": [
+        "Telemetry anomaly model disabled for ablation; telemetry-model coverage unavailable."
+      ],
+      "coverage": {
+        "sensor_noise_model": true,
+        "telemetry_policy_rules": true,
+        "telemetry_model": false
+      }
+    }
+  ]
+}

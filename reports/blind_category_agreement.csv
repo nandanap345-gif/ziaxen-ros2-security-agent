@@ -1,0 +1,11 @@
+stream_id,state_mode,detected_events,category_agreements,agreement_rate,interpretation
+stream_a,continuous_state,11,6,0.5454545454545454,Diagnostic family agreement only; not attack attribution.
+stream_a,reset_at_joins,6,5,0.8333333333333334,Diagnostic family agreement only; not attack attribution.
+stream_b_seed_1701,continuous_state,70,58,0.8285714285714286,Diagnostic family agreement only; not attack attribution.
+stream_b_seed_1701,reset_at_joins,70,58,0.8285714285714286,Diagnostic family agreement only; not attack attribution.
+stream_b_seed_2903,continuous_state,70,58,0.8285714285714286,Diagnostic family agreement only; not attack attribution.
+stream_b_seed_2903,reset_at_joins,70,58,0.8285714285714286,Diagnostic family agreement only; not attack attribution.
+stream_b_seed_4307,continuous_state,70,58,0.8285714285714286,Diagnostic family agreement only; not attack attribution.
+stream_b_seed_4307,reset_at_joins,70,58,0.8285714285714286,Diagnostic family agreement only; not attack attribution.
+stream_c,continuous_state,0,0,,Diagnostic family agreement only; not attack attribution.
+stream_c,reset_at_joins,0,0,,Diagnostic family agreement only; not attack attribution.

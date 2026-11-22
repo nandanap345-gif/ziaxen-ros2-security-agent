@@ -1,0 +1,11 @@
+stream_id,state_mode,join_count,incidents_near_joins
+stream_a,continuous_state,211,154
+stream_a,reset_at_joins,211,22
+stream_b_seed_1701,continuous_state,101,83
+stream_b_seed_1701,reset_at_joins,101,0
+stream_b_seed_2903,continuous_state,101,80
+stream_b_seed_2903,reset_at_joins,101,0
+stream_b_seed_4307,continuous_state,101,88
+stream_b_seed_4307,reset_at_joins,101,0
+stream_c,continuous_state,200,146
+stream_c,reset_at_joins,200,15
