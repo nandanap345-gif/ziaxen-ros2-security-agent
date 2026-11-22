@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "approval_status": "draft",
+  "ros_distro": "humble",
+  "rmw": "rmw_fastrtps_cpp",
+  "domain_ids": [
+    0,
+    60,
+    61,
+    62,
+    63
+  ],
+  "approved_node_hashes": [
+    "78acdb4a84dd",
+    "8801f999ca3d"
+  ],
+  "discovery": {
+    "mode": "fastdds_discovery_server",
+    "server": "127.0.0.1:11811"
+  },
+  "bridges": [],
+  "nodes": [
+    {
+      "name": "/zaixen_collector",
+      "namespace": "/",
+      "host": null,
+      "enclave": null
+    },
+    {
+      "name": "/zaixen_relay",
+      "namespace": "/",
+      "host": null,
+      "enclave": null
+    },
+    {
+      "name": "/zaixen_scheduler",
+      "namespace": "/",
+      "host": null,
+      "enclave": null
+    },
+    {
+      "name": "/zaixen_telemetry",
+      "namespace": "/",
+      "host": null,
+      "enclave": null
+    }
+  ],
+  "topics": [
+    {
+      "name": "/imu_mon",
+      "msg_type": "unknown",
+      "approved_publishers": {
+        "names": [],
+        "max_count": 1
+      },
+      "approved_subscribers": {
+        "names": [],
+        "max_count": 2
+      },
+      "rate_hz": {
+        "min": 56.05,
+        "max": 64.05
+      },
+      "max_gap_s": 0.25005,
+      "max_stamp_lag_s": 0.014733119999999959,
+      "max_late_count": 3,
+      "safety_critical": false
+    },
+    {
+      "name": "/odom_mon",
+      "msg_type": "unknown",
+      "approved_publishers": {
+        "names": [],
+        "max_count": 1
+      },
+      "approved_subscribers": {
+        "names": [],
+        "max_count": 2
+      },
+      "rate_hz": {
+        "min": 56.05,
+        "max": 64.05
+      },
+      "max_gap_s": 0.25005,
+      "max_stamp_lag_s": 0.015908789999999978,
+      "max_late_count": 3,
+      "safety_critical": false
+    },
+    {
+      "name": "/contact_mon",
+      "msg_type": "unknown",
+      "approved_publishers": {
+        "names": [],
+        "max_count": 1
+      },
+      "approved_subscribers": {
+        "names": [],
+        "max_count": 2
+      },
+      "rate_hz": {
+        "min": 56.05,
+        "max": 64.05
+      },
+      "max_gap_s": 0.25005,
+      "max_stamp_lag_s": null,
+      "max_late_count": 0,
+      "safety_critical": false
+    }
+  ],
+  "limits": {
+    "startup_warmup_s": 15.0,
+    "stale_tick_multiple": 3,
+    "max_service_calls_per_window": 0,
+    "max_parameter_events_per_window": 0
+  },
+  "approved_change_windows": [],
+  "draft_note": "This is an unapproved proposal. Topic/node baselines are derived from normal recordings and domain IDs are collected from indexed manifests. Review every entry and change approval_status to 'approved' only after confirming the intended system configuration."
+}

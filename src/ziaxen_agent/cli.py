@@ -191,6 +191,14 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Reset rolling and row-to-row detector state at manifest join points.",
     )
+    monitor.add_argument(
+        "--profile", choices=("v1", "v2"), default="v1",
+        help="Detector profile; v1 is the unchanged default.",
+    )
+    monitor.add_argument(
+        "--v2-config", type=Path,
+        default=PROJECT_ROOT / "config" / "v2" / "detector.json",
+    )
 
     stream_build = commands.add_parser(
         "build-blind-streams",
@@ -488,6 +496,12 @@ def main(argv: list[str] | None = None) -> int:
                     args.allow_draft_inventory_for_offline_eval
                 ),
                 offline_demo=args.offline_demo,
+                profile=args.profile,
+                v2_config=(
+                    json.loads(args.v2_config.read_text(encoding="utf-8"))
+                    if args.profile == "v2" and args.v2_config.is_file()
+                    else None
+                ),
             )
             args.output.parent.mkdir(parents=True, exist_ok=True)
             args.output.write_text(

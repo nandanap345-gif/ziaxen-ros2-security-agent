@@ -16,6 +16,7 @@ from .security.inventory import validate_inventory
 from .security.models import security_scores
 from .security.rules import evaluate_rules
 from .security.telemetry import telemetry_features
+from .v2 import detect_v2
 
 _LABEL_COLUMNS = {
     "is_attack",
@@ -173,6 +174,8 @@ def _inventory_gate(
 
 
 def _category(finding: Finding) -> str:
+    if finding.source == "v2_rule":
+        return str(finding.rule_id).removeprefix("v2_")
     if finding.source == "health":
         return "telemetry health"
     if finding.source == "sensor_noise_model":
@@ -506,6 +509,8 @@ def monitor_frames(
     allow_draft_inventory_for_offline_eval: bool = False,
     offline_demo: bool = False,
     include_telemetry_model: bool = True,
+    profile: str = "v1",
+    v2_config: dict[str, Any] | None = None,
 ) -> MonitorResult:
     """Run both frozen detectors on one recording without exposing labels or identity."""
     if aligned is None and telemetry is None:
@@ -546,6 +551,12 @@ def monitor_frames(
                 missing_input=missing_input,
             )
         )
+        if profile == "v2":
+            if v2_config is None:
+                raise ValueError("profile='v2' requires a v2 configuration bundle")
+            findings.extend(detect_v2(frame, v2_config))
+        elif profile != "v1":
+            raise ValueError(f"Unknown monitor profile: {profile!r}")
     for frame in telemetry_slices:
         findings.extend(
             _telemetry_findings(

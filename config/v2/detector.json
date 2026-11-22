@@ -1,0 +1,3317 @@
+{
+  "version": 2,
+  "limits": {
+    "jump_abs_diff": 1.4496715297699694,
+    "drift_abs_shift": 11.750212995801979,
+    "freeze_samples": 25.0,
+    "replay_samples": 10.0,
+    "clock_offset": 0.05,
+    "contact_speed": 0.05,
+    "contact_accel": 0.2,
+    "jump_abs_diff_by_column": {
+      "imu.angular_velocity.x": 1.8767135739336478,
+      "imu.angular_velocity.y": 1.822575330735253,
+      "imu.angular_velocity.z": 1.4161407580905387,
+      "imu.linear_acceleration.x": 4.550901651383446,
+      "imu.linear_acceleration.y": 3.5081602334986197,
+      "imu.linear_acceleration.z": 5.9220542907724845,
+      "imu.orientation.w": 1.432420015336083,
+      "imu.orientation.x": 0.0128018255355522,
+      "imu.orientation.y": 0.0110058150645764,
+      "imu.orientation.z": 1.6143377423296439,
+      "odom.pose.pose.orientation.w": 1.919023773223043,
+      "odom.pose.pose.orientation.x": 0.017052096584120498,
+      "odom.pose.pose.orientation.y": 0.008951918884444658,
+      "odom.pose.pose.orientation.z": 1.1508525307050226,
+      "odom.pose.pose.position.x": 22.443353670467257,
+      "odom.pose.pose.position.y": 1.8122661555105604,
+      "odom.pose.pose.position.z": 0.2978263489465416,
+      "odom.twist.twist.angular.x": 1.8731629848490225,
+      "odom.twist.twist.angular.y": 1.8206520676622855,
+      "odom.twist.twist.angular.z": 1.3583062852608818,
+      "odom.twist.twist.linear.x": 1.4342305031538867,
+      "odom.twist.twist.linear.y": 0.3942556424102961,
+      "odom.twist.twist.linear.z": 0.09809101210252051
+    },
+    "freeze_samples_by_column": {
+      "imu.angular_velocity.x": 11,
+      "imu.angular_velocity.y": 11,
+      "imu.angular_velocity.z": 11,
+      "imu.linear_acceleration.x": 11,
+      "imu.linear_acceleration.y": 11,
+      "imu.linear_acceleration.z": 11,
+      "imu.orientation.w": 11,
+      "imu.orientation.x": 11,
+      "imu.orientation.y": 11,
+      "imu.orientation.z": 11,
+      "odom.pose.pose.orientation.w": 11,
+      "odom.pose.pose.orientation.x": 11,
+      "odom.pose.pose.orientation.y": 11,
+      "odom.pose.pose.orientation.z": 11,
+      "odom.pose.pose.position.x": 11,
+      "odom.pose.pose.position.y": 11,
+      "odom.pose.pose.position.z": 11,
+      "odom.twist.twist.angular.x": 11,
+      "odom.twist.twist.angular.y": 11,
+      "odom.twist.twist.angular.z": 11,
+      "odom.twist.twist.linear.x": 11,
+      "odom.twist.twist.linear.y": 11,
+      "odom.twist.twist.linear.z": 11
+    },
+    "clock_offset_by_column": {
+      "imu.age_s": 0.190000000001,
+      "imu.stamp_lag_s": 0.433333334001,
+      "odom.age_s": 0.190000000001,
+      "odom.stamp_lag_s": 5.016666667001,
+      "contact.age_s": 0.190000000001
+    }
+  },
+  "columns": {
+    "flatline": [
+      "imu.angular_velocity.x",
+      "imu.angular_velocity.y",
+      "imu.angular_velocity.z",
+      "imu.linear_acceleration.x",
+      "imu.linear_acceleration.y",
+      "imu.linear_acceleration.z",
+      "imu.orientation.w",
+      "imu.orientation.x",
+      "imu.orientation.y",
+      "imu.orientation.z",
+      "odom.pose.pose.orientation.w",
+      "odom.pose.pose.orientation.x",
+      "odom.pose.pose.orientation.y",
+      "odom.pose.pose.orientation.z",
+      "odom.pose.pose.position.x",
+      "odom.pose.pose.position.y",
+      "odom.pose.pose.position.z",
+      "odom.twist.twist.angular.x",
+      "odom.twist.twist.angular.y",
+      "odom.twist.twist.angular.z",
+      "odom.twist.twist.linear.x",
+      "odom.twist.twist.linear.y",
+      "odom.twist.twist.linear.z"
+    ],
+    "numeric": [
+      "imu.angular_velocity.x",
+      "imu.angular_velocity.y",
+      "imu.angular_velocity.z",
+      "imu.linear_acceleration.x",
+      "imu.linear_acceleration.y",
+      "imu.linear_acceleration.z",
+      "imu.orientation.w",
+      "imu.orientation.x",
+      "imu.orientation.y",
+      "imu.orientation.z",
+      "odom.pose.pose.orientation.w",
+      "odom.pose.pose.orientation.x",
+      "odom.pose.pose.orientation.y",
+      "odom.pose.pose.orientation.z",
+      "odom.pose.pose.position.x",
+      "odom.pose.pose.position.y",
+      "odom.pose.pose.position.z",
+      "odom.twist.twist.angular.x",
+      "odom.twist.twist.angular.y",
+      "odom.twist.twist.angular.z",
+      "odom.twist.twist.linear.x",
+      "odom.twist.twist.linear.y",
+      "odom.twist.twist.linear.z"
+    ]
+  },
+  "false_alert_budget_per_hour": 2.0,
+  "seed2_normal_audit": {
+    "hours": 1.7665388888888889,
+    "alerts_per_hour": {
+      "freeze": 0.0,
+      "jump": 0.0,
+      "clock_skew": 0.0,
+      "false_contact": 0.0
+    },
+    "budget_per_rule": 2.0
+  },
+  "disabled_rules": [
+    "clock_skew",
+    "false_contact"
+  ],
+  "chance_check": [
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "freeze",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "freeze",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "freeze",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "spoof",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "param_tamper",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "param_tamper",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "param_tamper",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    }
+  ],
+  "data_roles": {
+    "fit": [
+      1
+    ],
+    "threshold_selection": [
+      2
+    ],
+    "score": [
+      3
+    ]
+  }
+}

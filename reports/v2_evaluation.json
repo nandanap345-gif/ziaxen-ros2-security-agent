@@ -1,0 +1,6033 @@
+{
+  "seed3_per_run": {
+    "v1": {
+      "classes": {
+        "noise": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "sensor_random_forest"
+          ]
+        },
+        "delay": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "late_messages_observed",
+            "telemetry_random_forest",
+            "topic_gap_above_policy",
+            "topic_rate_out_of_band",
+            "topic_stamp_lag_above_policy"
+          ]
+        },
+        "drop": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "topic_gap_above_policy",
+            "topic_rate_out_of_band"
+          ]
+        },
+        "duplicate": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "late_messages_observed",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band"
+          ]
+        },
+        "flood": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "telemetry_random_forest",
+            "topic_rate_out_of_band"
+          ]
+        },
+        "spoof": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "publisher_count_above_policy",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band",
+            "unapproved_node"
+          ]
+        },
+        "unauthorized_node": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "telemetry_random_forest",
+            "unapproved_node"
+          ]
+        },
+        "unauthorized_subscription": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "subscriber_count_above_policy",
+            "telemetry_random_forest",
+            "unapproved_node"
+          ]
+        },
+        "param_tamper": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band",
+            "unapproved_node"
+          ]
+        },
+        "service_abuse": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "service_call_rate_above_policy",
+            "telemetry_random_forest",
+            "unapproved_node"
+          ]
+        },
+        "bias_drift": {
+          "events": 9,
+          "detected": 6,
+          "recall": 0.6666666666666666,
+          "wilson_95": [
+            0.3542021355803963,
+            0.879416181613089
+          ],
+          "detector": [
+            "sensor_random_forest"
+          ]
+        },
+        "jump": {
+          "events": 9,
+          "detected": 2,
+          "recall": 0.2222222222222222,
+          "wilson_95": [
+            0.06322510711784671,
+            0.5474110308930111
+          ],
+          "detector": [
+            "sensor_random_forest",
+            "topic_rate_out_of_band"
+          ]
+        },
+        "replay": {
+          "events": 3,
+          "detected": 1,
+          "recall": 0.3333333333333333,
+          "wilson_95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ],
+          "detector": [
+            "late_messages_observed",
+            "topic_rate_out_of_band",
+            "topic_stamp_lag_above_policy"
+          ]
+        },
+        "clock_skew": {
+          "events": 9,
+          "detected": 1,
+          "recall": 0.1111111111111111,
+          "wilson_95": [
+            0.019890887638544907,
+            0.434999705576656
+          ],
+          "detector": [
+            "late_messages_observed",
+            "topic_stamp_lag_above_policy"
+          ]
+        },
+        "freeze": {
+          "events": 3,
+          "detected": 0,
+          "recall": 0.0,
+          "wilson_95": [
+            5.551115123125783e-17,
+            0.5614970317550454
+          ],
+          "detector": []
+        },
+        "false_contact": {
+          "events": 3,
+          "detected": 0,
+          "recall": 0.0,
+          "wilson_95": [
+            5.551115123125783e-17,
+            0.5614970317550454
+          ],
+          "detector": []
+        },
+        "missed_contact": {
+          "events": 3,
+          "detected": 0,
+          "recall": 0.0,
+          "wilson_95": [
+            5.551115123125783e-17,
+            0.5614970317550454
+          ],
+          "detector": []
+        }
+      },
+      "micro_event_recall": 0.7070707070707071,
+      "macro_event_recall": 0.6666666666666667,
+      "classes_detected": 14,
+      "classes_total": 17,
+      "incident_count": 87,
+      "incident_matching": 75,
+      "incident_precision": 0.8620689655172413,
+      "row_metrics": {
+        "precision": 0.9877234803337306,
+        "recall": 0.11232193442578511,
+        "f1": 0.2017062395794034,
+        "balanced_accuracy": 0.5558370250570104,
+        "mcc": 0.27875784024280814,
+        "accuracy": 0.7181836929342923,
+        "true_positive": 16574,
+        "false_positive": 206,
+        "false_negative": 130984,
+        "true_negative": 317752
+      }
+    },
+    "v2": {
+      "classes": {
+        "noise": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "sensor_random_forest",
+            "v2_jump"
+          ]
+        },
+        "delay": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "late_messages_observed",
+            "telemetry_random_forest",
+            "topic_gap_above_policy",
+            "topic_rate_out_of_band",
+            "topic_stamp_lag_above_policy",
+            "v2_freeze",
+            "v2_jump"
+          ]
+        },
+        "drop": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "topic_gap_above_policy",
+            "topic_rate_out_of_band",
+            "v2_freeze"
+          ]
+        },
+        "duplicate": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "late_messages_observed",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band"
+          ]
+        },
+        "flood": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "telemetry_random_forest",
+            "topic_rate_out_of_band"
+          ]
+        },
+        "spoof": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "publisher_count_above_policy",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band",
+            "unapproved_node",
+            "v2_jump"
+          ]
+        },
+        "unauthorized_node": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "telemetry_random_forest",
+            "unapproved_node"
+          ]
+        },
+        "unauthorized_subscription": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "subscriber_count_above_policy",
+            "telemetry_random_forest",
+            "unapproved_node"
+          ]
+        },
+        "param_tamper": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band",
+            "unapproved_node",
+            "v2_freeze"
+          ]
+        },
+        "service_abuse": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "service_call_rate_above_policy",
+            "telemetry_random_forest",
+            "unapproved_node"
+          ]
+        },
+        "bias_drift": {
+          "events": 9,
+          "detected": 6,
+          "recall": 0.6666666666666666,
+          "wilson_95": [
+            0.3542021355803963,
+            0.879416181613089
+          ],
+          "detector": [
+            "sensor_random_forest",
+            "v2_jump"
+          ]
+        },
+        "jump": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "sensor_random_forest",
+            "topic_rate_out_of_band",
+            "v2_jump"
+          ]
+        },
+        "replay": {
+          "events": 3,
+          "detected": 1,
+          "recall": 0.3333333333333333,
+          "wilson_95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ],
+          "detector": [
+            "late_messages_observed",
+            "topic_rate_out_of_band",
+            "topic_stamp_lag_above_policy"
+          ]
+        },
+        "clock_skew": {
+          "events": 9,
+          "detected": 1,
+          "recall": 0.1111111111111111,
+          "wilson_95": [
+            0.019890887638544907,
+            0.434999705576656
+          ],
+          "detector": [
+            "late_messages_observed",
+            "topic_stamp_lag_above_policy"
+          ]
+        },
+        "freeze": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "v2_freeze"
+          ]
+        },
+        "false_contact": {
+          "events": 3,
+          "detected": 0,
+          "recall": 0.0,
+          "wilson_95": [
+            5.551115123125783e-17,
+            0.5614970317550454
+          ],
+          "detector": []
+        },
+        "missed_contact": {
+          "events": 3,
+          "detected": 0,
+          "recall": 0.0,
+          "wilson_95": [
+            5.551115123125783e-17,
+            0.5614970317550454
+          ],
+          "detector": []
+        }
+      },
+      "micro_event_recall": 0.8080808080808081,
+      "macro_event_recall": 0.7712418300653594,
+      "classes_detected": 15,
+      "classes_total": 17,
+      "incident_count": 101,
+      "incident_matching": 88,
+      "incident_precision": 0.8712871287128713,
+      "row_metrics": {
+        "precision": 0.9876939539860888,
+        "recall": 0.11259301427235392,
+        "f1": 0.20214260945741244,
+        "balanced_accuracy": 0.5559709924455575,
+        "mcc": 0.2790986534848903,
+        "accuracy": 0.718267470935478,
+        "true_positive": 16614,
+        "false_positive": 207,
+        "false_negative": 130944,
+        "true_negative": 317751
+      }
+    }
+  },
+  "streams": {
+    "stream_b_seed_1701": {
+      "v1": {
+        "classes": {
+          "noise": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "sensor_random_forest"
+            ]
+          },
+          "delay": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "drop": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "duplicate": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "flood": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "spoof": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "publisher_count_above_policy",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node"
+            ]
+          },
+          "unauthorized_node": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "unauthorized_subscription": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "subscriber_count_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "param_tamper": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node"
+            ]
+          },
+          "service_abuse": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "service_call_rate_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "bias_drift": {
+            "events": 9,
+            "detected": 6,
+            "recall": 0.6666666666666666,
+            "wilson_95": [
+              0.3542021355803963,
+              0.879416181613089
+            ],
+            "detector": [
+              "sensor_random_forest"
+            ]
+          },
+          "jump": {
+            "events": 9,
+            "detected": 2,
+            "recall": 0.2222222222222222,
+            "wilson_95": [
+              0.06322510711784671,
+              0.5474110308930111
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "replay": {
+            "events": 3,
+            "detected": 1,
+            "recall": 0.3333333333333333,
+            "wilson_95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "clock_skew": {
+            "events": 9,
+            "detected": 1,
+            "recall": 0.1111111111111111,
+            "wilson_95": [
+              0.019890887638544907,
+              0.434999705576656
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "freeze": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          },
+          "false_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          },
+          "missed_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          }
+        },
+        "micro_event_recall": 0.7070707070707071,
+        "macro_event_recall": 0.6666666666666667,
+        "classes_detected": 14,
+        "classes_total": 17,
+        "incident_count": 84,
+        "incident_matching": 75,
+        "incident_precision": 0.8928571428571429,
+        "row_metrics": {
+          "precision": 0.9879589890319505,
+          "recall": 0.11232193442578511,
+          "f1": 0.20171114924483063,
+          "balanced_accuracy": 0.5558366692697764,
+          "mcc": 0.2779419542191452,
+          "accuracy": 0.7141917211328976,
+          "true_positive": 16574,
+          "false_positive": 202,
+          "false_negative": 130984,
+          "true_negative": 311240
+        }
+      },
+      "v2": {
+        "classes": {
+          "noise": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "v2_jump"
+            ]
+          },
+          "delay": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy",
+              "v2_freeze",
+              "v2_jump"
+            ]
+          },
+          "drop": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band",
+              "v2_freeze"
+            ]
+          },
+          "duplicate": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "flood": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "spoof": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "publisher_count_above_policy",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node",
+              "v2_jump"
+            ]
+          },
+          "unauthorized_node": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "unauthorized_subscription": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "subscriber_count_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "param_tamper": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node",
+              "v2_freeze"
+            ]
+          },
+          "service_abuse": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "service_call_rate_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "bias_drift": {
+            "events": 9,
+            "detected": 6,
+            "recall": 0.6666666666666666,
+            "wilson_95": [
+              0.3542021355803963,
+              0.879416181613089
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "v2_jump"
+            ]
+          },
+          "jump": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "topic_rate_out_of_band",
+              "v2_jump"
+            ]
+          },
+          "replay": {
+            "events": 3,
+            "detected": 1,
+            "recall": 0.3333333333333333,
+            "wilson_95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "clock_skew": {
+            "events": 9,
+            "detected": 1,
+            "recall": 0.1111111111111111,
+            "wilson_95": [
+              0.019890887638544907,
+              0.434999705576656
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "freeze": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "v2_freeze"
+            ]
+          },
+          "false_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          },
+          "missed_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          }
+        },
+        "micro_event_recall": 0.8080808080808081,
+        "macro_event_recall": 0.7712418300653594,
+        "classes_detected": 15,
+        "classes_total": 17,
+        "incident_count": 98,
+        "incident_matching": 88,
+        "incident_precision": 0.8979591836734694,
+        "row_metrics": {
+          "precision": 0.9879288814889695,
+          "recall": 0.11259301427235392,
+          "f1": 0.2021475285171103,
+          "balanced_accuracy": 0.5559706037576988,
+          "mcc": 0.2782817169709189,
+          "accuracy": 0.7142766884531591,
+          "true_positive": 16614,
+          "false_positive": 203,
+          "false_negative": 130944,
+          "true_negative": 311239
+        }
+      }
+    },
+    "stream_b_seed_2903": {
+      "v1": {
+        "classes": {
+          "noise": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "sensor_random_forest"
+            ]
+          },
+          "delay": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "drop": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "duplicate": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "flood": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "spoof": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "publisher_count_above_policy",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node"
+            ]
+          },
+          "unauthorized_node": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "unauthorized_subscription": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "subscriber_count_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "param_tamper": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node"
+            ]
+          },
+          "service_abuse": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "service_call_rate_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "bias_drift": {
+            "events": 9,
+            "detected": 6,
+            "recall": 0.6666666666666666,
+            "wilson_95": [
+              0.3542021355803963,
+              0.879416181613089
+            ],
+            "detector": [
+              "sensor_random_forest"
+            ]
+          },
+          "jump": {
+            "events": 9,
+            "detected": 2,
+            "recall": 0.2222222222222222,
+            "wilson_95": [
+              0.06322510711784671,
+              0.5474110308930111
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "replay": {
+            "events": 3,
+            "detected": 1,
+            "recall": 0.3333333333333333,
+            "wilson_95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "clock_skew": {
+            "events": 9,
+            "detected": 1,
+            "recall": 0.1111111111111111,
+            "wilson_95": [
+              0.019890887638544907,
+              0.434999705576656
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "freeze": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          },
+          "false_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          },
+          "missed_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          }
+        },
+        "micro_event_recall": 0.7070707070707071,
+        "macro_event_recall": 0.6666666666666667,
+        "classes_detected": 14,
+        "classes_total": 17,
+        "incident_count": 84,
+        "incident_matching": 75,
+        "incident_precision": 0.8928571428571429,
+        "row_metrics": {
+          "precision": 0.9879589890319505,
+          "recall": 0.11232193442578511,
+          "f1": 0.20171114924483063,
+          "balanced_accuracy": 0.5558366692697764,
+          "mcc": 0.2779419542191452,
+          "accuracy": 0.7141917211328976,
+          "true_positive": 16574,
+          "false_positive": 202,
+          "false_negative": 130984,
+          "true_negative": 311240
+        }
+      },
+      "v2": {
+        "classes": {
+          "noise": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "v2_jump"
+            ]
+          },
+          "delay": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy",
+              "v2_freeze",
+              "v2_jump"
+            ]
+          },
+          "drop": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band",
+              "v2_freeze"
+            ]
+          },
+          "duplicate": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "flood": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "spoof": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "publisher_count_above_policy",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node",
+              "v2_jump"
+            ]
+          },
+          "unauthorized_node": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "unauthorized_subscription": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "subscriber_count_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "param_tamper": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node",
+              "v2_freeze"
+            ]
+          },
+          "service_abuse": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "service_call_rate_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "bias_drift": {
+            "events": 9,
+            "detected": 6,
+            "recall": 0.6666666666666666,
+            "wilson_95": [
+              0.3542021355803963,
+              0.879416181613089
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "v2_jump"
+            ]
+          },
+          "jump": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "topic_rate_out_of_band",
+              "v2_jump"
+            ]
+          },
+          "replay": {
+            "events": 3,
+            "detected": 1,
+            "recall": 0.3333333333333333,
+            "wilson_95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "clock_skew": {
+            "events": 9,
+            "detected": 1,
+            "recall": 0.1111111111111111,
+            "wilson_95": [
+              0.019890887638544907,
+              0.434999705576656
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "freeze": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "v2_freeze"
+            ]
+          },
+          "false_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          },
+          "missed_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          }
+        },
+        "micro_event_recall": 0.8080808080808081,
+        "macro_event_recall": 0.7712418300653594,
+        "classes_detected": 15,
+        "classes_total": 17,
+        "incident_count": 98,
+        "incident_matching": 88,
+        "incident_precision": 0.8979591836734694,
+        "row_metrics": {
+          "precision": 0.9879288814889695,
+          "recall": 0.11259301427235392,
+          "f1": 0.2021475285171103,
+          "balanced_accuracy": 0.5559706037576988,
+          "mcc": 0.2782817169709189,
+          "accuracy": 0.7142766884531591,
+          "true_positive": 16614,
+          "false_positive": 203,
+          "false_negative": 130944,
+          "true_negative": 311239
+        }
+      }
+    },
+    "stream_b_seed_4307": {
+      "v1": {
+        "classes": {
+          "noise": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "sensor_random_forest"
+            ]
+          },
+          "delay": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "drop": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "duplicate": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "flood": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "spoof": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "publisher_count_above_policy",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node"
+            ]
+          },
+          "unauthorized_node": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "unauthorized_subscription": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "subscriber_count_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "param_tamper": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node"
+            ]
+          },
+          "service_abuse": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "service_call_rate_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "bias_drift": {
+            "events": 9,
+            "detected": 6,
+            "recall": 0.6666666666666666,
+            "wilson_95": [
+              0.3542021355803963,
+              0.879416181613089
+            ],
+            "detector": [
+              "sensor_random_forest"
+            ]
+          },
+          "jump": {
+            "events": 9,
+            "detected": 2,
+            "recall": 0.2222222222222222,
+            "wilson_95": [
+              0.06322510711784671,
+              0.5474110308930111
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "replay": {
+            "events": 3,
+            "detected": 1,
+            "recall": 0.3333333333333333,
+            "wilson_95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "clock_skew": {
+            "events": 9,
+            "detected": 1,
+            "recall": 0.1111111111111111,
+            "wilson_95": [
+              0.019890887638544907,
+              0.434999705576656
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "freeze": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          },
+          "false_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          },
+          "missed_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          }
+        },
+        "micro_event_recall": 0.7070707070707071,
+        "macro_event_recall": 0.6666666666666667,
+        "classes_detected": 14,
+        "classes_total": 17,
+        "incident_count": 84,
+        "incident_matching": 75,
+        "incident_precision": 0.8928571428571429,
+        "row_metrics": {
+          "precision": 0.9879589890319505,
+          "recall": 0.11232193442578511,
+          "f1": 0.20171114924483063,
+          "balanced_accuracy": 0.5558366692697764,
+          "mcc": 0.2779419542191452,
+          "accuracy": 0.7141917211328976,
+          "true_positive": 16574,
+          "false_positive": 202,
+          "false_negative": 130984,
+          "true_negative": 311240
+        }
+      },
+      "v2": {
+        "classes": {
+          "noise": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "v2_jump"
+            ]
+          },
+          "delay": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy",
+              "v2_freeze",
+              "v2_jump"
+            ]
+          },
+          "drop": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "topic_gap_above_policy",
+              "topic_rate_out_of_band",
+              "v2_freeze"
+            ]
+          },
+          "duplicate": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "late_messages_observed",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "flood": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "telemetry_random_forest",
+              "topic_rate_out_of_band"
+            ]
+          },
+          "spoof": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "publisher_count_above_policy",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node",
+              "v2_jump"
+            ]
+          },
+          "unauthorized_node": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "unauthorized_subscription": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "subscriber_count_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "param_tamper": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "telemetry_random_forest",
+              "topic_rate_out_of_band",
+              "unapproved_node",
+              "v2_freeze"
+            ]
+          },
+          "service_abuse": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "node_set_hash_change",
+              "parameter_event_outside_approved_window",
+              "service_call_rate_above_policy",
+              "telemetry_random_forest",
+              "unapproved_node"
+            ]
+          },
+          "bias_drift": {
+            "events": 9,
+            "detected": 6,
+            "recall": 0.6666666666666666,
+            "wilson_95": [
+              0.3542021355803963,
+              0.879416181613089
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "v2_jump"
+            ]
+          },
+          "jump": {
+            "events": 9,
+            "detected": 9,
+            "recall": 1.0,
+            "wilson_95": [
+              0.7008549515804559,
+              1.0
+            ],
+            "detector": [
+              "sensor_random_forest",
+              "topic_rate_out_of_band",
+              "v2_jump"
+            ]
+          },
+          "replay": {
+            "events": 3,
+            "detected": 1,
+            "recall": 0.3333333333333333,
+            "wilson_95": [
+              0.06149194472039621,
+              0.7923403991979522
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_rate_out_of_band",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "clock_skew": {
+            "events": 9,
+            "detected": 1,
+            "recall": 0.1111111111111111,
+            "wilson_95": [
+              0.019890887638544907,
+              0.434999705576656
+            ],
+            "detector": [
+              "late_messages_observed",
+              "topic_stamp_lag_above_policy"
+            ]
+          },
+          "freeze": {
+            "events": 3,
+            "detected": 3,
+            "recall": 1.0,
+            "wilson_95": [
+              0.4385029682449546,
+              1.0
+            ],
+            "detector": [
+              "v2_freeze"
+            ]
+          },
+          "false_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          },
+          "missed_contact": {
+            "events": 3,
+            "detected": 0,
+            "recall": 0.0,
+            "wilson_95": [
+              5.551115123125783e-17,
+              0.5614970317550454
+            ],
+            "detector": []
+          }
+        },
+        "micro_event_recall": 0.8080808080808081,
+        "macro_event_recall": 0.7712418300653594,
+        "classes_detected": 15,
+        "classes_total": 17,
+        "incident_count": 98,
+        "incident_matching": 88,
+        "incident_precision": 0.8979591836734694,
+        "row_metrics": {
+          "precision": 0.9879288814889695,
+          "recall": 0.11259301427235392,
+          "f1": 0.2021475285171103,
+          "balanced_accuracy": 0.5559706037576988,
+          "mcc": 0.2782817169709189,
+          "accuracy": 0.7142766884531591,
+          "true_positive": 16614,
+          "false_positive": 203,
+          "false_negative": 130944,
+          "true_negative": 311239
+        }
+      }
+    },
+    "stream_c": {
+      "v1": {
+        "classes": {
+          "noise": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "delay": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "drop": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "duplicate": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "flood": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "spoof": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "unauthorized_node": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "unauthorized_subscription": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "param_tamper": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "service_abuse": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "bias_drift": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "jump": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "replay": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "clock_skew": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "freeze": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "false_contact": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "missed_contact": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          }
+        },
+        "micro_event_recall": null,
+        "macro_event_recall": NaN,
+        "classes_detected": 0,
+        "classes_total": 17,
+        "incident_count": 22,
+        "incident_matching": 0,
+        "incident_precision": 0.0,
+        "row_metrics": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "balanced_accuracy": 0.49995326907024784,
+          "mcc": 0.0,
+          "accuracy": 0.9999065381404957,
+          "true_positive": 0,
+          "false_positive": 29,
+          "false_negative": 0,
+          "true_negative": 310258
+        }
+      },
+      "v2": {
+        "classes": {
+          "noise": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "delay": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "drop": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "duplicate": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "flood": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "spoof": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "unauthorized_node": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "unauthorized_subscription": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "param_tamper": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "service_abuse": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "bias_drift": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "jump": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "replay": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "clock_skew": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "freeze": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "false_contact": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          },
+          "missed_contact": {
+            "events": 0,
+            "detected": 0,
+            "recall": null,
+            "wilson_95": null,
+            "detector": []
+          }
+        },
+        "micro_event_recall": null,
+        "macro_event_recall": NaN,
+        "classes_detected": 0,
+        "classes_total": 17,
+        "incident_count": 23,
+        "incident_matching": 0,
+        "incident_precision": 0.0,
+        "row_metrics": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "balanced_accuracy": 0.4999516576588771,
+          "mcc": 0.0,
+          "accuracy": 0.9999033153177542,
+          "true_positive": 0,
+          "false_positive": 30,
+          "false_negative": 0,
+          "true_negative": 310257
+        }
+      },
+      "false_alerts_by_rule": {
+        "v1": {
+          "late_messages_observed": {
+            "count": 10,
+            "per_hour": 5.800946950877572,
+            "poisson_ci_95": [
+              2.7817795435102215,
+              10.668147980749596
+            ]
+          },
+          "topic_rate_out_of_band": {
+            "count": 9,
+            "per_hour": 5.220852255789815,
+            "poisson_ci_95": [
+              2.3873061020960438,
+              9.910803848785264
+            ]
+          },
+          "topic_stamp_lag_above_policy": {
+            "count": 3,
+            "per_hour": 1.7402840852632717,
+            "poisson_ci_95": [
+              0.35888841649041936,
+              5.085848598143278
+            ]
+          },
+          "telemetry_random_forest": {
+            "count": 15,
+            "per_hour": 8.701420426316359,
+            "poisson_ci_95": [
+              4.870118958840923,
+              14.351669722658958
+            ]
+          }
+        },
+        "v2": {
+          "late_messages_observed": {
+            "count": 10,
+            "per_hour": 5.800946950877572,
+            "poisson_ci_95": [
+              2.7817795435102215,
+              10.668147980749596
+            ]
+          },
+          "topic_rate_out_of_band": {
+            "count": 9,
+            "per_hour": 5.220852255789815,
+            "poisson_ci_95": [
+              2.3873061020960438,
+              9.910803848785264
+            ]
+          },
+          "topic_stamp_lag_above_policy": {
+            "count": 3,
+            "per_hour": 1.7402840852632717,
+            "poisson_ci_95": [
+              0.35888841649041936,
+              5.085848598143278
+            ]
+          },
+          "telemetry_random_forest": {
+            "count": 15,
+            "per_hour": 8.701420426316359,
+            "poisson_ci_95": [
+              4.870118958840923,
+              14.351669722658958
+            ]
+          },
+          "v2_jump": {
+            "count": 1,
+            "per_hour": 0.5800946950877572,
+            "poisson_ci_95": [
+              0.01468672610293702,
+              3.2320807740044177
+            ]
+          }
+        }
+      }
+    }
+  },
+  "config_roles": {
+    "fit": [
+      1
+    ],
+    "threshold_selection": [
+      2
+    ],
+    "score": [
+      3
+    ]
+  },
+  "seed2_audit": {
+    "hours": 1.7665388888888889,
+    "alerts_per_hour": {
+      "freeze": 0.0,
+      "jump": 0.0,
+      "clock_skew": 0.0,
+      "false_contact": 0.0
+    },
+    "budget_per_rule": 2.0
+  },
+  "chance_check": [
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "noise",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "noise",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "bias_drift",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "bias_drift",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "jump",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "jump",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "freeze",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "freeze",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "freeze",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "freeze",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "replay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "false_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "missed_contact",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "delay",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "delay",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "drop",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "drop",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "duplicate",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "clock_skew",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "flood",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "jump",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "spoof",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "spoof",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_node",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "unauthorized_subscription",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "param_tamper",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "param_tamper",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "freeze",
+      "attack_detection": 1,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 1,
+      "counts_for_class": true
+    },
+    {
+      "class": "param_tamper",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "param_tamper",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "freeze",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "jump",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "clock_skew",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    },
+    {
+      "class": "service_abuse",
+      "rule": "false_contact",
+      "attack_detection": 0,
+      "matched_normal_chance": 0,
+      "recall_minus_chance": 0,
+      "counts_for_class": false
+    }
+  ],
+  "noise_stress_v2": {
+    "low": {
+      "incidents_per_hour": 16.82274615754496,
+      "poisson_ci_95": [
+        11.266457124584953,
+        24.16026965469646
+      ]
+    },
+    "moderate": {
+      "incidents_per_hour": 0.5800946950877572,
+      "poisson_ci_95": [
+        0.01468672610293702,
+        3.2320807740044177
+      ]
+    },
+    "moderate_high_1": {
+      "incidents_per_hour": 0.5800946950877572,
+      "poisson_ci_95": [
+        0.01468672610293702,
+        3.2320807740044177
+      ]
+    },
+    "moderate_high_2": {
+      "incidents_per_hour": 0.5800946950877572,
+      "poisson_ci_95": [
+        0.01468672610293702,
+        3.2320807740044177
+      ]
+    },
+    "high": {
+      "incidents_per_hour": 0.5800946950877572,
+      "poisson_ci_95": [
+        0.01468672610293702,
+        3.2320807740044177
+      ]
+    }
+  },
+  "timing_crop_v2": {
+    "status": "completed",
+    "offsets_s": [
+      0.13,
+      0.14,
+      0.15,
+      0.14,
+      0.15,
+      0.16,
+      0.15,
+      0.16,
+      0.17,
+      10.24,
+      10.25,
+      10.26,
+      10.25,
+      10.26,
+      10.27,
+      10.26,
+      10.27,
+      10.28,
+      18.2,
+      18.21,
+      18.22,
+      18.21,
+      18.22,
+      18.23,
+      18.22,
+      18.23,
+      18.24,
+      2.14,
+      2.15,
+      2.16,
+      2.39,
+      2.4,
+      2.41,
+      16.66,
+      16.67,
+      16.68,
+      19.11,
+      19.12,
+      19.13,
+      19.91,
+      19.92,
+      19.93,
+      19.92,
+      19.93,
+      19.94,
+      19.93,
+      19.94,
+      19.95,
+      18.12,
+      18.13,
+      18.14,
+      18.13,
+      18.14,
+      18.15,
+      18.14,
+      18.15,
+      18.16,
+      8.39,
+      8.4,
+      8.41,
+      8.4,
+      8.41,
+      8.42,
+      8.41,
+      8.42,
+      8.43,
+      10.52,
+      10.53,
+      10.54,
+      10.53,
+      10.54,
+      10.55,
+      10.54,
+      10.55,
+      10.56,
+      19.96,
+      19.97,
+      19.98,
+      19.97,
+      19.98,
+      19.99,
+      19.98,
+      19.99,
+      20.0,
+      0.34,
+      0.35,
+      0.36,
+      5.94,
+      5.95,
+      5.96,
+      3.84,
+      3.85,
+      3.86,
+      14.81,
+      14.82,
+      14.83,
+      16.88,
+      16.89,
+      16.9
+    ],
+    "v2": {
+      "classes": {
+        "noise": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "sensor_random_forest",
+            "v2_jump"
+          ]
+        },
+        "delay": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "late_messages_observed",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band",
+            "topic_stamp_lag_above_policy",
+            "v2_freeze",
+            "v2_jump"
+          ]
+        },
+        "drop": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "topic_gap_above_policy",
+            "topic_rate_out_of_band",
+            "v2_freeze"
+          ]
+        },
+        "duplicate": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "late_messages_observed",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band"
+          ]
+        },
+        "flood": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "telemetry_random_forest",
+            "topic_rate_out_of_band"
+          ]
+        },
+        "spoof": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "publisher_count_above_policy",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band",
+            "unapproved_node",
+            "v2_jump"
+          ]
+        },
+        "unauthorized_node": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "telemetry_random_forest",
+            "unapproved_node"
+          ]
+        },
+        "unauthorized_subscription": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "subscriber_count_above_policy",
+            "telemetry_random_forest",
+            "unapproved_node"
+          ]
+        },
+        "param_tamper": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "parameter_event_outside_approved_window",
+            "telemetry_random_forest",
+            "topic_rate_out_of_band",
+            "unapproved_node",
+            "v2_freeze"
+          ]
+        },
+        "service_abuse": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "node_set_hash_change",
+            "service_call_rate_above_policy",
+            "telemetry_random_forest",
+            "unapproved_node"
+          ]
+        },
+        "bias_drift": {
+          "events": 9,
+          "detected": 6,
+          "recall": 0.6666666666666666,
+          "wilson_95": [
+            0.3542021355803963,
+            0.879416181613089
+          ],
+          "detector": [
+            "sensor_random_forest",
+            "v2_jump"
+          ]
+        },
+        "jump": {
+          "events": 9,
+          "detected": 9,
+          "recall": 1.0,
+          "wilson_95": [
+            0.7008549515804559,
+            1.0
+          ],
+          "detector": [
+            "sensor_random_forest",
+            "topic_rate_out_of_band",
+            "v2_jump"
+          ]
+        },
+        "replay": {
+          "events": 3,
+          "detected": 1,
+          "recall": 0.3333333333333333,
+          "wilson_95": [
+            0.06149194472039621,
+            0.7923403991979522
+          ],
+          "detector": [
+            "late_messages_observed",
+            "topic_rate_out_of_band",
+            "topic_stamp_lag_above_policy"
+          ]
+        },
+        "clock_skew": {
+          "events": 9,
+          "detected": 1,
+          "recall": 0.1111111111111111,
+          "wilson_95": [
+            0.019890887638544907,
+            0.434999705576656
+          ],
+          "detector": [
+            "late_messages_observed",
+            "topic_stamp_lag_above_policy"
+          ]
+        },
+        "freeze": {
+          "events": 3,
+          "detected": 3,
+          "recall": 1.0,
+          "wilson_95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "detector": [
+            "v2_freeze"
+          ]
+        },
+        "false_contact": {
+          "events": 3,
+          "detected": 0,
+          "recall": 0.0,
+          "wilson_95": [
+            5.551115123125783e-17,
+            0.5614970317550454
+          ],
+          "detector": []
+        },
+        "missed_contact": {
+          "events": 3,
+          "detected": 0,
+          "recall": 0.0,
+          "wilson_95": [
+            5.551115123125783e-17,
+            0.5614970317550454
+          ],
+          "detector": []
+        }
+      },
+      "micro_event_recall": 0.8080808080808081,
+      "macro_event_recall": 0.7712418300653594,
+      "classes_detected": 15,
+      "classes_total": 17,
+      "incident_count": 102,
+      "incident_matching": 94,
+      "incident_precision": 0.9215686274509803,
+      "row_metrics": {
+        "precision": 0.9882465819141281,
+        "recall": 0.11168489678634842,
+        "f1": 0.20068926044546195,
+        "balanced_accuracy": 0.5554414614743496,
+        "mcc": 0.2661772332521783,
+        "accuracy": 0.6650788993634473,
+        "true_positive": 16480,
+        "false_positive": 196,
+        "false_negative": 131078,
+        "true_negative": 244201
+      }
+    }
+  }
+}

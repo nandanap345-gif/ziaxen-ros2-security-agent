@@ -363,6 +363,24 @@ For ROS 2 security, consult the
 
 ## Blind evaluation (offline)
 
+## Detector v2
+
+Detector v2 is an optional advisory profile (`monitor --profile v2`) stored in
+`config/v2/` and `models/v2/`; the default v1 profile and its model files are
+unchanged. Run `scripts/build_v2.py` with the dataset root to fit limits from
+seed-1 normal data, select conservative limits on seed 2, and create the
+seed-1/2 inventory with `bootstrap_inventory(..., seeds={1, 2})`. Seed 3 is
+reserved for the final evaluation.
+
+The v2 rules provide evidence for flatlines (`freeze`), large causal first
+differences (`jump`), stamp-lag offsets (`clock_skew`), and implausible contact
+flags (`false_contact`). Every alert includes the observed column/value and
+the frozen limit, remains advisory, and sets `automatic_action_taken` to
+`false`. Replay and slow bias drift remain reported as unsupported until a
+stable signal is demonstrated from the recorded channels. `missed_contact` is
+reported as undetectable when the recordings contain no independent collision
+signature; tuning on seed 3 is not used to change that conclusion.
+
 The blind monitor accepts one or both recorded inputs without requiring the
 attack class or run name. It strips ground-truth and identity columns before
 inference, combines the frozen sensor-noise and telemetry detectors, and writes
