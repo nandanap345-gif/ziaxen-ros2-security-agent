@@ -1,8 +1,5 @@
-# Ziaxen Sensor-Noise Anomaly Agent
-
-A small, modular Python project for detecting simulated sensor-noise attacks in
-the Ziaxen autonomous-vehicle dataset. The code targets **normal versus the
-`noise` attack only**. It does not claim to detect all 17 attack types.
+# Ziaxen ROS 2 Security & Sensor-Anomaly Agent
+Offline advisory monitor for ROS 2 robots: sensor-noise anomaly detection plus ROS graph/telemetry security checks. Alerts only, no automatic action.
 
 ## What was inspected
 
